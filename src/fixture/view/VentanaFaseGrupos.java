@@ -1,7 +1,6 @@
 package fixture.view;
 
-import fixture.view.gruposview.GrupoA;
-import fixture.view.gruposview.GrupoB;
+
 import fixture.view.gruposview.GrupoConstructor;
 import fixture.view.gruposview.VentanaAlter2;
 import java.awt.Toolkit;
