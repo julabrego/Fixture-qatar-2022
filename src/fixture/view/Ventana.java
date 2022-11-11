@@ -4,6 +4,7 @@
  */
 package fixture.view;
 
+import fixture.exceptions.GolesNegativosFixtureException;
 import fixture.model.Fase;
 import fixture.model.Grupo;
 import fixture.model.Partido;
@@ -11,6 +12,7 @@ import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
 import fixture.repository.migrations.PartidosMigrations;
+import fixture.service.FixtureService;
 import java.awt.Image;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -36,6 +38,9 @@ public class Ventana extends javax.swing.JFrame {
     
     private JFormattedTextField [] golesVisitantesGrupoA = new  JFormattedTextField[6];
        
+    FixtureService fixtureService = new FixtureService();
+    
+    
     public Ventana() {
         initComponents();
 
@@ -4115,9 +4120,6 @@ public class Ventana extends javax.swing.JFrame {
         GrupoRepository grupoA = new GrupoRepository();
         Grupo A =  grupoA.get('a');
         
-
-        
-        
        int i = 0; 
        for(Integer id : idsPartidosGrupoA){
            for(Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, A)){
@@ -4128,7 +4130,17 @@ public class Ventana extends javax.swing.JFrame {
            }
            i++;
        }        
-       partidoRepository.guardarPartidosEnArchivo();
+       
+       try{
+           
+           fixtureService.validarGoles(partidoRepository.findBy(Fase.DE_GRUPOS, A));
+           partidoRepository.guardarPartidosEnArchivo();
+       }catch(GolesNegativosFixtureException ex){
+           System.out.println("" + ex.getMessage() + " " + ex.getPartido().getGolesEquipo1());
+       }catch(Exception ex){
+           System.out.println("RERROR GENERICO");
+       }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
