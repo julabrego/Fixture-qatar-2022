@@ -3,7 +3,7 @@ package fixture;
 import fixture.model.Partido;
 import fixture.repository.PartidoRepository;
 import fixture.view.Ventana;
-import fixture.view.gruposview.VentanaAlter2;
+import fixture.view.VentanaAlter2;
 import java.util.ArrayList;
 
 public class Fixture {

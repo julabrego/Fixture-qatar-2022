@@ -11,7 +11,6 @@ import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
 import fixture.repository.migrations.PartidosMigrations;
-import fixture.view.VentanaFaseGrupos;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -20,6 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -667,6 +667,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -691,8 +692,15 @@ public class GrupoConstructor extends javax.swing.JFrame {
              }
              i++;
          }
-            partidoRepository.guardarGolesPartido();
             
+            try {
+                partidoRepository.guardarGolesPartido();
+                JOptionPane.showMessageDialog(this, "Se ha guardado con exito!", "Fixture Qatar 2022", JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (Exception e) {
+                System.err.println(e.getMessage());
+                JOptionPane.showMessageDialog(this, "Se a producido un error", "Fixture Qatar 2022", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

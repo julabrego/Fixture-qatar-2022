@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package fixture.view.gruposview;
+package fixture.view;
 
-import fixture.view.VentanaFaseGrupos;
+import fixture.view.gruposview.VentanaFaseGrupos;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 
@@ -44,7 +44,6 @@ public class VentanaAlter2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(380, 490));
         setResizable(false);
         setSize(new java.awt.Dimension(380, 490));
 
