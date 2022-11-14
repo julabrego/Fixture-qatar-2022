@@ -12,15 +12,18 @@ import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
 import fixture.repository.migrations.PartidosMigrations;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,6 +40,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
     ArrayList<Integer> idDePartido = new ArrayList<Integer>();
     ArrayList<JFormattedTextField> golesEquipoLocal = new ArrayList();
     ArrayList<JFormattedTextField> golesEquipoVisit = new ArrayList();
+    DefaultTableModel tModel;
     
     //
     public GrupoConstructor(char letra) {
@@ -45,6 +49,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         cargarEquipos();
         inicializarGrupo(letraGrupo);
         cargarGrupo(letraGrupo);
+        cargarTabla();
     }
 
     private GrupoConstructor() {
@@ -161,13 +166,33 @@ public class GrupoConstructor extends javax.swing.JFrame {
         equipos.add(equipo3);
         equipos.add(equipo4);
         //
+        ArrayList<JLabel> img = new ArrayList();
+        img.add(equipoIcon1);
+        img.add(equipoIcon2);
+        img.add(equipoIcon3);
+        img.add(equipoIcon4);
+        //
         int i= 0;
         for(Equipo equipo : equiposGrupo ){
-            equipos.get(i).setText(equipo.getNombre());   
+            equipos.get(i).setText(equipo.getNombre());
+            img.get(i).setText("");
+            ImageIcon imageEquipo = new ImageIcon(new ImageIcon(getClass().getResource("/static/img/banderas/" + equipo.getId() + ".png")).getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH));
+            img.get(i).setIcon(imageEquipo);
             i++;
         }
         
     }
+      private void cargarTabla(){
+        tModel = (DefaultTableModel) jTable1.getModel();
+        Grupo grupo = grupoRepository.get(letraGrupo);
+        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupo);
+        int i=0;
+        for(Partido p : partidos){
+            String [] data = {"","","",String.valueOf(p.getGolesEquipo1()),"",""," "};
+            tModel.setValueAt(data, i, NORMAL);
+           
+        }
+      }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -246,6 +271,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
         equipo3 = new javax.swing.JLabel();
         equipo4 = new javax.swing.JLabel();
         grupo1 = new javax.swing.JLabel();
+        equipoIcon1 = new javax.swing.JLabel();
+        equipoIcon2 = new javax.swing.JLabel();
+        equipoIcon3 = new javax.swing.JLabel();
+        equipoIcon4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -727,22 +756,34 @@ public class GrupoConstructor extends javax.swing.JFrame {
 
         grupo1.setText("jLabel5");
 
+        equipoIcon1.setText("jLabel1");
+
+        equipoIcon2.setText("jLabel2");
+
+        equipoIcon3.setText("jLabel3");
+
+        equipoIcon4.setText("jLabel4");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(equipoIcon1)
+                            .addComponent(equipoIcon2)
+                            .addComponent(equipoIcon3)
+                            .addComponent(equipoIcon4))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(equipo4)
                             .addComponent(equipo1)
                             .addComponent(equipo2)
                             .addComponent(equipo3)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(grupo1)))
+                    .addComponent(grupo1))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -756,13 +797,21 @@ public class GrupoConstructor extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(equipo1)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(equipo1)
+                                .addComponent(equipoIcon1))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(equipo2)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(equipo2)
+                                .addComponent(equipoIcon2))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(equipo3)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(equipo3)
+                                .addComponent(equipoIcon3))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(equipo4))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(equipo4)
+                                .addComponent(equipoIcon4)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -845,6 +894,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
     private javax.swing.JLabel equipo2;
     private javax.swing.JLabel equipo3;
     private javax.swing.JLabel equipo4;
+    private javax.swing.JLabel equipoIcon1;
+    private javax.swing.JLabel equipoIcon2;
+    private javax.swing.JLabel equipoIcon3;
+    private javax.swing.JLabel equipoIcon4;
     private javax.swing.JLabel equipoLocal1;
     private javax.swing.JLabel equipoLocal2;
     private javax.swing.JLabel equipoLocal3;

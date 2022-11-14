@@ -820,9 +820,16 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="equipoIcon1" min="-2" max="-2" attributes="0"/>
+                              <Component id="equipoIcon2" min="-2" max="-2" attributes="0"/>
+                              <Component id="equipoIcon3" min="-2" max="-2" attributes="0"/>
+                              <Component id="equipoIcon4" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="equipo4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="equipo1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -830,10 +837,7 @@
                               <Component id="equipo3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="grupo1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="grupo1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="337" max="-2" attributes="0"/>
@@ -850,13 +854,25 @@
                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane2" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="equipo1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="equipo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="equipoIcon1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="equipo2" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="equipo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="equipoIcon2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="equipo3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="equipo3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="equipoIcon3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="equipo4" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="equipo4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="equipoIcon4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -956,6 +972,26 @@
         <Component class="javax.swing.JLabel" name="grupo1">
           <Properties>
             <Property name="text" type="java.lang.String" value="jLabel5"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="equipoIcon1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="equipoIcon2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="equipoIcon3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="equipoIcon4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel4"/>
           </Properties>
         </Component>
       </SubComponents>
