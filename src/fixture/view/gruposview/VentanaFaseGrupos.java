@@ -122,6 +122,11 @@ public class VentanaFaseGrupos extends javax.swing.JFrame {
         jLabel2.setText("Fase de Grupos");
 
         jButton10.setText("Tabla de posiciones");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -247,6 +252,12 @@ public class VentanaFaseGrupos extends javax.swing.JFrame {
         GrupoConstructor grupoH = new GrupoConstructor('h');
         grupoH.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        close();
+        TablaDePosiciones tabla = new TablaDePosiciones();
+        tabla.setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
