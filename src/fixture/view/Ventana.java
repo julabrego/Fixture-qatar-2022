@@ -168,7 +168,6 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_A6 = new javax.swing.JFormattedTextField();
         golesField2_A6 = new javax.swing.JFormattedTextField();
         guionA6 = new javax.swing.JLabel();
-        guardarBtnA = new javax.swing.JButton();
         panelGrupoB = new javax.swing.JPanel();
         jScrollPaneB = new javax.swing.JScrollPane();
         panelInteriorB = new javax.swing.JPanel();
@@ -584,6 +583,7 @@ public class Ventana extends javax.swing.JFrame {
         labelTitulo = new javax.swing.JLabel();
         labelSubtitulo = new javax.swing.JLabel();
         labelLogo1 = new javax.swing.JLabel();
+        guardarBtnA = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fixture interactivo - Qatar 2022");
@@ -1025,14 +1025,6 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPaneA.setViewportView(panelInteriorA);
 
         panelGrupoA.add(jScrollPaneA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
-
-        guardarBtnA.setText("Guardar");
-        guardarBtnA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarBtnAActionPerformed(evt);
-            }
-        });
-        panelGrupoA.add(guardarBtnA, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
 
         tabbedPane.addTab("A", panelGrupoA);
 
@@ -4144,6 +4136,13 @@ public class Ventana extends javax.swing.JFrame {
         labelLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/qatar_2022_logo.png"))); // NOI18N
         labelLogo1.setText("LOGO");
 
+        guardarBtnA.setText("Guardar");
+        guardarBtnA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelHeaderLayout = new javax.swing.GroupLayout(panelHeader);
         panelHeader.setLayout(panelHeaderLayout);
         panelHeaderLayout.setHorizontalGroup(
@@ -4154,6 +4153,10 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(labelSubtitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelTitulo))
                 .addContainerGap(212, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHeaderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(guardarBtnA)
+                .addGap(166, 166, 166))
             .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelHeaderLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -4167,7 +4170,9 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(labelTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelSubtitulo)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(guardarBtnA)
+                .addContainerGap(31, Short.MAX_VALUE))
             .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelHeaderLayout.createSequentialGroup()
                     .addContainerGap()
