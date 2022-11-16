@@ -5,6 +5,7 @@
 package fixture.view;
 
 import fixture.model.Equipo;
+import fixture.exceptions.GolesNegativosFixtureException;
 import fixture.model.Fase;
 import fixture.model.Grupo;
 import fixture.model.Partido;
@@ -14,6 +15,7 @@ import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
 import fixture.repository.migrations.PartidosMigrations;
 import java.awt.HeadlessException;
+import fixture.service.FixtureService;
 import java.awt.Image;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -83,6 +85,11 @@ public class Ventana extends javax.swing.JFrame {
 
     // Defino la variable que va a contener las tablas de posiciones
     JFrame ventanaTablaDePosiciones;
+    
+    private JFormattedTextField [] golesVisitantesGrupoA = new  JFormattedTextField[6];
+       
+    FixtureService fixtureService = new FixtureService();
+    
     
     public Ventana() {
 
