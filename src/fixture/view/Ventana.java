@@ -4239,8 +4239,10 @@ public class Ventana extends javax.swing.JFrame {
 
         // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
         for (Equipo equipoGrupoA : grupoA.getEquipos()) {
-            equipoGrupoA.limpiarDatosDePartidos();
-            equiposGrupoActualizados.add(equipoGrupoA);
+            // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
+            Equipo equipoEncontrado = equipoRepository.find(equipoGrupoA.getId());
+            equipoEncontrado.limpiarDatosDePartidos();
+            equiposGrupoActualizados.add(equipoEncontrado);
         }
 
         int i = 0;
@@ -4495,11 +4497,13 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btnVerTablaDePoscionesAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesAActionPerformed
         Grupo grupoA = grupoRepository.get('a');
-
+        
         for (Equipo equipoGrupoA : grupoA.getEquipos()) {
+            Equipo equipoRecuperadoDelRepositorio = equipoRepository.find(equipoGrupoA.getId());
+            
             System.out.println("-----------------------------");
 
-            equipoGrupoA.printDatosGenerales();
+            equipoRecuperadoDelRepositorio.printDatosGenerales();
 
             System.out.println("-----------------------------");
         }
