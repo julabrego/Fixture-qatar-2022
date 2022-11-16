@@ -22,12 +22,12 @@ public class FixtureService {
         for(Partido partido : partidos){
             if(partido.getGolesEquipo1() < 0 ){
                 throw new GolesNegativosFixtureException(
-                        "Los goles de Local no deben ser menores que 0", partido );
+                        "Los goles de Local no deben ser menores que 0", partido.getEquipo1() );
             }
             
             if( partido.getGolesEquipo2() < 0){
                 throw new GolesNegativosFixtureException(
-                "Los goles de Local no deben ser menores que 0", partido);
+                "Los goles de Visitante no deben ser menores que 0", partido.getEquipo2());
             }
         }
     }

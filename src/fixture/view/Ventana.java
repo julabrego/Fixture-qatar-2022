@@ -86,7 +86,6 @@ public class Ventana extends javax.swing.JFrame {
     // Defino la variable que va a contener las tablas de posiciones
     JFrame ventanaTablaDePosiciones;
     
-    private JFormattedTextField [] golesVisitantesGrupoA = new  JFormattedTextField[6];
        
     FixtureService fixtureService = new FixtureService();
     
@@ -4319,6 +4318,7 @@ public class Ventana extends javax.swing.JFrame {
 
         // Ejemplo de manejo de errores
         try {
+            fixtureService.validarGoles(partidoRepository.findBy(Fase.DE_GRUPOS, grupoA));
             //golesLocalGrupoA[10].getText(); // Fuerzo error para probar
             partidoRepository.guardarPartidosEnArchivo();
 
@@ -4328,9 +4328,11 @@ public class Ventana extends javax.swing.JFrame {
                 equipoRepository.actualizarDatosDeEquiopoEnArchivo(equipoGrupoA);
             }
             JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
+            
+        }catch(GolesNegativosFixtureException ex){
+            JOptionPane.showMessageDialog(this, "" + ex.getMessage() + " (" + ex.getEquipo().getNombre() + ")", this.getTitle(), JOptionPane.ERROR_MESSAGE);
+        }catch(Exception ex){
+            System.out.println("ERROR GENERICO");
         }
     }//GEN-LAST:event_guardarBtnAActionPerformed
 
