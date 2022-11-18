@@ -5,12 +5,31 @@ import java.io.Serializable;
 public class Equipo implements Serializable{
     private String id;
     private String nombre;
+    private int partidosJugados;
     private int golesHechos;
     private int golesRecibidos;
     private int partidosGanados;
     private int partidosPerdidos;
     private int partidosEmpatados;
     private int puntosDeEquipo;
+    
+    
+    public void calcularPuntos(){
+        puntosDeEquipo = 3 * partidosGanados + partidosEmpatados;
+    }
+    
+    
+    public void limpiarDatosEquipo(){
+       partidosJugados = partidosGanados = partidosEmpatados = partidosPerdidos = golesHechos = golesRecibidos = 0;
+    }
+
+    public int getPartidosJugados() {
+        return partidosJugados;
+    }
+
+    public void setPartidosJugados(int partidosJugados) {
+        this.partidosJugados = partidosJugados;
+    }
 
     public int getGolesHechos() {
         return golesHechos;

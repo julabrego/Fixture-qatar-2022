@@ -8,6 +8,7 @@ import fixture.model.Equipo;
 import fixture.model.Fase;
 import fixture.model.Grupo;
 import fixture.model.Partido;
+import fixture.repository.EquipoRepository;
 import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
@@ -37,6 +38,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
     char letraGrupo;
     PartidoRepository partidoRepository;
     GrupoRepository grupoRepository;
+    EquipoRepository equipoRepository;
     ArrayList<Integer> idDePartido = new ArrayList<Integer>();
     ArrayList<JFormattedTextField> golesEquipoLocal = new ArrayList();
     ArrayList<JFormattedTextField> golesEquipoVisit = new ArrayList();
@@ -188,8 +190,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupo);
         int i=0;
         for(Partido p : partidos){
-            String [] data = {"","","",String.valueOf(p.getGolesEquipo1()),"",""," "};
-            tModel.setValueAt(data, i, NORMAL);
+            
            
         }
       }
@@ -262,7 +263,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoLocal6 = new javax.swing.JFormattedTextField();
         golesEquipoVisit6 = new javax.swing.JFormattedTextField();
         guionA6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        guardarDatos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -716,23 +717,20 @@ public class GrupoConstructor extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 560, 300));
 
-        jButton2.setText("Guardar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        guardarDatos.setText("Guardar");
+        guardarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                guardarDatosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, -1, -1));
+        getContentPane().add(guardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "G", "E", "P", "G+", "G-", "D/F", "P"
+                "G", "E", "P", "G+", "G-", "D/F", "Pts"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -784,7 +782,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
                             .addComponent(equipo2)
                             .addComponent(equipo3)))
                     .addComponent(grupo1))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 53, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -831,7 +829,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_golesEquipoLocal1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void guardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarDatosActionPerformed
             Grupo grupo = grupoRepository.get(letraGrupo);
             int i = 0;
             for(Integer id : idDePartido ){
@@ -852,7 +850,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 System.err.println(e.getMessage());
                 JOptionPane.showMessageDialog(this, "Se a producido un error", "Fixture Qatar 2022", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_guardarDatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -935,6 +933,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField golesEquipoVisit5;
     private javax.swing.JFormattedTextField golesEquipoVisit6;
     private javax.swing.JLabel grupo1;
+    private javax.swing.JButton guardarDatos;
     private javax.swing.JLabel guionA1;
     private javax.swing.JLabel guionA2;
     private javax.swing.JLabel guionA3;
@@ -942,7 +941,6 @@ public class GrupoConstructor extends javax.swing.JFrame {
     private javax.swing.JLabel guionA5;
     private javax.swing.JLabel guionA6;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -4,13 +4,28 @@
  */
 package fixture.services;
 
+import fixture.model.Equipo;
+import fixture.model.Grupo;
+import fixture.repository.EquipoRepository;
+import fixture.repository.GrupoRepository;
+import java.util.HashSet;
+
 /**
  *
  * @author Nico
  */
 public class GrupoConstructorServices {
-
-    public GrupoConstructorServices() {
+    
+    GrupoRepository grupoRepo;
+    EquipoRepository equipoRepo;
+    
+    Grupo grupo;
+    HashSet<Equipo> grupoActualizado = new HashSet();
+            
+    public GrupoConstructorServices() {}
+    
+    public void cargarDatosEquipo(){
+        
     }
     
 }
