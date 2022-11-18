@@ -19,6 +19,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
@@ -48,7 +49,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
     public GrupoConstructor(char letra) {
         this.letraGrupo = letra;
         initComponents();
-        cargarEquipos();
+        instanciarRepos();
         inicializarGrupo(letraGrupo);
         cargarGrupo(letraGrupo);
         cargarTabla();
@@ -61,10 +62,11 @@ public class GrupoConstructor extends javax.swing.JFrame {
     WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
     Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
-    private void cargarEquipos(){
+    private void instanciarRepos(){
         //PartidosMigrations.up();
         
         //GruposMigrations.up();
+        equipoRepository = new EquipoRepository();
         partidoRepository = new PartidoRepository();
         grupoRepository = new GrupoRepository();
     };
@@ -187,12 +189,9 @@ public class GrupoConstructor extends javax.swing.JFrame {
       private void cargarTabla(){
         tModel = (DefaultTableModel) jTable1.getModel();
         Grupo grupo = grupoRepository.get(letraGrupo);
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupo);
+        
         int i=0;
-        for(Partido p : partidos){
-            
-           
-        }
+       
       }
 
     /**
@@ -830,19 +829,81 @@ public class GrupoConstructor extends javax.swing.JFrame {
     }//GEN-LAST:event_golesEquipoLocal1ActionPerformed
 
     private void guardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarDatosActionPerformed
-            Grupo grupo = grupoRepository.get(letraGrupo);
+        //
+        HashSet<Equipo> equipoActualizado = new HashSet();    
+        Grupo grupo = grupoRepository.get(letraGrupo);
+        //
+        for(Equipo e : grupo.getEquipos()){
+            e.limpiarDatosEquipo();
+            equipoActualizado.add(e);
+        }
+        //
             int i = 0;
             for(Integer id : idDePartido ){
              for(Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupo)){
                  if(p.getId() == id){
+                     //Seteo los goles de los equipos
                      p.setGolesEquipo1(Integer.parseInt(golesEquipoLocal.get(i).getText()));
                      p.setGolesEquipo2(Integer.parseInt(golesEquipoVisit.get(i).getText()));
+                 
+                 Equipo equipo1 = p.getEquipo1();
+                 Equipo equipo2 = p.getEquipo2();
+                 
+                 for(Equipo equipo : equipoActualizado){
+                     //Actualizo la lista con los equipos de los grupos
+                     if(equipo.getId().equals(p.getEquipo1().getId())){
+                     equipo1 = equipo;
+                     }
+                     if(equipo.getId().equals(p.getEquipo2().getId())){
+                     equipo2 = equipo;
+                     }
                  }
+                 // Seteo los partidos jugados
+                 equipo1.setPartidosJugados(equipo1.getPartidosJugados() + 1);
+                 equipo2.setPartidosJugados(equipo2.getPartidosJugados() + 1);
+                 
+                 //Seteo los partidos ganados y perdidos
+                 if(p.getGolesEquipo1() > p.getGolesEquipo2()){
+                     equipo1.setPartidosGanados(equipo1.getPartidosGanados() + 1);
+                     equipo2.setPartidosPerdidos(equipo2.getPartidosPerdidos() + 1);
+                 }
+                 else if(p.getGolesEquipo2() > p.getPenalesEquipo1()){
+                     equipo2.setPartidosGanados(equipo2.getPartidosGanados() + 1);
+                     equipo1.setPartidosPerdidos(equipo1.getPartidosPerdidos() + 1);
+                 }
+                 //Seteo los partidos empatados
+                 else{
+                     equipo1.setPartidosEmpatados(equipo1.getPartidosEmpatados() + 1);
+                     equipo2.setPartidosEmpatados(equipo2.getPartidosEmpatados() + 1);
+                 } 
+                 //Seteo los goles 
+                 equipo1.setGolesHechos(equipo1.getGolesHechos() + p.getGolesEquipo1());
+                 equipo2.setGolesHechos(equipo2.getGolesHechos() + p.getGolesEquipo2());
+                 
+                 //Seteo los goles en contra
+                 equipo1.setGolesRecibidos(equipo1.getGolesRecibidos() + p.getGolesEquipo2());
+                 equipo2.setGolesRecibidos(equipo2.getGolesRecibidos() + p.getGolesEquipo1());
+                 
+                 //Calculo los puntos de los equipos
+                 equipo1.calcularPuntos();
+                 equipo2.calcularPuntos();
+                 
+                 //Agrego los equipos a la lista actualizada
+                 equipoActualizado.add(equipo1);
+                 equipoActualizado.add(equipo2);
+                 
+                 //
+                 
+                 
+                }
              }
              i++;
          }
             
             try {
+                for(Equipo e : equipoActualizado){
+                    equipoRepository.actualizarDatosEquipoEnArchivo(e);
+                }
                 partidoRepository.guardarGolesPartido();
                 JOptionPane.showMessageDialog(this, "Se ha guardado con exito!", "Fixture Qatar 2022", JOptionPane.INFORMATION_MESSAGE);
             
