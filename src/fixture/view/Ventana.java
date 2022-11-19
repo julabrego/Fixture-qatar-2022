@@ -9,19 +9,18 @@ import fixture.exceptions.GolesNegativosFixtureException;
 import fixture.model.Fase;
 import fixture.model.Grupo;
 import fixture.model.Partido;
+import fixture.model.types.IdsPartidosConResultados;
 import fixture.repository.EquipoRepository;
 import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
-import fixture.repository.migrations.GruposMigrations;
-import fixture.repository.migrations.PartidosMigrations;
 import java.awt.HeadlessException;
 import fixture.service.FixtureService;
 import java.awt.Image;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -53,35 +52,37 @@ public class Ventana extends javax.swing.JFrame {
     private JFormattedTextField[] golesLocalGrupoB = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoB = new JFormattedTextField[6];
 
-// Preparo arreglos para leer los campos de grupo C
+    // Preparo arreglos para leer los campos de grupo C
     private ArrayList<Integer> idsPartidosGrupoC = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalGrupoC = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoC = new JFormattedTextField[6];
 
-// Preparo arreglos para leer los campos de grupo D
+    // Preparo arreglos para leer los campos de grupo D
     private ArrayList<Integer> idsPartidosGrupoD = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalGrupoD = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoD = new JFormattedTextField[6];
 
-// Preparo arreglos para leer los campos de grupo E
+    // Preparo arreglos para leer los campos de grupo E
     private ArrayList<Integer> idsPartidosGrupoE = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalGrupoE = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoE = new JFormattedTextField[6];
 
-// Preparo arreglos para leer los campos de grupo F
+    // Preparo arreglos para leer los campos de grupo F
     private ArrayList<Integer> idsPartidosGrupoF = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalGrupoF = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoF = new JFormattedTextField[6];
 
-// Preparo arreglos para leer los campos de grupo G
+    // Preparo arreglos para leer los campos de grupo G
     private ArrayList<Integer> idsPartidosGrupoG = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalGrupoG = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoG = new JFormattedTextField[6];
 
-// Preparo arreglos para leer los campos de grupo H
+    // Preparo arreglos para leer los campos de grupo H
     private ArrayList<Integer> idsPartidosGrupoH = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalGrupoH = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoH = new JFormattedTextField[6];
+
+    private HashMap<Character, IdsPartidosConResultados> lectorDeDatosDePartidos = new HashMap();
 
     // Defino la variable que va a contener las tablas de posiciones
     JFrame ventanaTablaDePosiciones;
@@ -4238,214 +4239,51 @@ public class Ventana extends javax.swing.JFrame {
     private void guardarBtnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnAActionPerformed
 
         Grupo grupoA = grupoRepository.get('a');
-        HashSet<Equipo> equiposGrupoActualizados = new HashSet();
 
-        // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
-        for (Equipo equipoGrupoA : grupoA.getEquipos()) {
-            // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
-            Equipo equipoEncontrado = equipoRepository.find(equipoGrupoA.getId());
-            equipoEncontrado.limpiarDatosDePartidos();
-            equiposGrupoActualizados.add(equipoEncontrado);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoA);
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoA) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoA)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoA[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoA[i].getText()));
-
-                    // Equipos que jugaron el partido
-                    Equipo equipo1 = p.getEquipo1(); // A este nivel el objeto referencia al de GrupoRepository
-                    Equipo equipo2 = p.getEquipo2(); // A este nivel el objeto referencia al de GrupoRepository
-
-                    // Hago que equipo1 y equipo2 referencien a los equipos recuperados de EquipoRepository
-                    for (Equipo equipoAActualizar : equiposGrupoActualizados) {
-                        if (equipoAActualizar.getId().equals(p.getEquipo1().getId())) {
-                            equipo1 = equipoAActualizar;
-                        }
-
-                        if (equipoAActualizar.getId().equals(p.getEquipo2().getId())) {
-                            equipo2 = equipoAActualizar;
-                        }
-                    }
-
-                    // Se mueve todo el bloque de seteo de valores a un método (refactor) para que sea reutilizable por los otros grupos
-                    actualizarValoresDeEquipo(equipo1, equipo2, p, equiposGrupoActualizados);
-                }
-            }
-            i++;
-        }
-
-        guardarCambios(grupoA, equiposGrupoActualizados);
     }//GEN-LAST:event_guardarBtnAActionPerformed
 
     private void guardarBtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnBActionPerformed
         Grupo grupoB = grupoRepository.get('b');
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoB) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoB)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoB[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoB[i].getText()));
-                }
-            }
-            i++;
-        }
-        partidoRepository.guardarPartidosEnArchivo();
-
-        try {
-            partidoRepository.guardarPartidosEnArchivo();
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoB);
     }//GEN-LAST:event_guardarBtnBActionPerformed
 
     private void guardarBtnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnCActionPerformed
         Grupo grupoC = grupoRepository.get('c');
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoC) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoC)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoC[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoC[i].getText()));
-                }
-            }
-            i++;
-        }
-        partidoRepository.guardarPartidosEnArchivo();
-
-        try {
-            partidoRepository.guardarPartidosEnArchivo();
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoC);
     }//GEN-LAST:event_guardarBtnCActionPerformed
 
     private void guardarBtnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnDActionPerformed
         Grupo grupoD = grupoRepository.get('d');
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoD) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoD)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoD[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoD[i].getText()));
-                }
-            }
-            i++;
-        }
-        partidoRepository.guardarPartidosEnArchivo();
-
-        try {
-            partidoRepository.guardarPartidosEnArchivo();
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoD);
     }//GEN-LAST:event_guardarBtnDActionPerformed
 
     private void guardarBtnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnEActionPerformed
         Grupo grupoE = grupoRepository.get('e');
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoE) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoE)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoE[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoE[i].getText()));
-                }
-            }
-            i++;
-        }
-        partidoRepository.guardarPartidosEnArchivo();
-
-        try {
-            partidoRepository.guardarPartidosEnArchivo();
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoE);
     }//GEN-LAST:event_guardarBtnEActionPerformed
 
     private void guardarBtnFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnFActionPerformed
         Grupo grupoF = grupoRepository.get('f');
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoF) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoF)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoF[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoF[i].getText()));
-                }
-            }
-            i++;
-        }
-        partidoRepository.guardarPartidosEnArchivo();
-
-        try {
-            partidoRepository.guardarPartidosEnArchivo();
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoF);
     }//GEN-LAST:event_guardarBtnFActionPerformed
 
     private void guardarBtnGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnGActionPerformed
         Grupo grupoG = grupoRepository.get('g');
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoG) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoG)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoG[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoG[i].getText()));
-                }
-            }
-            i++;
-        }
-        partidoRepository.guardarPartidosEnArchivo();
-
-        try {
-            partidoRepository.guardarPartidosEnArchivo();
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoG);
     }//GEN-LAST:event_guardarBtnGActionPerformed
 
     private void guardarBtnHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnHActionPerformed
         Grupo grupoH = grupoRepository.get('h');
 
-        int i = 0;
-        for (Integer id : idsPartidosGrupoH) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoH)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoH[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoH[i].getText()));
-                }
-            }
-            i++;
-        }
-        partidoRepository.guardarPartidosEnArchivo();
-
-        try {
-            partidoRepository.guardarPartidosEnArchivo();
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar guardar", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }
+        leerGolesDeGrupoYGuardarCambios(grupoH);
     }//GEN-LAST:event_guardarBtnHActionPerformed
 
     private void btnVerTablaDePoscionesAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesAActionPerformed
@@ -4467,6 +4305,99 @@ public class Ventana extends javax.swing.JFrame {
         ventanaTablaDePosiciones.setLocationRelativeTo(null);
         ventanaTablaDePosiciones.setVisible(true);
     }//GEN-LAST:event_btnVerTablaDePoscionesAActionPerformed
+
+    private void leerGolesDeGrupoYGuardarCambios(Grupo grupo) {
+        HashSet<Equipo> equiposGrupoActualizados = new HashSet();
+
+        // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
+        for (Equipo equipoGrupo : grupo.getEquipos()) {
+            Equipo equipoEncontrado = equipoRepository.find(equipoGrupo.getId());
+
+            // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
+            equipoEncontrado.limpiarDatosDePartidos();
+
+            // esta lista (HashSet) va a ser la encargada que gestionar los datos de Equipos en el repositorio correspondiente
+            equiposGrupoActualizados.add(equipoEncontrado);
+        }
+
+        // Busco el array conteniendo los ids de partidos y los campos de formulario del grupo que corresponda
+        ArrayList<Integer> listadoDeIds = new ArrayList();
+        JFormattedTextField[] golesLocal = {};
+        JFormattedTextField[] golesVisitante = {};
+
+        switch (grupo.getLetra()) {
+            case 'a':
+                listadoDeIds = idsPartidosGrupoA;
+                golesLocal = golesLocalGrupoA;
+                golesVisitante = golesVisitantesGrupoA;
+                break;
+            case 'b':
+                listadoDeIds = idsPartidosGrupoB;
+                golesLocal = golesLocalGrupoB;
+                golesVisitante = golesVisitantesGrupoB;
+                break;
+            case 'c':
+                listadoDeIds = idsPartidosGrupoC;
+                golesLocal = golesLocalGrupoC;
+                golesVisitante = golesVisitantesGrupoC;
+                break;
+            case 'd':
+                listadoDeIds = idsPartidosGrupoD;
+                golesLocal = golesLocalGrupoD;
+                golesVisitante = golesVisitantesGrupoD;
+                break;
+            case 'e':
+                listadoDeIds = idsPartidosGrupoE;
+                golesLocal = golesLocalGrupoE;
+                golesVisitante = golesVisitantesGrupoE;
+                break;
+            case 'f':
+                listadoDeIds = idsPartidosGrupoF;
+                golesLocal = golesLocalGrupoF;
+                golesVisitante = golesVisitantesGrupoF;
+                break;
+            case 'g':
+                listadoDeIds = idsPartidosGrupoG;
+                golesLocal = golesLocalGrupoG;
+                golesVisitante = golesVisitantesGrupoG;
+                break;
+            case 'h':
+                listadoDeIds = idsPartidosGrupoH;
+                golesLocal = golesLocalGrupoH;
+                golesVisitante = golesVisitantesGrupoH;
+                break;
+        }
+
+        int i = 0;
+        for (Integer id : listadoDeIds) {
+            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupo)) {
+                if (p.getId() == id) {
+                    p.setGolesEquipo1(Integer.parseInt(golesLocal[i].getText()));
+                    p.setGolesEquipo2(Integer.parseInt(golesVisitante[i].getText()));
+
+                    // Equipos que jugaron el partido
+                    Equipo equipo1 = p.getEquipo1(); // A este nivel el objeto referencia al de GrupoRepository
+                    Equipo equipo2 = p.getEquipo2(); // A este nivel el objeto referencia al de GrupoRepository
+
+                    // Hago que equipo1 y equipo2 referencien a los equipos recuperados de EquipoRepository
+                    for (Equipo equipoAActualizar : equiposGrupoActualizados) {
+                        if (equipoAActualizar.getId().equals(p.getEquipo1().getId())) {
+                            equipo1 = equipoAActualizar;
+                        }
+
+                        if (equipoAActualizar.getId().equals(p.getEquipo2().getId())) {
+                            equipo2 = equipoAActualizar;
+                        }
+                    }
+
+                    actualizarValoresDeEquipo(equipo1, equipo2, p, equiposGrupoActualizados);
+                }
+            }
+            i++;
+        }
+
+        guardarCambios(grupo, equiposGrupoActualizados);
+    }
 
     private void guardarCambios(Grupo grupo, HashSet<Equipo> equiposGrupoActualizados) throws HeadlessException {
         try {
@@ -4543,16 +4474,24 @@ public class Ventana extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
