@@ -85,11 +85,9 @@ public class Ventana extends javax.swing.JFrame {
 
     // Defino la variable que va a contener las tablas de posiciones
     JFrame ventanaTablaDePosiciones;
-    
-       
+
     FixtureService fixtureService = new FixtureService();
-    
-    
+
     public Ventana() {
 
         initComponents();
@@ -4239,7 +4237,6 @@ public class Ventana extends javax.swing.JFrame {
 
     private void guardarBtnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnAActionPerformed
 
-        // Moví grupoRepository a un contexto global
         Grupo grupoA = grupoRepository.get('a');
         HashSet<Equipo> equiposGrupoActualizados = new HashSet();
 
@@ -4259,81 +4256,28 @@ public class Ventana extends javax.swing.JFrame {
                     p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoA[i].getText()));
 
                     // Equipos que jugaron el partido
-                    Equipo equipo1 =  p.getEquipo1();
-                    Equipo equipo2 = p.getEquipo2();
-                    
-                    for(Equipo equipoAActualizar : equiposGrupoActualizados){
-                        if(equipoAActualizar.getId().equals(p.getEquipo1().getId())){
+                    Equipo equipo1 = p.getEquipo1(); // A este nivel el objeto referencia al de GrupoRepository
+                    Equipo equipo2 = p.getEquipo2(); // A este nivel el objeto referencia al de GrupoRepository
+
+                    // Hago que equipo1 y equipo2 referencien a los equipos recuperados de EquipoRepository
+                    for (Equipo equipoAActualizar : equiposGrupoActualizados) {
+                        if (equipoAActualizar.getId().equals(p.getEquipo1().getId())) {
                             equipo1 = equipoAActualizar;
                         }
-                        
-                        if(equipoAActualizar.getId().equals(p.getEquipo2().getId())){
+
+                        if (equipoAActualizar.getId().equals(p.getEquipo2().getId())) {
                             equipo2 = equipoAActualizar;
                         }
                     }
 
-                    // Agrego un partido jugado a cada equipo
-                    equipo1.setPartidosJugados(equipo1.getPartidosJugados() + 1);
-                    equipo2.setPartidosJugados(equipo2.getPartidosJugados() + 1);
-
-                    // Sumo ganados / perdidos / empatados a cada equipo según corresponda
-                    if (p.getGolesEquipo1() > p.getGolesEquipo2()) {
-                        // Ganó equipo local
-                        // Sumo 1 a sus partidos ganados
-                        equipo1.setPartidosGanados(equipo1.getPartidosGanados() + 1);
-
-                        // Sumo 1 a partidos perdidos al equipo 2
-                        equipo2.setPartidosPerdidos(equipo2.getPartidosPerdidos() + 1);
-                    } else if (p.getGolesEquipo1() < p.getGolesEquipo2()) {
-                        // Ganó equipo visitante
-                        // Sumo 1 a sus partidos ganados
-                        equipo2.setPartidosGanados(equipo2.getPartidosGanados() + 1);
-
-                        // Sumo 1 a partidos perdidos al equipo 1
-                        equipo1.setPartidosPerdidos(equipo1.getPartidosPerdidos() + 1);
-                    } else {
-                        // Empataron
-                        // Sumo 1 a los partidos empatados de ambos
-                        equipo1.setPartidosEmpatados(equipo1.getPartidosEmpatados() + 1);
-                        equipo2.setPartidosEmpatados(equipo2.getPartidosEmpatados() + 1);
-                    }
-
-                    // Sumo los goles hechos y en contra de ambos equipos
-                    equipo1.setGolesHechos(equipo1.getGolesHechos() + p.getGolesEquipo1());
-                    equipo1.setGolesEnContra(equipo1.getGolesEnContra() + p.getGolesEquipo2());
-                    equipo2.setGolesHechos(equipo2.getGolesHechos() + p.getGolesEquipo2());
-                    equipo2.setGolesEnContra(equipo2.getGolesEnContra() + p.getGolesEquipo1());
-
-                    // Se calculan los puntos de cada equipo
-                    equipo1.calcularPuntos();
-                    equipo2.calcularPuntos();
-                    
-                    // Agrego los equipos modificados al listado que voy a usar para guardar en archivo
-                    equiposGrupoActualizados.add(equipo1);
-                    equiposGrupoActualizados.add(equipo2);
+                    // Se mueve todo el bloque de seteo de valores a un método (refactor) para que sea reutilizable por los otros grupos
+                    actualizarValoresDeEquipo(equipo1, equipo2, p, equiposGrupoActualizados);
                 }
             }
             i++;
         }
 
-        // Ejemplo de manejo de errores
-        try {
-            fixtureService.validarGoles(partidoRepository.findBy(Fase.DE_GRUPOS, grupoA));
-            //golesLocalGrupoA[10].getText(); // Fuerzo error para probar
-            partidoRepository.guardarPartidosEnArchivo();
-
-            // Guardo los datos y puntaje de equipos actualizados
-            for (Equipo equipoGrupoA : equiposGrupoActualizados) {
-                System.out.println(equipoGrupoA);
-                equipoRepository.actualizarDatosDeEquiopoEnArchivo(equipoGrupoA);
-            }
-            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
-            
-        }catch(GolesNegativosFixtureException ex){
-            JOptionPane.showMessageDialog(this, "" + ex.getMessage() + " (" + ex.getEquipo().getNombre() + ")", this.getTitle(), JOptionPane.ERROR_MESSAGE);
-        }catch(Exception ex){
-            System.out.println("ERROR GENERICO");
-        }
+        guardarCambios(grupoA, equiposGrupoActualizados);
     }//GEN-LAST:event_guardarBtnAActionPerformed
 
     private void guardarBtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnBActionPerformed
@@ -4506,23 +4450,84 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btnVerTablaDePoscionesAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesAActionPerformed
         Grupo grupoA = grupoRepository.get('a');
-        
+
         for (Equipo equipoGrupoA : grupoA.getEquipos()) {
             Equipo equipoRecuperadoDelRepositorio = equipoRepository.find(equipoGrupoA.getId());
-            
+
             System.out.println("-----------------------------");
 
             equipoRecuperadoDelRepositorio.printDatosGenerales();
 
             System.out.println("-----------------------------");
         }
-        
+
         ventanaTablaDePosiciones = new TablaDePosiciones((grupoA));
         ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
         ventanaTablaDePosiciones.setLocationRelativeTo(null);
         ventanaTablaDePosiciones.setVisible(true);
     }//GEN-LAST:event_btnVerTablaDePoscionesAActionPerformed
+
+    private void guardarCambios(Grupo grupo, HashSet<Equipo> equiposGrupoActualizados) throws HeadlessException {
+        try {
+            fixtureService.validarGoles(partidoRepository.findBy(Fase.DE_GRUPOS, grupo));
+            partidoRepository.guardarPartidosEnArchivo();
+
+            // Guardo los datos y puntaje de equipos actualizados
+            for (Equipo equipoGrupo : equiposGrupoActualizados) {
+                equipoRepository.actualizarDatosDeEquiopoEnArchivo(equipoGrupo);
+            }
+
+            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (GolesNegativosFixtureException ex) {
+            JOptionPane.showMessageDialog(this, "" + ex.getMessage() + " (" + ex.getEquipo().getNombre() + ")", this.getTitle(), JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            System.out.println("ERROR GENERICO");
+        }
+    }
+
+    private void actualizarValoresDeEquipo(Equipo equipo1, Equipo equipo2, Partido p, HashSet<Equipo> equiposGrupoActualizados) {
+        // Agrego un partido jugado a cada equipo
+        equipo1.setPartidosJugados(equipo1.getPartidosJugados() + 1);
+        equipo2.setPartidosJugados(equipo2.getPartidosJugados() + 1);
+
+        // Sumo ganados / perdidos / empatados a cada equipo según corresponda
+        if (p.getGolesEquipo1() > p.getGolesEquipo2()) {
+            // Ganó equipo local
+            // Sumo 1 a sus partidos ganados
+            equipo1.setPartidosGanados(equipo1.getPartidosGanados() + 1);
+
+            // Sumo 1 a partidos perdidos al equipo 2
+            equipo2.setPartidosPerdidos(equipo2.getPartidosPerdidos() + 1);
+        } else if (p.getGolesEquipo1() < p.getGolesEquipo2()) {
+            // Ganó equipo visitante
+            // Sumo 1 a sus partidos ganados
+            equipo2.setPartidosGanados(equipo2.getPartidosGanados() + 1);
+
+            // Sumo 1 a partidos perdidos al equipo 1
+            equipo1.setPartidosPerdidos(equipo1.getPartidosPerdidos() + 1);
+        } else {
+            // Empataron
+            // Sumo 1 a los partidos empatados de ambos
+            equipo1.setPartidosEmpatados(equipo1.getPartidosEmpatados() + 1);
+            equipo2.setPartidosEmpatados(equipo2.getPartidosEmpatados() + 1);
+        }
+
+        // Sumo los goles hechos y en contra de ambos equipos
+        equipo1.setGolesHechos(equipo1.getGolesHechos() + p.getGolesEquipo1());
+        equipo1.setGolesEnContra(equipo1.getGolesEnContra() + p.getGolesEquipo2());
+        equipo2.setGolesHechos(equipo2.getGolesHechos() + p.getGolesEquipo2());
+        equipo2.setGolesEnContra(equipo2.getGolesEnContra() + p.getGolesEquipo1());
+
+        // Se calculan los puntos de cada equipo
+        equipo1.calcularPuntos();
+        equipo2.calcularPuntos();
+
+        // Agrego los equipos modificados al listado que voy a usar para guardar en archivo
+        equiposGrupoActualizados.add(equipo1);
+        equiposGrupoActualizados.add(equipo2);
+    }
 
     /**
      * @param args the command line arguments
