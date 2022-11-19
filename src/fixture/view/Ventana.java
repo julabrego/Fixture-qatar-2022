@@ -241,6 +241,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField2_B6 = new javax.swing.JFormattedTextField();
         guionB6 = new javax.swing.JLabel();
         guardarBtnB = new javax.swing.JButton();
+        btnVerTablaDePoscionesB = new javax.swing.JButton();
         panelGrupoC = new javax.swing.JPanel();
         jScrollPaneC = new javax.swing.JScrollPane();
         panelInteriorC = new javax.swing.JPanel();
@@ -299,6 +300,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField2_C6 = new javax.swing.JFormattedTextField();
         guionC6 = new javax.swing.JLabel();
         guardarBtnC = new javax.swing.JButton();
+        btnVerTablaDePoscionesC = new javax.swing.JButton();
         panelGrupoD = new javax.swing.JPanel();
         jScrollPaneD = new javax.swing.JScrollPane();
         panelInteriorD = new javax.swing.JPanel();
@@ -357,6 +359,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField2_D6 = new javax.swing.JFormattedTextField();
         guionD6 = new javax.swing.JLabel();
         guardarBtnD = new javax.swing.JButton();
+        btnVerTablaDePoscionesD = new javax.swing.JButton();
         panelGrupoE = new javax.swing.JPanel();
         jScrollPaneE = new javax.swing.JScrollPane();
         panelInteriorE = new javax.swing.JPanel();
@@ -415,6 +418,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField2_E6 = new javax.swing.JFormattedTextField();
         guionE6 = new javax.swing.JLabel();
         guardarBtnE = new javax.swing.JButton();
+        btnVerTablaDePoscionesE = new javax.swing.JButton();
         panelGrupoF = new javax.swing.JPanel();
         jScrollPaneF = new javax.swing.JScrollPane();
         panelInteriorF = new javax.swing.JPanel();
@@ -473,6 +477,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField2_F6 = new javax.swing.JFormattedTextField();
         guionF6 = new javax.swing.JLabel();
         guardarBtnF = new javax.swing.JButton();
+        btnVerTablaDePoscionesF = new javax.swing.JButton();
         panelGrupoG = new javax.swing.JPanel();
         jScrollPaneG = new javax.swing.JScrollPane();
         panelInteriorG = new javax.swing.JPanel();
@@ -531,6 +536,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField2_G6 = new javax.swing.JFormattedTextField();
         guionG6 = new javax.swing.JLabel();
         guardarBtnG = new javax.swing.JButton();
+        btnVerTablaDePoscionesG = new javax.swing.JButton();
         panelGrupoH = new javax.swing.JPanel();
         jScrollPaneH = new javax.swing.JScrollPane();
         panelInteriorH = new javax.swing.JPanel();
@@ -589,6 +595,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField2_H6 = new javax.swing.JFormattedTextField();
         guionH6 = new javax.swing.JLabel();
         guardarBtnH = new javax.swing.JButton();
+        btnVerTablaDePoscionesH = new javax.swing.JButton();
         panelOctavos = new javax.swing.JPanel();
         panelCuartos = new javax.swing.JPanel();
         panelSemifinales = new javax.swing.JPanel();
@@ -1494,6 +1501,14 @@ public class Ventana extends javax.swing.JFrame {
         });
         panelGrupoB.add(guardarBtnB, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, -1, -1));
 
+        btnVerTablaDePoscionesB.setText("Ver tabla de posiciones");
+        btnVerTablaDePoscionesB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaDePoscionesBActionPerformed(evt);
+            }
+        });
+        panelGrupoB.add(btnVerTablaDePoscionesB, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
+
         tabbedPane.addTab("B", panelGrupoB);
 
         panelGrupoC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1931,6 +1946,14 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         panelGrupoC.add(guardarBtnC, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
+
+        btnVerTablaDePoscionesC.setText("Ver tabla de posiciones");
+        btnVerTablaDePoscionesC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaDePoscionesCActionPerformed(evt);
+            }
+        });
+        panelGrupoC.add(btnVerTablaDePoscionesC, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
 
         tabbedPane.addTab("C", panelGrupoC);
 
@@ -2370,6 +2393,14 @@ public class Ventana extends javax.swing.JFrame {
         });
         panelGrupoD.add(guardarBtnD, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
 
+        btnVerTablaDePoscionesD.setText("Ver tabla de posiciones");
+        btnVerTablaDePoscionesD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaDePoscionesDActionPerformed(evt);
+            }
+        });
+        panelGrupoD.add(btnVerTablaDePoscionesD, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
+
         tabbedPane.addTab("D", panelGrupoD);
 
         panelGrupoE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2807,6 +2838,14 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         panelGrupoE.add(guardarBtnE, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
+
+        btnVerTablaDePoscionesE.setText("Ver tabla de posiciones");
+        btnVerTablaDePoscionesE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaDePoscionesEActionPerformed(evt);
+            }
+        });
+        panelGrupoE.add(btnVerTablaDePoscionesE, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
 
         tabbedPane.addTab("E", panelGrupoE);
 
@@ -3246,6 +3285,14 @@ public class Ventana extends javax.swing.JFrame {
         });
         panelGrupoF.add(guardarBtnF, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
 
+        btnVerTablaDePoscionesF.setText("Ver tabla de posiciones");
+        btnVerTablaDePoscionesF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaDePoscionesFActionPerformed(evt);
+            }
+        });
+        panelGrupoF.add(btnVerTablaDePoscionesF, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
+
         tabbedPane.addTab("F", panelGrupoF);
 
         panelGrupoG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3683,6 +3730,14 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         panelGrupoG.add(guardarBtnG, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
+
+        btnVerTablaDePoscionesG.setText("Ver tabla de posiciones");
+        btnVerTablaDePoscionesG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaDePoscionesGActionPerformed(evt);
+            }
+        });
+        panelGrupoG.add(btnVerTablaDePoscionesG, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
 
         tabbedPane.addTab("G", panelGrupoG);
 
@@ -4122,6 +4177,14 @@ public class Ventana extends javax.swing.JFrame {
         });
         panelGrupoH.add(guardarBtnH, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
 
+        btnVerTablaDePoscionesH.setText("Ver tabla de posiciones");
+        btnVerTablaDePoscionesH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaDePoscionesHActionPerformed(evt);
+            }
+        });
+        panelGrupoH.add(btnVerTablaDePoscionesH, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
+
         tabbedPane.addTab("H", panelGrupoH);
 
         panelOctavos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4287,25 +4350,53 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_guardarBtnHActionPerformed
 
     private void btnVerTablaDePoscionesAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesAActionPerformed
-        Grupo grupoA = grupoRepository.get('a');
-
-        for (Equipo equipoGrupoA : grupoA.getEquipos()) {
-            Equipo equipoRecuperadoDelRepositorio = equipoRepository.find(equipoGrupoA.getId());
-
-            System.out.println("-----------------------------");
-
-            equipoRecuperadoDelRepositorio.printDatosGenerales();
-
-            System.out.println("-----------------------------");
-        }
-
-        ventanaTablaDePosiciones = new TablaDePosiciones((grupoA));
-        ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-        ventanaTablaDePosiciones.setLocationRelativeTo(null);
-        ventanaTablaDePosiciones.setVisible(true);
+        Grupo grupo = grupoRepository.get('a');
+        crearYCompletarTablaDePosiciones(grupo);
     }//GEN-LAST:event_btnVerTablaDePoscionesAActionPerformed
 
+    private void btnVerTablaDePoscionesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesBActionPerformed
+        Grupo grupo = grupoRepository.get('b');
+        crearYCompletarTablaDePosiciones(grupo);
+    }//GEN-LAST:event_btnVerTablaDePoscionesBActionPerformed
+
+    private void btnVerTablaDePoscionesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesCActionPerformed
+        Grupo grupo = grupoRepository.get('c');
+        crearYCompletarTablaDePosiciones(grupo);
+    }//GEN-LAST:event_btnVerTablaDePoscionesCActionPerformed
+
+    private void btnVerTablaDePoscionesDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesDActionPerformed
+        Grupo grupo = grupoRepository.get('d');
+        crearYCompletarTablaDePosiciones(grupo);
+    }//GEN-LAST:event_btnVerTablaDePoscionesDActionPerformed
+
+    private void btnVerTablaDePoscionesEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesEActionPerformed
+        Grupo grupo = grupoRepository.get('e');
+        crearYCompletarTablaDePosiciones(grupo);
+    }//GEN-LAST:event_btnVerTablaDePoscionesEActionPerformed
+
+    private void btnVerTablaDePoscionesFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesFActionPerformed
+        Grupo grupo = grupoRepository.get('f');
+        crearYCompletarTablaDePosiciones(grupo);
+    }//GEN-LAST:event_btnVerTablaDePoscionesFActionPerformed
+
+    private void btnVerTablaDePoscionesGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesGActionPerformed
+        Grupo grupo = grupoRepository.get('g');
+        crearYCompletarTablaDePosiciones(grupo);
+    }//GEN-LAST:event_btnVerTablaDePoscionesGActionPerformed
+
+    private void btnVerTablaDePoscionesHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesHActionPerformed
+        Grupo grupo = grupoRepository.get('h');
+        crearYCompletarTablaDePosiciones(grupo);
+    }//GEN-LAST:event_btnVerTablaDePoscionesHActionPerformed
+
+        private void crearYCompletarTablaDePosiciones(Grupo grupo) {
+        ventanaTablaDePosiciones = new TablaDePosiciones((grupo));
+        ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+        ventanaTablaDePosiciones.setLocationRelativeTo(null);
+        ventanaTablaDePosiciones.setVisible(true);
+    }
+        
     private void leerGolesDeGrupoYGuardarCambios(Grupo grupo) {
         HashSet<Equipo> equiposGrupoActualizados = new HashSet();
 
@@ -4505,6 +4596,13 @@ public class Ventana extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerTablaDePoscionesA;
+    private javax.swing.JButton btnVerTablaDePoscionesB;
+    private javax.swing.JButton btnVerTablaDePoscionesC;
+    private javax.swing.JButton btnVerTablaDePoscionesD;
+    private javax.swing.JButton btnVerTablaDePoscionesE;
+    private javax.swing.JButton btnVerTablaDePoscionesF;
+    private javax.swing.JButton btnVerTablaDePoscionesG;
+    private javax.swing.JButton btnVerTablaDePoscionesH;
     private javax.swing.JFormattedTextField golesField1_A1;
     private javax.swing.JFormattedTextField golesField1_A2;
     private javax.swing.JFormattedTextField golesField1_A3;
