@@ -52,7 +52,6 @@ public class GrupoConstructor extends javax.swing.JFrame {
         instanciarRepos();
         inicializarGrupo(letraGrupo);
         cargarGrupo(letraGrupo);
-        cargarTabla();
     }
 
     private GrupoConstructor() {
@@ -160,8 +159,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
     };
     
       private void cargarGrupo(char letragrupo){
-        Grupo grupoA = grupoRepository.get(letragrupo);
-        ArrayList<Equipo> equiposGrupo = grupoA.getEquipos();       
+        Grupo grupo = grupoRepository.get(letragrupo);
+        ArrayList<Equipo> equiposGrupo = grupo.getEquipos();       
         String titulo = "Grupo " + letragrupo;
         grupo1.setText(titulo);
         ArrayList<JLabel> equipos = new ArrayList();
@@ -178,21 +177,32 @@ public class GrupoConstructor extends javax.swing.JFrame {
         //
         int i= 0;
         for(Equipo equipo : equiposGrupo ){
+            //
+            //
             equipos.get(i).setText(equipo.getNombre());
             img.get(i).setText("");
             ImageIcon imageEquipo = new ImageIcon(new ImageIcon(getClass().getResource("/static/img/banderas/" + equipo.getId() + ".png")).getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH));
             img.get(i).setIcon(imageEquipo);
+            
+            //Creo la tabla con los datos de Equipo
+            equipo.imprimirDatosDeEquipo();
+            tModel = (DefaultTableModel) jTable1.getModel();
+            int difDeGoles = equipo.getGolesHechos() - equipo.getGolesRecibidos();
+            Object [] dataEquipo = {
+                equipo.getPartidosGanados(),
+                equipo.getPartidosEmpatados(),
+                equipo.getPartidosPerdidos(),
+                equipo.getGolesHechos(),
+                equipo.getGolesRecibidos(),
+                difDeGoles,
+                equipo.getPuntosDeEquipo()    
+            };
+            tModel.addRow(dataEquipo);
             i++;
         }
         
     }
-      private void cargarTabla(){
-        tModel = (DefaultTableModel) jTable1.getModel();
-        Grupo grupo = grupoRepository.get(letraGrupo);
-        
-        int i=0;
-       
-      }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -893,8 +903,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
                  equipoActualizado.add(equipo2);
                  
                  //
-                 
-                 
+
                 }
              }
              i++;
@@ -903,6 +912,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
             try {
                 for(Equipo e : equipoActualizado){
                     equipoRepository.actualizarDatosEquipoEnArchivo(e);
+                    e.imprimirDatosDeEquipo();
                 }
                 partidoRepository.guardarGolesPartido();
                 JOptionPane.showMessageDialog(this, "Se ha guardado con exito!", "Fixture Qatar 2022", JOptionPane.INFORMATION_MESSAGE);

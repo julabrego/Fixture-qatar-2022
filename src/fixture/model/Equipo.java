@@ -13,6 +13,17 @@ public class Equipo implements Serializable{
     private int partidosEmpatados;
     private int puntosDeEquipo;
     
+    public void imprimirDatosDeEquipo(){
+        System.out.println("Equipo: " + nombre);
+        System.out.println("Partidos Jugados: " + partidosJugados);
+        System.out.println("Partidos Ganados: " + partidosGanados);
+        System.out.println("Partidos Empatados: " + partidosEmpatados);
+        System.out.println("Partidos Perdidos: " + partidosPerdidos);
+        System.out.println("Goles convertidos: " + golesHechos);
+        System.out.println("Goles Recibidos: " + golesRecibidos);
+        System.out.println("Puntos: " + puntosDeEquipo);
+    }
+    
     
     public void calcularPuntos(){
         puntosDeEquipo = 3 * partidosGanados + partidosEmpatados;
