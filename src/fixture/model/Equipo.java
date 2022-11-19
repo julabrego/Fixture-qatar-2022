@@ -13,6 +13,60 @@ public class Equipo implements Serializable {
     private int golesHechos;
     private int golesEnContra;
     private int puntos;
+    private boolean octavos;
+    private boolean cuartos;
+    private boolean semifinal;
+    private boolean tercerPuesto;
+    private boolean finalista;
+    private boolean ganador;
+
+    public boolean isOctavos() {
+        return octavos;
+    }
+
+    public void setOctavos(boolean octavos) {
+        this.octavos = octavos;
+    }
+
+    public boolean isCuartos() {
+        return cuartos;
+    }
+
+    public void setCuartos(boolean cuartos) {
+        this.cuartos = cuartos;
+    }
+
+    public boolean isSemifinal() {
+        return semifinal;
+    }
+
+    public void setSemifinal(boolean semifinal) {
+        this.semifinal = semifinal;
+    }
+
+    public boolean isTercerPuesto() {
+        return tercerPuesto;
+    }
+
+    public void setTercerPuesto(boolean tercerPuesto) {
+        this.tercerPuesto = tercerPuesto;
+    }
+
+    public boolean isFinalista() {
+        return finalista;
+    }
+
+    public void setFinalista(boolean finalista) {
+        this.finalista = finalista;
+    }
+
+    public boolean isGanador() {
+        return ganador;
+    }
+
+    public void setGanador(boolean ganador) {
+        this.ganador = ganador;
+    }
 
     public void calcularPuntos() {
         puntos = 3 * partidosGanados + partidosEmpatados;
@@ -26,6 +80,10 @@ public class Equipo implements Serializable {
         System.out.println("Partidos empatados: " + partidosEmpatados);
         System.out.println("Goles hechos: " + golesHechos);
         System.out.println("Goles en contra: " + golesEnContra);
+        System.out.println("Octavos: " + octavos);
+        System.out.println("Cuartos: " + cuartos);
+        System.out.println("Semifinal: " + semifinal);
+        System.out.println("Finalista: " + finalista);
         System.out.println("Puntos: " + puntos);
     }
 
