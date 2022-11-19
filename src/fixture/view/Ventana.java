@@ -4,9 +4,11 @@
  */
 package fixture.view;
 
+import fixture.model.Equipo;
 import fixture.model.Fase;
 import fixture.model.Grupo;
 import fixture.model.Partido;
+import fixture.repository.EquipoRepository;
 import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
@@ -33,6 +36,7 @@ public class Ventana extends javax.swing.JFrame {
 
     private GrupoRepository grupoRepository;
     private PartidoRepository partidoRepository;
+    private EquipoRepository equipoRepository;
 
     private ImageIcon logoImage;
 
@@ -4223,29 +4227,104 @@ public class Ventana extends javax.swing.JFrame {
 
         // Moví grupoRepository a un contexto global
         Grupo grupoA = grupoRepository.get('a');
+        HashSet<Equipo> equiposActualizados = new HashSet();
 
+        for(Equipo equipo : grupoA.getEquipos()){
+            Equipo equipoEncontrado = equipoRepository.find(equipo.getId());
+            
+            // TODO: Acá hay que limpiar los datos de los equipos para que sean recalculados
+            
+            equiposActualizados.add(equipoEncontrado);
+        }
+        
         int i = 0;
         for (Integer id : idsPartidosGrupoA) {
             for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupoA)) {
                 if (p.getId() == id) {
                     p.setGolesEquipo1(Integer.parseInt(golesLocalGrupoA[i].getText()));
                     p.setGolesEquipo2(Integer.parseInt(golesVisitantesGrupoA[i].getText()));
+                    
+                    Equipo equipo1 = p.getEquipo1();
+                    Equipo equipo2 = p.getEquipo2();
+                    
+                    // Itero el hashset con los equipos del repositorio indicado
+                    for(Equipo equipoAActualizar : equiposActualizados){
+                        if(equipoAActualizar.getId().equals(p.getEquipo1().getId())){
+                            equipo1 = equipoAActualizar;
+                        }
+                        
+                        if(equipoAActualizar.getId().equals(p.getEquipo2().getId())){
+                            equipo2 = equipoAActualizar;
+                        }
+                    }
+                    
+                    // Sumo a partidos jugados
+                    equipo1.setPartidosJugados(equipo1.getPartidosJugados() + 1);
+                    equipo2.setPartidosJugados(equipo2.getPartidosJugados() + 1);
+                    
+                    // Sumo a goles hechos
+                    equipo1.setGolesHechos(equipo1.getGolesHechos() + p.getGolesEquipo1());
+                    equipo2.setGolesHechos(equipo2.getGolesHechos() + p.getGolesEquipo2());
+                    
+                    // Sumo goles en contra
+                    equipo1.setGolesEnContra(equipo1.getGolesEnContra() + p.getGolesEquipo2());
+                    equipo2.setGolesEnContra(equipo2.getGolesEnContra() + p.getGolesEquipo1());
+                    
+                    // TODO: Calcular los valores faltantes
+                    // Sumo partidos ganados
+                    
+                    // Sumo partidos perdidos
+                    
+                    // Sumo partidos empatados
+                    
+                    // Calculo y seteo los puntos:
+                    //      partidosGanados valen 3 puntos
+                    //      partidosEmpatados valen 1 punto
+                    //      partidosPerdidos valen 0 puntos
                 }
             }
             i++;
         }
         
-        // Meter la lógica para calcular los parámetros
-        // de cada Equipo relacionados a 
-        // partidosGanados, partidosEmpatados,
-        // golesAFavor, golesEnContra, 
-        // (la diferencia de goles se calcularía
-        // a partir de los dos params anteriores).
+        for(Equipo equipoGrupoA : equiposActualizados){
+            // Cálculo de parámetros de equipo
+            equipoGrupoA.leerDatosDeEquipo();
+        }
 
         // Ejemplo de manejo de errores
         try {
             //golesLocalGrupoA[10].getText(); // Fuerzo error para probar
             partidoRepository.guardarPartidosEnArchivo();
+            
+            // TODO: Calcular y filtrar partidos que pasan a la siguiente fase siguiendo el siguiente criterio
+            // 1ro A va a equipo1 de partido con id 49
+            // 2do A va a equipo2 de partido con id 51
+            
+            // Se enumeran los criterios para los demás grupos
+            // 1ro B va a equipo1 de partido con id 51
+            // 2do B va a equipo2 de partido con id 49
+            
+            // 1ro C va a equipo1 de partido con id 50
+            // 2do C va a equipo2 de partido con id 52
+            
+            // 1ro D va a equipo 1 de partido con id 51
+            // 2do D va a equipo 2 de partido con id 50
+            
+            // 1ro E va a equipo 1 de partido con id 53
+            // 2do E va a equipo 2 de partido con id 55
+            
+            // 1ro F va a equipo 1 de partido con id 55
+            // 2do F va a equipo 2 de partido con id 53
+            
+            // 1ro G va a equipo 1 de partido con id 54
+            // 2do G va a equipo 2 de partido con id 56
+            
+            // 1ro H va a equipo 1 de partido con id 56
+            // 2do H va a equipo 2 de partido con id 54
+            for(Equipo equipoActualizado : equiposActualizados){
+                equipoRepository.actualizarDatosDeEquiopoEnArchivo(equipoActualizado);
+            }
+            
             JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -5795,5 +5874,6 @@ public class Ventana extends javax.swing.JFrame {
         //PartidosMigrations.up();
         grupoRepository = new GrupoRepository();
         partidoRepository = new PartidoRepository();
+        equipoRepository = new EquipoRepository();
     }
 }

@@ -2,20 +2,45 @@ package fixture.model;
 
 import java.io.Serializable;
 
-public class Equipo implements Serializable{
+public class Equipo implements Serializable {
+
     private String id;
     private String nombre;
+    private int partidosJugados;
+    private int golesHechos;
+    private int golesEnContra;
     private int partidosGanados;
     private int partidosPerdidos;
     private int partidosEmpatados;
-    private int golesHechos;
-    private int golesEnContra;
     private int puntos;
     private boolean octavos;
     private boolean cuartos;
     private boolean semifinal;
     private boolean tercerPuesto;
     private boolean finalista;
+
+    public void leerDatosDeEquipo() {
+        System.out.println("-------------------------------------");
+        
+        System.out.println(nombre);
+        System.out.println("Partidos Jugados: " + partidosJugados);
+        System.out.println("Partidos Ganados: " + partidosGanados);
+        System.out.println("Partidos Perdidos: " + partidosPerdidos);
+        System.out.println("Partidos Empatados: " + partidosEmpatados);
+        System.out.println("Goles hechos: " + golesHechos);
+        System.out.println("Goles en conta: " + golesEnContra);
+        System.out.println("Puntos: " + puntos);
+        
+        System.out.println("-------------------------------------");
+    }
+
+    public int getPartidosJugados() {
+        return partidosJugados;
+    }
+
+    public void setPartidosJugados(int partidosJugados) {
+        this.partidosJugados = partidosJugados;
+    }
 
     public int getPuntos() {
         return puntos;
@@ -64,7 +89,7 @@ public class Equipo implements Serializable{
     public void setFinalista(boolean finalista) {
         this.finalista = finalista;
     }
-    
+
     public int getGolesHechos() {
         return golesHechos;
     }
@@ -104,7 +129,6 @@ public class Equipo implements Serializable{
     public void setPartidosEmpatados(int partidosEmpatados) {
         this.partidosEmpatados = partidosEmpatados;
     }
-    
 
     public Equipo(String id, String nombre) {
         this.id = id;
@@ -135,5 +159,5 @@ public class Equipo implements Serializable{
     public String toString() {
         return getId() + " | " + getNombre();
     }
-    
+
 }
