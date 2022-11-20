@@ -687,6 +687,8 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos5 = new javax.swing.JFormattedTextField();
         golesField2_Octavos5 = new javax.swing.JFormattedTextField();
         guionOctavos5 = new javax.swing.JLabel();
+        label1roE = new javax.swing.JLabel();
+        label2doF = new javax.swing.JLabel();
         panelOctavosFila6 = new javax.swing.JPanel();
         lblFechaPartidoOctavos6 = new javax.swing.JLabel();
         lblEquipoLocalOctavos6 = new javax.swing.JLabel();
@@ -696,6 +698,8 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos6 = new javax.swing.JFormattedTextField();
         golesField2_Octavos6 = new javax.swing.JFormattedTextField();
         guionOctavos6 = new javax.swing.JLabel();
+        label1roG = new javax.swing.JLabel();
+        label2doH = new javax.swing.JLabel();
         panelOctavosFila7 = new javax.swing.JPanel();
         lblFechaPartidoOctavos7 = new javax.swing.JLabel();
         lblEquipoLocalOctavos7 = new javax.swing.JLabel();
@@ -705,6 +709,8 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos7 = new javax.swing.JFormattedTextField();
         golesField2_Octavos7 = new javax.swing.JFormattedTextField();
         guionOctavos7 = new javax.swing.JLabel();
+        label1roF = new javax.swing.JLabel();
+        label2doE = new javax.swing.JLabel();
         panelOctavosFila8 = new javax.swing.JPanel();
         lblFechaPartidoOctavos8 = new javax.swing.JLabel();
         lblEquipoLocalOctavos8 = new javax.swing.JLabel();
@@ -714,6 +720,9 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos8 = new javax.swing.JFormattedTextField();
         golesField2_Octavos8 = new javax.swing.JFormattedTextField();
         guionOctavos8 = new javax.swing.JLabel();
+        label1roH = new javax.swing.JLabel();
+        label2doG = new javax.swing.JLabel();
+        guardarBtnOctavos = new javax.swing.JButton();
         panelCuartos = new javax.swing.JPanel();
         jScrollPaneCuartos = new javax.swing.JScrollPane();
         panelInteriorCuartos = new javax.swing.JPanel();
@@ -753,6 +762,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_cuartos4 = new javax.swing.JFormattedTextField();
         golesField2_cuartos4 = new javax.swing.JFormattedTextField();
         guionCuartos4 = new javax.swing.JLabel();
+        guardarBtnCuartos = new javax.swing.JButton();
         panelSemifinales = new javax.swing.JPanel();
         jScrollPaneSemifinales = new javax.swing.JScrollPane();
         panelInteriorSemifinales = new javax.swing.JPanel();
@@ -774,6 +784,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_semifinales2 = new javax.swing.JFormattedTextField();
         golesField2_semifinales2 = new javax.swing.JFormattedTextField();
         guionSemifinales2 = new javax.swing.JLabel();
+        guardarBtnSemifinales = new javax.swing.JButton();
         panelTercerPuesto = new javax.swing.JPanel();
         jScrollPaneTercerPuesto = new javax.swing.JScrollPane();
         panelInteriorTercerPuesto = new javax.swing.JPanel();
@@ -786,6 +797,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_tercerPuesto1 = new javax.swing.JFormattedTextField();
         golesField2_tercerPuesto1 = new javax.swing.JFormattedTextField();
         guionTercerPuesto1 = new javax.swing.JLabel();
+        guardarBtnTercerPuesto = new javax.swing.JButton();
         panelFinal = new javax.swing.JPanel();
         jScrollPaneFinal = new javax.swing.JScrollPane();
         panelInteriorFinal = new javax.swing.JPanel();
@@ -798,6 +810,7 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_final1 = new javax.swing.JFormattedTextField();
         golesField2_final1 = new javax.swing.JFormattedTextField();
         guionFinal1 = new javax.swing.JLabel();
+        guardarBtnFinal = new javax.swing.JButton();
         panelHeader = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         labelSubtitulo = new javax.swing.JLabel();
@@ -4384,7 +4397,11 @@ public class Ventana extends javax.swing.JFrame {
 
         tabbedPane.addTab("H", panelGrupoH);
 
+        panelOctavos.setMinimumSize(new java.awt.Dimension(770, 472));
+        panelOctavos.setPreferredSize(new java.awt.Dimension(770, 472));
         panelOctavos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPaneOctavos.setPreferredSize(new java.awt.Dimension(742, 562));
 
         panelInteriorOctavos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -4730,6 +4747,10 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos5.setText("-");
 
+        label1roE.setText("1ro E");
+
+        label2doF.setText("2do F");
+
         javax.swing.GroupLayout panelOctavosFila5Layout = new javax.swing.GroupLayout(panelOctavosFila5);
         panelOctavosFila5.setLayout(panelOctavosFila5Layout);
         panelOctavosFila5Layout.setHorizontalGroup(
@@ -4743,6 +4764,8 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNombreEstadioOctavos5))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila5Layout.createSequentialGroup()
+                        .addComponent(label1roE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4751,7 +4774,9 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEquipoVisitanteOctavos5)))
+                        .addComponent(lblEquipoVisitanteOctavos5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label2doF)))
                 .addContainerGap())
         );
         panelOctavosFila5Layout.setVerticalGroup(
@@ -4770,7 +4795,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos5)
                             .addComponent(golesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos5))))
+                            .addComponent(guionOctavos5)
+                            .addComponent(label1roE)
+                            .addComponent(label2doF))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4800,6 +4827,10 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos6.setText("-");
 
+        label1roG.setText("1ro G");
+
+        label2doH.setText("2do H");
+
         javax.swing.GroupLayout panelOctavosFila6Layout = new javax.swing.GroupLayout(panelOctavosFila6);
         panelOctavosFila6.setLayout(panelOctavosFila6Layout);
         panelOctavosFila6Layout.setHorizontalGroup(
@@ -4813,6 +4844,8 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNombreEstadioOctavos6))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila6Layout.createSequentialGroup()
+                        .addComponent(label1roG)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4821,7 +4854,9 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEquipoVisitanteOctavos6)))
+                        .addComponent(lblEquipoVisitanteOctavos6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label2doH)))
                 .addContainerGap())
         );
         panelOctavosFila6Layout.setVerticalGroup(
@@ -4840,7 +4875,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos6)
                             .addComponent(golesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos6))))
+                            .addComponent(guionOctavos6)
+                            .addComponent(label1roG)
+                            .addComponent(label2doH))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4870,6 +4907,10 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos7.setText("-");
 
+        label1roF.setText("1ro F");
+
+        label2doE.setText("2do E");
+
         javax.swing.GroupLayout panelOctavosFila7Layout = new javax.swing.GroupLayout(panelOctavosFila7);
         panelOctavosFila7.setLayout(panelOctavosFila7Layout);
         panelOctavosFila7Layout.setHorizontalGroup(
@@ -4883,6 +4924,8 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNombreEstadioOctavos7))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila7Layout.createSequentialGroup()
+                        .addComponent(label1roF)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4891,7 +4934,9 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEquipoVisitanteOctavos7)))
+                        .addComponent(lblEquipoVisitanteOctavos7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label2doE)))
                 .addContainerGap())
         );
         panelOctavosFila7Layout.setVerticalGroup(
@@ -4910,7 +4955,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos7)
                             .addComponent(golesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos7))))
+                            .addComponent(guionOctavos7)
+                            .addComponent(label1roF)
+                            .addComponent(label2doE))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4940,6 +4987,10 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos8.setText("-");
 
+        label1roH.setText("1ro H");
+
+        label2doG.setText("2do G");
+
         javax.swing.GroupLayout panelOctavosFila8Layout = new javax.swing.GroupLayout(panelOctavosFila8);
         panelOctavosFila8.setLayout(panelOctavosFila8Layout);
         panelOctavosFila8Layout.setHorizontalGroup(
@@ -4953,6 +5004,8 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNombreEstadioOctavos8))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila8Layout.createSequentialGroup()
+                        .addComponent(label1roH)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4961,7 +5014,9 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEquipoVisitanteOctavos8)))
+                        .addComponent(lblEquipoVisitanteOctavos8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label2doG)))
                 .addContainerGap())
         );
         panelOctavosFila8Layout.setVerticalGroup(
@@ -4980,7 +5035,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos8)
                             .addComponent(golesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos8))))
+                            .addComponent(guionOctavos8)
+                            .addComponent(label1roH)
+                            .addComponent(label2doG))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4991,6 +5048,14 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPaneOctavos.setViewportView(panelInteriorOctavos);
 
         panelOctavos.add(jScrollPaneOctavos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
+
+        guardarBtnOctavos.setText("Guardar");
+        guardarBtnOctavos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnOctavosActionPerformed(evt);
+            }
+        });
+        panelOctavos.add(guardarBtnOctavos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, -1, -1));
 
         tabbedPane.addTab("OCTAVOS", panelOctavos);
 
@@ -5282,6 +5347,14 @@ public class Ventana extends javax.swing.JFrame {
 
         panelCuartos.add(jScrollPaneCuartos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
 
+        guardarBtnCuartos.setText("Guardar");
+        guardarBtnCuartos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnCuartosActionPerformed(evt);
+            }
+        });
+        panelCuartos.add(guardarBtnCuartos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, -1, -1));
+
         tabbedPane.addTab("CUARTOS", panelCuartos);
 
         panelSemifinales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -5432,6 +5505,14 @@ public class Ventana extends javax.swing.JFrame {
 
         panelSemifinales.add(jScrollPaneSemifinales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
 
+        guardarBtnSemifinales.setText("Guardar");
+        guardarBtnSemifinales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnSemifinalesActionPerformed(evt);
+            }
+        });
+        panelSemifinales.add(guardarBtnSemifinales, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, -1, -1));
+
         tabbedPane.addTab("SEMIFINALES", panelSemifinales);
 
         panelTercerPuesto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -5511,6 +5592,14 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPaneTercerPuesto.setViewportView(panelInteriorTercerPuesto);
 
         panelTercerPuesto.add(jScrollPaneTercerPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
+
+        guardarBtnTercerPuesto.setText("Guardar");
+        guardarBtnTercerPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnTercerPuestoActionPerformed(evt);
+            }
+        });
+        panelTercerPuesto.add(guardarBtnTercerPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, -1, -1));
 
         tabbedPane.addTab("3er PUESTO", panelTercerPuesto);
 
@@ -5592,19 +5681,27 @@ public class Ventana extends javax.swing.JFrame {
 
         panelFinal.add(jScrollPaneFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
 
+        guardarBtnFinal.setText("Guardar");
+        guardarBtnFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBtnFinalActionPerformed(evt);
+            }
+        });
+        panelFinal.add(guardarBtnFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, -1, -1));
+
         tabbedPane.addTab("FINAL", panelFinal);
 
         javax.swing.GroupLayout panelBodyLayout = new javax.swing.GroupLayout(panelBody);
         panelBody.setLayout(panelBodyLayout);
         panelBodyLayout.setHorizontalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBodyLayout.createSequentialGroup()
-                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 505, Short.MAX_VALUE))
+            .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panelBodyLayout.setVerticalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelBodyLayout.createSequentialGroup()
+                .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabbedPane.getAccessibleContext().setAccessibleName("tabB");
@@ -5656,18 +5753,15 @@ public class Ventana extends javax.swing.JFrame {
         panelMain.setLayout(panelMainLayout);
         panelMainLayout.setHorizontalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMainLayout.createSequentialGroup()
-                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelBody, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panelBody, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelBody, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -5676,14 +5770,14 @@ public class Ventana extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 780, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -5780,6 +5874,26 @@ public class Ventana extends javax.swing.JFrame {
         Grupo grupo = grupoRepository.get('h');
         crearYCompletarTablaDePosiciones(grupo);
     }//GEN-LAST:event_btnVerTablaDePoscionesHActionPerformed
+
+    private void guardarBtnOctavosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnOctavosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarBtnOctavosActionPerformed
+
+    private void guardarBtnCuartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnCuartosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarBtnCuartosActionPerformed
+
+    private void guardarBtnSemifinalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnSemifinalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarBtnSemifinalesActionPerformed
+
+    private void guardarBtnTercerPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnTercerPuestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarBtnTercerPuestoActionPerformed
+
+    private void guardarBtnFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnFinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarBtnFinalActionPerformed
 
     private void crearYCompletarTablaDePosiciones(Grupo grupo) {
         ventanaTablaDePosiciones = new TablaDePosiciones((grupo));
@@ -6126,11 +6240,16 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton guardarBtnA;
     private javax.swing.JButton guardarBtnB;
     private javax.swing.JButton guardarBtnC;
+    private javax.swing.JButton guardarBtnCuartos;
     private javax.swing.JButton guardarBtnD;
     private javax.swing.JButton guardarBtnE;
     private javax.swing.JButton guardarBtnF;
+    private javax.swing.JButton guardarBtnFinal;
     private javax.swing.JButton guardarBtnG;
     private javax.swing.JButton guardarBtnH;
+    private javax.swing.JButton guardarBtnOctavos;
+    private javax.swing.JButton guardarBtnSemifinales;
+    private javax.swing.JButton guardarBtnTercerPuesto;
     private javax.swing.JLabel guionA1;
     private javax.swing.JLabel guionA2;
     private javax.swing.JLabel guionA3;
@@ -6276,10 +6395,18 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel label1roB;
     private javax.swing.JLabel label1roC;
     private javax.swing.JLabel label1roD;
+    private javax.swing.JLabel label1roE;
+    private javax.swing.JLabel label1roF;
+    private javax.swing.JLabel label1roG;
+    private javax.swing.JLabel label1roH;
     private javax.swing.JLabel label2doA;
     private javax.swing.JLabel label2doB;
     private javax.swing.JLabel label2doC;
     private javax.swing.JLabel label2doD;
+    private javax.swing.JLabel label2doE;
+    private javax.swing.JLabel label2doF;
+    private javax.swing.JLabel label2doG;
+    private javax.swing.JLabel label2doH;
     private javax.swing.JLabel labelLogo1;
     private javax.swing.JLabel labelSubtitulo;
     private javax.swing.JLabel labelTitulo;
