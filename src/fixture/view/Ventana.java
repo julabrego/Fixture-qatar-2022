@@ -643,6 +643,8 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos1 = new javax.swing.JFormattedTextField();
         golesField2_Octavos1 = new javax.swing.JFormattedTextField();
         guionOctavos1 = new javax.swing.JLabel();
+        label1roA = new javax.swing.JLabel();
+        label2doB = new javax.swing.JLabel();
         panelOctavosFila2 = new javax.swing.JPanel();
         lblFechaPartidoOctavos2 = new javax.swing.JLabel();
         lblEquipoLocalOctavos2 = new javax.swing.JLabel();
@@ -652,6 +654,8 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos2 = new javax.swing.JFormattedTextField();
         golesField2_Octavos2 = new javax.swing.JFormattedTextField();
         guionOctavos2 = new javax.swing.JLabel();
+        label1roC = new javax.swing.JLabel();
+        label2doD = new javax.swing.JLabel();
         panelOctavosFila3 = new javax.swing.JPanel();
         lblFechaPartidoOctavos3 = new javax.swing.JLabel();
         lblEquipoLocalOctavos3 = new javax.swing.JLabel();
@@ -661,6 +665,8 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos3 = new javax.swing.JFormattedTextField();
         golesField2_Octavos3 = new javax.swing.JFormattedTextField();
         guionOctavos3 = new javax.swing.JLabel();
+        label1roB = new javax.swing.JLabel();
+        label2doA = new javax.swing.JLabel();
         panelOctavosFila4 = new javax.swing.JPanel();
         lblFechaPartidoOctavos4 = new javax.swing.JLabel();
         lblEquipoLocalOctavos4 = new javax.swing.JLabel();
@@ -670,6 +676,8 @@ public class Ventana extends javax.swing.JFrame {
         golesField1_Octavos4 = new javax.swing.JFormattedTextField();
         golesField2_Octavos4 = new javax.swing.JFormattedTextField();
         guionOctavos4 = new javax.swing.JLabel();
+        label1roD = new javax.swing.JLabel();
+        label2doC = new javax.swing.JLabel();
         panelOctavosFila5 = new javax.swing.JPanel();
         lblFechaPartidoOctavos5 = new javax.swing.JLabel();
         lblEquipoLocalOctavos5 = new javax.swing.JLabel();
@@ -4402,6 +4410,10 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos1.setText("-");
 
+        label1roA.setText("1ro A");
+
+        label2doB.setText("2do B");
+
         javax.swing.GroupLayout panelOctavosFila1Layout = new javax.swing.GroupLayout(panelOctavosFila1);
         panelOctavosFila1.setLayout(panelOctavosFila1Layout);
         panelOctavosFila1Layout.setHorizontalGroup(
@@ -4415,15 +4427,19 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNombreEstadioOctavos1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila1Layout.createSequentialGroup()
+                        .addComponent(label1roA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guionOctavos1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label2doB)
                 .addContainerGap())
         );
         panelOctavosFila1Layout.setVerticalGroup(
@@ -4442,7 +4458,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos1)
                             .addComponent(golesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos1))))
+                            .addComponent(guionOctavos1)
+                            .addComponent(label1roA)
+                            .addComponent(label2doB))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4472,12 +4490,18 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos2.setText("-");
 
+        label1roC.setText("1ro C");
+
+        label2doD.setText("2do D");
+
         javax.swing.GroupLayout panelOctavosFila2Layout = new javax.swing.GroupLayout(panelOctavosFila2);
         panelOctavosFila2.setLayout(panelOctavosFila2Layout);
         panelOctavosFila2Layout.setHorizontalGroup(
             panelOctavosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOctavosFila2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(label1roC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelOctavosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparatorOctavos2)
                     .addGroup(panelOctavosFila2Layout.createSequentialGroup()
@@ -4489,11 +4513,13 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guionOctavos2, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label2doD)
                 .addContainerGap())
         );
         panelOctavosFila2Layout.setVerticalGroup(
@@ -4512,7 +4538,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos2)
                             .addComponent(golesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos2))))
+                            .addComponent(guionOctavos2)
+                            .addComponent(label1roC)
+                            .addComponent(label2doD))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4542,6 +4570,10 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos3.setText("-");
 
+        label1roB.setText("1ro B");
+
+        label2doA.setText("2do A");
+
         javax.swing.GroupLayout panelOctavosFila3Layout = new javax.swing.GroupLayout(panelOctavosFila3);
         panelOctavosFila3.setLayout(panelOctavosFila3Layout);
         panelOctavosFila3Layout.setHorizontalGroup(
@@ -4555,15 +4587,19 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNombreEstadioOctavos3))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila3Layout.createSequentialGroup()
+                        .addComponent(label1roB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guionOctavos3, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEquipoVisitanteOctavos3)))
+                        .addComponent(lblEquipoVisitanteOctavos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label2doA)))
                 .addContainerGap())
         );
         panelOctavosFila3Layout.setVerticalGroup(
@@ -4582,7 +4618,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos3)
                             .addComponent(golesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos3))))
+                            .addComponent(guionOctavos3)
+                            .addComponent(label1roB)
+                            .addComponent(label2doA))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4612,6 +4650,10 @@ public class Ventana extends javax.swing.JFrame {
         guionOctavos4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionOctavos4.setText("-");
 
+        label1roD.setText("1ro D");
+
+        label2doC.setText("2do C");
+
         javax.swing.GroupLayout panelOctavosFila4Layout = new javax.swing.GroupLayout(panelOctavosFila4);
         panelOctavosFila4.setLayout(panelOctavosFila4Layout);
         panelOctavosFila4Layout.setHorizontalGroup(
@@ -4625,15 +4667,19 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblNombreEstadioOctavos4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila4Layout.createSequentialGroup()
+                        .addComponent(label1roD)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(golesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guionOctavos4, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblEquipoVisitanteOctavos4)))
+                        .addComponent(lblEquipoVisitanteOctavos4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label2doC)))
                 .addContainerGap())
         );
         panelOctavosFila4Layout.setVerticalGroup(
@@ -4652,7 +4698,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalOctavos4)
                             .addComponent(golesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionOctavos4))))
+                            .addComponent(guionOctavos4)
+                            .addComponent(label1roD)
+                            .addComponent(label2doC))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -6224,6 +6272,14 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorSemifinales1;
     private javax.swing.JSeparator jSeparatorSemifinales2;
     private javax.swing.JSeparator jSeparatorTercerPuesto1;
+    private javax.swing.JLabel label1roA;
+    private javax.swing.JLabel label1roB;
+    private javax.swing.JLabel label1roC;
+    private javax.swing.JLabel label1roD;
+    private javax.swing.JLabel label2doA;
+    private javax.swing.JLabel label2doB;
+    private javax.swing.JLabel label2doC;
+    private javax.swing.JLabel label2doD;
     private javax.swing.JLabel labelLogo1;
     private javax.swing.JLabel labelSubtitulo;
     private javax.swing.JLabel labelTitulo;

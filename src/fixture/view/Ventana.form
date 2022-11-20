@@ -6551,18 +6551,22 @@
                                                   <Component id="lblNombreEstadioOctavos1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="label1roA" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="golesField1_Octavos1" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos1" max="32767" attributes="0"/>
+                                                  <Component id="guionOctavos1" pref="114" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="golesField2_Octavos1" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="label2doB" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -6584,6 +6588,8 @@
                                                       <Component id="golesField1_Octavos1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_Octavos1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionOctavos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label1roA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label2doB" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -6652,6 +6658,16 @@
                                     <Property name="text" type="java.lang.String" value="-"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JLabel" name="label1roA">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="1ro A"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="label2doB">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="2do B"/>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila2">
@@ -6665,7 +6681,9 @@
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="label1roC" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jSeparatorOctavos2" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
@@ -6678,14 +6696,16 @@
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="golesField1_Octavos2" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos2" max="32767" attributes="0"/>
+                                                  <Component id="guionOctavos2" pref="114" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="golesField2_Octavos2" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos2" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="label2doD" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -6707,6 +6727,8 @@
                                                       <Component id="golesField1_Octavos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_Octavos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionOctavos2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label1roC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label2doD" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -6775,6 +6797,16 @@
                                     <Property name="text" type="java.lang.String" value="-"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JLabel" name="label1roC">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="1ro C"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="label2doD">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="2do D"/>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila3">
@@ -6797,15 +6829,19 @@
                                                   <Component id="lblNombreEstadioOctavos3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="label1roB" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos3" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="golesField1_Octavos3" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos3" max="32767" attributes="0"/>
+                                                  <Component id="guionOctavos3" pref="114" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="golesField2_Octavos3" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos3" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="label2doA" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -6830,6 +6866,8 @@
                                                       <Component id="golesField1_Octavos3" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_Octavos3" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionOctavos3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label1roB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label2doA" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -6898,6 +6936,16 @@
                                     <Property name="text" type="java.lang.String" value="-"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JLabel" name="label1roB">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="1ro B"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="label2doA">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="2do A"/>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila4">
@@ -6920,15 +6968,19 @@
                                                   <Component id="lblNombreEstadioOctavos4" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="label1roD" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos4" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="golesField1_Octavos4" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos4" max="32767" attributes="0"/>
+                                                  <Component id="guionOctavos4" pref="114" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="golesField2_Octavos4" min="-2" pref="94" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos4" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="label2doC" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -6953,6 +7005,8 @@
                                                       <Component id="golesField1_Octavos4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_Octavos4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionOctavos4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label1roD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="label2doC" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7019,6 +7073,16 @@
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
                                     <Property name="text" type="java.lang.String" value="-"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="label1roD">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="1ro D"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="label2doC">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="2do C"/>
                                   </Properties>
                                 </Component>
                               </SubComponents>
