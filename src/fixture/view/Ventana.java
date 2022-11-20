@@ -82,6 +82,31 @@ public class Ventana extends javax.swing.JFrame {
     private JFormattedTextField[] golesLocalGrupoH = new JFormattedTextField[6];
     private JFormattedTextField[] golesVisitantesGrupoH = new JFormattedTextField[6];
 
+    // Preparo arreglos para leer los campos de octavos
+    private ArrayList<Integer> idsPartidosOctavos = new ArrayList<Integer>();
+    private JFormattedTextField[] golesLocalOctavos = new JFormattedTextField[8];
+    private JFormattedTextField[] golesVisitantesOctavos = new JFormattedTextField[8];
+
+    // Preparo arreglos para leer los campos de cuartos
+    private ArrayList<Integer> idsPartidosCuartos = new ArrayList<Integer>();
+    private JFormattedTextField[] golesLocalCuartos = new JFormattedTextField[4];
+    private JFormattedTextField[] golesVisitantesCuartos = new JFormattedTextField[4];
+
+    // Preparo arreglos para leer los campos de semifinales
+    private ArrayList<Integer> idsPartidosSemifinales = new ArrayList<Integer>();
+    private JFormattedTextField[] golesLocalSemifinales = new JFormattedTextField[2];
+    private JFormattedTextField[] golesVisitantesSemifinales = new JFormattedTextField[2];
+
+    // Preparo arreglos para leer los campos de tercer puesto
+    private ArrayList<Integer> idsPartidosTercerPuesto = new ArrayList<Integer>();
+    private JFormattedTextField[] golesLocalTercerPuesto = new JFormattedTextField[1];
+    private JFormattedTextField[] golesVisitantesTercerPuesto = new JFormattedTextField[1];
+
+    // Preparo arreglos para leer los campos de final
+    private ArrayList<Integer> idsPartidosFinal = new ArrayList<Integer>();
+    private JFormattedTextField[] golesLocalFinal = new JFormattedTextField[1];
+    private JFormattedTextField[] golesVisitantesFinal = new JFormattedTextField[1];
+
     private HashMap<Character, IdsPartidosConResultados> lectorDeDatosDePartidos = new HashMap();
 
     // Defino la variable que va a contener las tablas de posiciones
@@ -110,6 +135,16 @@ public class Ventana extends javax.swing.JFrame {
         loadPartidosGrupoG();
 
         loadPartidosGrupoH();
+
+        loadPartidosOctavos();
+
+        loadPartidosCuartos();
+
+        loadPartidosSemifinales();
+
+        loadPartidosTercerPuesto();
+
+        loadPartidosFinal();
     }
 
     /**
@@ -597,10 +632,164 @@ public class Ventana extends javax.swing.JFrame {
         guardarBtnH = new javax.swing.JButton();
         btnVerTablaDePoscionesH = new javax.swing.JButton();
         panelOctavos = new javax.swing.JPanel();
+        jScrollPaneOctavos = new javax.swing.JScrollPane();
+        panelInteriorOctavos = new javax.swing.JPanel();
+        panelOctavosFila1 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos1 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos1 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos1 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos1 = new javax.swing.JLabel();
+        jSeparatorOctavos1 = new javax.swing.JSeparator();
+        golesField1_Octavos1 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos1 = new javax.swing.JFormattedTextField();
+        guionOctavos1 = new javax.swing.JLabel();
+        panelOctavosFila2 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos2 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos2 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos2 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos2 = new javax.swing.JLabel();
+        jSeparatorOctavos2 = new javax.swing.JSeparator();
+        golesField1_Octavos2 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos2 = new javax.swing.JFormattedTextField();
+        guionOctavos2 = new javax.swing.JLabel();
+        panelOctavosFila3 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos3 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos3 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos3 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos3 = new javax.swing.JLabel();
+        jSeparatorOctavos3 = new javax.swing.JSeparator();
+        golesField1_Octavos3 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos3 = new javax.swing.JFormattedTextField();
+        guionOctavos3 = new javax.swing.JLabel();
+        panelOctavosFila4 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos4 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos4 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos4 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos4 = new javax.swing.JLabel();
+        jSeparatorOctavos4 = new javax.swing.JSeparator();
+        golesField1_Octavos4 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos4 = new javax.swing.JFormattedTextField();
+        guionOctavos4 = new javax.swing.JLabel();
+        panelOctavosFila5 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos5 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos5 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos5 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos5 = new javax.swing.JLabel();
+        jSeparatorOctavos5 = new javax.swing.JSeparator();
+        golesField1_Octavos5 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos5 = new javax.swing.JFormattedTextField();
+        guionOctavos5 = new javax.swing.JLabel();
+        panelOctavosFila6 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos6 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos6 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos6 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos6 = new javax.swing.JLabel();
+        jSeparatorOctavos6 = new javax.swing.JSeparator();
+        golesField1_Octavos6 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos6 = new javax.swing.JFormattedTextField();
+        guionOctavos6 = new javax.swing.JLabel();
+        panelOctavosFila7 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos7 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos7 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos7 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos7 = new javax.swing.JLabel();
+        jSeparatorOctavos7 = new javax.swing.JSeparator();
+        golesField1_Octavos7 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos7 = new javax.swing.JFormattedTextField();
+        guionOctavos7 = new javax.swing.JLabel();
+        panelOctavosFila8 = new javax.swing.JPanel();
+        lblFechaPartidoOctavos8 = new javax.swing.JLabel();
+        lblEquipoLocalOctavos8 = new javax.swing.JLabel();
+        lblEquipoVisitanteOctavos8 = new javax.swing.JLabel();
+        lblNombreEstadioOctavos8 = new javax.swing.JLabel();
+        jSeparatorOctavos8 = new javax.swing.JSeparator();
+        golesField1_Octavos8 = new javax.swing.JFormattedTextField();
+        golesField2_Octavos8 = new javax.swing.JFormattedTextField();
+        guionOctavos8 = new javax.swing.JLabel();
         panelCuartos = new javax.swing.JPanel();
+        jScrollPaneCuartos = new javax.swing.JScrollPane();
+        panelInteriorCuartos = new javax.swing.JPanel();
+        panelCuartosFila1 = new javax.swing.JPanel();
+        lblFechaPartidoCuartos1 = new javax.swing.JLabel();
+        lblEquipoLocalCuartos1 = new javax.swing.JLabel();
+        lblEquipoVisitanteCuartos1 = new javax.swing.JLabel();
+        lblNombreEstadioCuartos1 = new javax.swing.JLabel();
+        jSeparatorCuartos1 = new javax.swing.JSeparator();
+        golesField1_cuartos1 = new javax.swing.JFormattedTextField();
+        golesField2_cuartos1 = new javax.swing.JFormattedTextField();
+        guionCuartos1 = new javax.swing.JLabel();
+        panelCuartosFila2 = new javax.swing.JPanel();
+        lblFechaPartidoCuartos2 = new javax.swing.JLabel();
+        lblEquipoLocalCuartos2 = new javax.swing.JLabel();
+        lblEquipoVisitanteCuartos2 = new javax.swing.JLabel();
+        lblNombreEstadioCuartos2 = new javax.swing.JLabel();
+        jSeparatorCuartos2 = new javax.swing.JSeparator();
+        golesField1_cuartos2 = new javax.swing.JFormattedTextField();
+        golesField2_cuartos2 = new javax.swing.JFormattedTextField();
+        guionCuartos2 = new javax.swing.JLabel();
+        panelCuartosFila3 = new javax.swing.JPanel();
+        lblFechaPartidoCuartos3 = new javax.swing.JLabel();
+        lblEquipoLocalCuartos3 = new javax.swing.JLabel();
+        lblEquipoVisitanteCuartos3 = new javax.swing.JLabel();
+        lblNombreEstadioCuartos3 = new javax.swing.JLabel();
+        jSeparatorCuartos3 = new javax.swing.JSeparator();
+        golesField1_cuartos3 = new javax.swing.JFormattedTextField();
+        golesField2_cuartos3 = new javax.swing.JFormattedTextField();
+        guionCuartos3 = new javax.swing.JLabel();
+        panelCuartosFila4 = new javax.swing.JPanel();
+        lblFechaPartidoCuartos4 = new javax.swing.JLabel();
+        lblEquipoLocalCuartos4 = new javax.swing.JLabel();
+        lblEquipoVisitanteCuartos4 = new javax.swing.JLabel();
+        lblNombreEstadioCuartos4 = new javax.swing.JLabel();
+        jSeparatorCuartos4 = new javax.swing.JSeparator();
+        golesField1_cuartos4 = new javax.swing.JFormattedTextField();
+        golesField2_cuartos4 = new javax.swing.JFormattedTextField();
+        guionCuartos4 = new javax.swing.JLabel();
         panelSemifinales = new javax.swing.JPanel();
+        jScrollPaneSemifinales = new javax.swing.JScrollPane();
+        panelInteriorSemifinales = new javax.swing.JPanel();
+        panelSemifinalesFila1 = new javax.swing.JPanel();
+        lblFechaPartidoSemifinales1 = new javax.swing.JLabel();
+        lblEquipoLocalSemifinales1 = new javax.swing.JLabel();
+        lblEquipoVisitanteSemifinales1 = new javax.swing.JLabel();
+        lblNombreEstadioSemifinales1 = new javax.swing.JLabel();
+        jSeparatorSemifinales1 = new javax.swing.JSeparator();
+        golesField1_semifinales1 = new javax.swing.JFormattedTextField();
+        golesField2_semifinales1 = new javax.swing.JFormattedTextField();
+        guionSemifinales1 = new javax.swing.JLabel();
+        panelSemifinalesFila2 = new javax.swing.JPanel();
+        lblFechaPartidoSemifinales2 = new javax.swing.JLabel();
+        lblEquipoLocalSemifinales2 = new javax.swing.JLabel();
+        lblEquipoVisitanteSemifinales2 = new javax.swing.JLabel();
+        lblNombreEstadioSemifinales2 = new javax.swing.JLabel();
+        jSeparatorSemifinales2 = new javax.swing.JSeparator();
+        golesField1_semifinales2 = new javax.swing.JFormattedTextField();
+        golesField2_semifinales2 = new javax.swing.JFormattedTextField();
+        guionSemifinales2 = new javax.swing.JLabel();
         panelTercerPuesto = new javax.swing.JPanel();
+        jScrollPaneTercerPuesto = new javax.swing.JScrollPane();
+        panelInteriorTercerPuesto = new javax.swing.JPanel();
+        javax.swing.JPanel panelTercerPuestoFila1 = new javax.swing.JPanel();
+        lblFechaPartidoTercerPuesto1 = new javax.swing.JLabel();
+        lblEquipoLocalTercerPuesto1 = new javax.swing.JLabel();
+        lblEquipoVisitanteTercerPuesto1 = new javax.swing.JLabel();
+        lblNombreEstadioTercerPuesto1 = new javax.swing.JLabel();
+        jSeparatorTercerPuesto1 = new javax.swing.JSeparator();
+        golesField1_tercerPuesto1 = new javax.swing.JFormattedTextField();
+        golesField2_tercerPuesto1 = new javax.swing.JFormattedTextField();
+        guionTercerPuesto1 = new javax.swing.JLabel();
         panelFinal = new javax.swing.JPanel();
+        jScrollPaneFinal = new javax.swing.JScrollPane();
+        panelInteriorFinal = new javax.swing.JPanel();
+        javax.swing.JPanel panelFinalFila1 = new javax.swing.JPanel();
+        lblFechaPartidoFinal1 = new javax.swing.JLabel();
+        lblEquipoLocalFinal1 = new javax.swing.JLabel();
+        lblEquipoVisitanteFinal1 = new javax.swing.JLabel();
+        lblNombreEstadioFinal1 = new javax.swing.JLabel();
+        jSeparatorFinal1 = new javax.swing.JSeparator();
+        golesField1_final1 = new javax.swing.JFormattedTextField();
+        golesField2_final1 = new javax.swing.JFormattedTextField();
+        guionFinal1 = new javax.swing.JLabel();
         panelHeader = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         labelSubtitulo = new javax.swing.JLabel();
@@ -4188,18 +4377,1173 @@ public class Ventana extends javax.swing.JFrame {
         tabbedPane.addTab("H", panelGrupoH);
 
         panelOctavos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelInteriorOctavos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblFechaPartidoOctavos1.setText("FechaPartido");
+
+        lblEquipoLocalOctavos1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos1.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos1.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos1.setText("NombreEstadio");
+
+        golesField1_Octavos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos1.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila1Layout = new javax.swing.GroupLayout(panelOctavosFila1);
+        panelOctavosFila1.setLayout(panelOctavosFila1Layout);
+        panelOctavosFila1Layout.setHorizontalGroup(
+            panelOctavosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos1)
+                    .addGroup(panelOctavosFila1Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila1Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos1)))
+                .addContainerGap())
+        );
+        panelOctavosFila1Layout.setVerticalGroup(
+            panelOctavosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila1Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos1))
+                    .addGroup(panelOctavosFila1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos1)
+                            .addComponent(lblEquipoLocalOctavos1)
+                            .addComponent(golesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos1))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 720, 90));
+
+        lblFechaPartidoOctavos2.setText("FechaPartido");
+
+        lblEquipoLocalOctavos2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos2.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos2.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos2.setText("NombreEstadio");
+
+        golesField1_Octavos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos2.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila2Layout = new javax.swing.GroupLayout(panelOctavosFila2);
+        panelOctavosFila2.setLayout(panelOctavosFila2Layout);
+        panelOctavosFila2Layout.setHorizontalGroup(
+            panelOctavosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos2)
+                    .addGroup(panelOctavosFila2Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila2Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos2)))
+                .addContainerGap())
+        );
+        panelOctavosFila2Layout.setVerticalGroup(
+            panelOctavosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila2Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos2))
+                    .addGroup(panelOctavosFila2Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos2)
+                            .addComponent(lblEquipoLocalOctavos2)
+                            .addComponent(golesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos2))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 720, 90));
+
+        lblFechaPartidoOctavos3.setText("FechaPartido");
+
+        lblEquipoLocalOctavos3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos3.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos3.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos3.setText("NombreEstadio");
+
+        golesField1_Octavos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos3.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila3Layout = new javax.swing.GroupLayout(panelOctavosFila3);
+        panelOctavosFila3.setLayout(panelOctavosFila3Layout);
+        panelOctavosFila3Layout.setHorizontalGroup(
+            panelOctavosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos3)
+                    .addGroup(panelOctavosFila3Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila3Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos3)))
+                .addContainerGap())
+        );
+        panelOctavosFila3Layout.setVerticalGroup(
+            panelOctavosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila3Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos3))
+                    .addGroup(panelOctavosFila3Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos3)
+                            .addComponent(lblEquipoLocalOctavos3)
+                            .addComponent(golesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos3))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 720, 90));
+
+        lblFechaPartidoOctavos4.setText("FechaPartido");
+
+        lblEquipoLocalOctavos4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos4.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos4.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos4.setText("NombreEstadio");
+
+        golesField1_Octavos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos4.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila4Layout = new javax.swing.GroupLayout(panelOctavosFila4);
+        panelOctavosFila4.setLayout(panelOctavosFila4Layout);
+        panelOctavosFila4Layout.setHorizontalGroup(
+            panelOctavosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos4)
+                    .addGroup(panelOctavosFila4Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila4Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos4)))
+                .addContainerGap())
+        );
+        panelOctavosFila4Layout.setVerticalGroup(
+            panelOctavosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila4Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos4))
+                    .addGroup(panelOctavosFila4Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos4)
+                            .addComponent(lblEquipoLocalOctavos4)
+                            .addComponent(golesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos4))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 720, 90));
+
+        lblFechaPartidoOctavos5.setText("FechaPartido");
+
+        lblEquipoLocalOctavos5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos5.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos5.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos5.setText("NombreEstadio");
+
+        golesField1_Octavos5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos5.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila5Layout = new javax.swing.GroupLayout(panelOctavosFila5);
+        panelOctavosFila5.setLayout(panelOctavosFila5Layout);
+        panelOctavosFila5Layout.setHorizontalGroup(
+            panelOctavosFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos5)
+                    .addGroup(panelOctavosFila5Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila5Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos5)))
+                .addContainerGap())
+        );
+        panelOctavosFila5Layout.setVerticalGroup(
+            panelOctavosFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila5Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos5))
+                    .addGroup(panelOctavosFila5Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos5)
+                            .addComponent(lblEquipoLocalOctavos5)
+                            .addComponent(golesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos5))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 720, 90));
+
+        lblFechaPartidoOctavos6.setText("FechaPartido");
+
+        lblEquipoLocalOctavos6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos6.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos6.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos6.setText("NombreEstadio");
+
+        golesField1_Octavos6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos6.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila6Layout = new javax.swing.GroupLayout(panelOctavosFila6);
+        panelOctavosFila6.setLayout(panelOctavosFila6Layout);
+        panelOctavosFila6Layout.setHorizontalGroup(
+            panelOctavosFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos6)
+                    .addGroup(panelOctavosFila6Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila6Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos6)))
+                .addContainerGap())
+        );
+        panelOctavosFila6Layout.setVerticalGroup(
+            panelOctavosFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila6Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos6))
+                    .addGroup(panelOctavosFila6Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos6)
+                            .addComponent(lblEquipoLocalOctavos6)
+                            .addComponent(golesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos6))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 720, 90));
+
+        lblFechaPartidoOctavos7.setText("FechaPartido");
+
+        lblEquipoLocalOctavos7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos7.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos7.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos7.setText("NombreEstadio");
+
+        golesField1_Octavos7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos7.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila7Layout = new javax.swing.GroupLayout(panelOctavosFila7);
+        panelOctavosFila7.setLayout(panelOctavosFila7Layout);
+        panelOctavosFila7Layout.setHorizontalGroup(
+            panelOctavosFila7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos7)
+                    .addGroup(panelOctavosFila7Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila7Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos7)))
+                .addContainerGap())
+        );
+        panelOctavosFila7Layout.setVerticalGroup(
+            panelOctavosFila7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila7Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos7))
+                    .addGroup(panelOctavosFila7Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos7)
+                            .addComponent(lblEquipoLocalOctavos7)
+                            .addComponent(golesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos7))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 720, 90));
+
+        lblFechaPartidoOctavos8.setText("FechaPartido");
+
+        lblEquipoLocalOctavos8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalOctavos8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalOctavos8.setText("Equipo Local");
+
+        lblEquipoVisitanteOctavos8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteOctavos8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteOctavos8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteOctavos8.setText("Equipo Visitante");
+        lblEquipoVisitanteOctavos8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioOctavos8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioOctavos8.setText("NombreEstadio");
+
+        golesField1_Octavos8.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_Octavos8.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionOctavos8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionOctavos8.setText("-");
+
+        javax.swing.GroupLayout panelOctavosFila8Layout = new javax.swing.GroupLayout(panelOctavosFila8);
+        panelOctavosFila8.setLayout(panelOctavosFila8Layout);
+        panelOctavosFila8Layout.setHorizontalGroup(
+            panelOctavosFila8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOctavosFila8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorOctavos8)
+                    .addGroup(panelOctavosFila8Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoOctavos8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioOctavos8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila8Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalOctavos8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionOctavos8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteOctavos8)))
+                .addContainerGap())
+        );
+        panelOctavosFila8Layout.setVerticalGroup(
+            panelOctavosFila8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOctavosFila8Layout.createSequentialGroup()
+                .addGroup(panelOctavosFila8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOctavosFila8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoOctavos8))
+                    .addGroup(panelOctavosFila8Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioOctavos8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelOctavosFila8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteOctavos8)
+                            .addComponent(lblEquipoLocalOctavos8)
+                            .addComponent(golesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionOctavos8))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorOctavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorOctavos.add(panelOctavosFila8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 720, 90));
+
+        jScrollPaneOctavos.setViewportView(panelInteriorOctavos);
+
+        panelOctavos.add(jScrollPaneOctavos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
+
         tabbedPane.addTab("OCTAVOS", panelOctavos);
 
         panelCuartos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelInteriorCuartos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblFechaPartidoCuartos1.setText("FechaPartido");
+
+        lblEquipoLocalCuartos1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalCuartos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalCuartos1.setText("Equipo Local");
+
+        lblEquipoVisitanteCuartos1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteCuartos1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteCuartos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteCuartos1.setText("Equipo Visitante");
+        lblEquipoVisitanteCuartos1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioCuartos1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioCuartos1.setText("NombreEstadio");
+
+        golesField1_cuartos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_cuartos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionCuartos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionCuartos1.setText("-");
+
+        javax.swing.GroupLayout panelCuartosFila1Layout = new javax.swing.GroupLayout(panelCuartosFila1);
+        panelCuartosFila1.setLayout(panelCuartosFila1Layout);
+        panelCuartosFila1Layout.setHorizontalGroup(
+            panelCuartosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuartosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorCuartos1)
+                    .addGroup(panelCuartosFila1Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoCuartos1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioCuartos1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila1Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalCuartos1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionCuartos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteCuartos1)))
+                .addContainerGap())
+        );
+        panelCuartosFila1Layout.setVerticalGroup(
+            panelCuartosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila1Layout.createSequentialGroup()
+                .addGroup(panelCuartosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCuartosFila1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoCuartos1))
+                    .addGroup(panelCuartosFila1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioCuartos1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCuartosFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteCuartos1)
+                            .addComponent(lblEquipoLocalCuartos1)
+                            .addComponent(golesField1_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionCuartos1))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorCuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorCuartos.add(panelCuartosFila1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 720, 90));
+
+        lblFechaPartidoCuartos2.setText("FechaPartido");
+
+        lblEquipoLocalCuartos2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalCuartos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalCuartos2.setText("Equipo Local");
+
+        lblEquipoVisitanteCuartos2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteCuartos2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteCuartos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteCuartos2.setText("Equipo Visitante");
+        lblEquipoVisitanteCuartos2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioCuartos2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioCuartos2.setText("NombreEstadio");
+
+        golesField1_cuartos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_cuartos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionCuartos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionCuartos2.setText("-");
+
+        javax.swing.GroupLayout panelCuartosFila2Layout = new javax.swing.GroupLayout(panelCuartosFila2);
+        panelCuartosFila2.setLayout(panelCuartosFila2Layout);
+        panelCuartosFila2Layout.setHorizontalGroup(
+            panelCuartosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuartosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorCuartos2)
+                    .addGroup(panelCuartosFila2Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoCuartos2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioCuartos2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila2Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalCuartos2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionCuartos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteCuartos2)))
+                .addContainerGap())
+        );
+        panelCuartosFila2Layout.setVerticalGroup(
+            panelCuartosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila2Layout.createSequentialGroup()
+                .addGroup(panelCuartosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCuartosFila2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoCuartos2))
+                    .addGroup(panelCuartosFila2Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioCuartos2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCuartosFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteCuartos2)
+                            .addComponent(lblEquipoLocalCuartos2)
+                            .addComponent(golesField1_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionCuartos2))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorCuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorCuartos.add(panelCuartosFila2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 720, 90));
+
+        lblFechaPartidoCuartos3.setText("FechaPartido");
+
+        lblEquipoLocalCuartos3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalCuartos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalCuartos3.setText("Equipo Local");
+
+        lblEquipoVisitanteCuartos3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteCuartos3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteCuartos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteCuartos3.setText("Equipo Visitante");
+        lblEquipoVisitanteCuartos3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioCuartos3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioCuartos3.setText("NombreEstadio");
+
+        golesField1_cuartos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_cuartos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionCuartos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionCuartos3.setText("-");
+
+        javax.swing.GroupLayout panelCuartosFila3Layout = new javax.swing.GroupLayout(panelCuartosFila3);
+        panelCuartosFila3.setLayout(panelCuartosFila3Layout);
+        panelCuartosFila3Layout.setHorizontalGroup(
+            panelCuartosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuartosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorCuartos3)
+                    .addGroup(panelCuartosFila3Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoCuartos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioCuartos3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila3Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalCuartos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionCuartos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteCuartos3)))
+                .addContainerGap())
+        );
+        panelCuartosFila3Layout.setVerticalGroup(
+            panelCuartosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila3Layout.createSequentialGroup()
+                .addGroup(panelCuartosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCuartosFila3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoCuartos3))
+                    .addGroup(panelCuartosFila3Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioCuartos3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCuartosFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteCuartos3)
+                            .addComponent(lblEquipoLocalCuartos3)
+                            .addComponent(golesField1_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionCuartos3))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorCuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorCuartos.add(panelCuartosFila3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 720, 90));
+
+        lblFechaPartidoCuartos4.setText("FechaPartido");
+
+        lblEquipoLocalCuartos4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalCuartos4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalCuartos4.setText("Equipo Local");
+
+        lblEquipoVisitanteCuartos4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteCuartos4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteCuartos4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteCuartos4.setText("Equipo Visitante");
+        lblEquipoVisitanteCuartos4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioCuartos4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioCuartos4.setText("NombreEstadio");
+
+        golesField1_cuartos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_cuartos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionCuartos4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionCuartos4.setText("-");
+
+        javax.swing.GroupLayout panelCuartosFila4Layout = new javax.swing.GroupLayout(panelCuartosFila4);
+        panelCuartosFila4.setLayout(panelCuartosFila4Layout);
+        panelCuartosFila4Layout.setHorizontalGroup(
+            panelCuartosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuartosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorCuartos4)
+                    .addGroup(panelCuartosFila4Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoCuartos4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioCuartos4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila4Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalCuartos4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionCuartos4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteCuartos4)))
+                .addContainerGap())
+        );
+        panelCuartosFila4Layout.setVerticalGroup(
+            panelCuartosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuartosFila4Layout.createSequentialGroup()
+                .addGroup(panelCuartosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCuartosFila4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoCuartos4))
+                    .addGroup(panelCuartosFila4Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioCuartos4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCuartosFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteCuartos4)
+                            .addComponent(lblEquipoLocalCuartos4)
+                            .addComponent(golesField1_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionCuartos4))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorCuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorCuartos.add(panelCuartosFila4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 720, 90));
+
+        jScrollPaneCuartos.setViewportView(panelInteriorCuartos);
+
+        panelCuartos.add(jScrollPaneCuartos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
+
         tabbedPane.addTab("CUARTOS", panelCuartos);
 
         panelSemifinales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelInteriorSemifinales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblFechaPartidoSemifinales1.setText("FechaPartido");
+
+        lblEquipoLocalSemifinales1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalSemifinales1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalSemifinales1.setText("Equipo Local");
+
+        lblEquipoVisitanteSemifinales1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteSemifinales1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteSemifinales1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteSemifinales1.setText("Equipo Visitante");
+        lblEquipoVisitanteSemifinales1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioSemifinales1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioSemifinales1.setText("NombreEstadio");
+
+        golesField1_semifinales1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_semifinales1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionSemifinales1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionSemifinales1.setText("-");
+
+        javax.swing.GroupLayout panelSemifinalesFila1Layout = new javax.swing.GroupLayout(panelSemifinalesFila1);
+        panelSemifinalesFila1.setLayout(panelSemifinalesFila1Layout);
+        panelSemifinalesFila1Layout.setHorizontalGroup(
+            panelSemifinalesFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSemifinalesFila1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSemifinalesFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorSemifinales1)
+                    .addGroup(panelSemifinalesFila1Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoSemifinales1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioSemifinales1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSemifinalesFila1Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalSemifinales1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionSemifinales1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteSemifinales1)))
+                .addContainerGap())
+        );
+        panelSemifinalesFila1Layout.setVerticalGroup(
+            panelSemifinalesFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSemifinalesFila1Layout.createSequentialGroup()
+                .addGroup(panelSemifinalesFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSemifinalesFila1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoSemifinales1))
+                    .addGroup(panelSemifinalesFila1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioSemifinales1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelSemifinalesFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteSemifinales1)
+                            .addComponent(lblEquipoLocalSemifinales1)
+                            .addComponent(golesField1_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionSemifinales1))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorSemifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorSemifinales.add(panelSemifinalesFila1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 720, 90));
+
+        lblFechaPartidoSemifinales2.setText("FechaPartido");
+
+        lblEquipoLocalSemifinales2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalSemifinales2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalSemifinales2.setText("Equipo Local");
+
+        lblEquipoVisitanteSemifinales2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteSemifinales2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteSemifinales2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteSemifinales2.setText("Equipo Visitante");
+        lblEquipoVisitanteSemifinales2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioSemifinales2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioSemifinales2.setText("NombreEstadio");
+
+        golesField1_semifinales2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_semifinales2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionSemifinales2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionSemifinales2.setText("-");
+
+        javax.swing.GroupLayout panelSemifinalesFila2Layout = new javax.swing.GroupLayout(panelSemifinalesFila2);
+        panelSemifinalesFila2.setLayout(panelSemifinalesFila2Layout);
+        panelSemifinalesFila2Layout.setHorizontalGroup(
+            panelSemifinalesFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSemifinalesFila2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSemifinalesFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorSemifinales2)
+                    .addGroup(panelSemifinalesFila2Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoSemifinales2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioSemifinales2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSemifinalesFila2Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalSemifinales2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionSemifinales2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteSemifinales2)))
+                .addContainerGap())
+        );
+        panelSemifinalesFila2Layout.setVerticalGroup(
+            panelSemifinalesFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSemifinalesFila2Layout.createSequentialGroup()
+                .addGroup(panelSemifinalesFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSemifinalesFila2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoSemifinales2))
+                    .addGroup(panelSemifinalesFila2Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioSemifinales2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelSemifinalesFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteSemifinales2)
+                            .addComponent(lblEquipoLocalSemifinales2)
+                            .addComponent(golesField1_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionSemifinales2))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorSemifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorSemifinales.add(panelSemifinalesFila2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 720, 90));
+
+        jScrollPaneSemifinales.setViewportView(panelInteriorSemifinales);
+
+        panelSemifinales.add(jScrollPaneSemifinales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
+
         tabbedPane.addTab("SEMIFINALES", panelSemifinales);
 
         panelTercerPuesto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelInteriorTercerPuesto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblFechaPartidoTercerPuesto1.setText("FechaPartido");
+
+        lblEquipoLocalTercerPuesto1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalTercerPuesto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalTercerPuesto1.setText("Equipo Local");
+
+        lblEquipoVisitanteTercerPuesto1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteTercerPuesto1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteTercerPuesto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteTercerPuesto1.setText("Equipo Visitante");
+        lblEquipoVisitanteTercerPuesto1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioTercerPuesto1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioTercerPuesto1.setText("NombreEstadio");
+
+        golesField1_tercerPuesto1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_tercerPuesto1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionTercerPuesto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionTercerPuesto1.setText("-");
+
+        javax.swing.GroupLayout panelTercerPuestoFila1Layout = new javax.swing.GroupLayout(panelTercerPuestoFila1);
+        panelTercerPuestoFila1.setLayout(panelTercerPuestoFila1Layout);
+        panelTercerPuestoFila1Layout.setHorizontalGroup(
+            panelTercerPuestoFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTercerPuestoFila1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelTercerPuestoFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorTercerPuesto1)
+                    .addGroup(panelTercerPuestoFila1Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoTercerPuesto1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioTercerPuesto1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTercerPuestoFila1Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalTercerPuesto1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionTercerPuesto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteTercerPuesto1)))
+                .addContainerGap())
+        );
+        panelTercerPuestoFila1Layout.setVerticalGroup(
+            panelTercerPuestoFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTercerPuestoFila1Layout.createSequentialGroup()
+                .addGroup(panelTercerPuestoFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelTercerPuestoFila1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoTercerPuesto1))
+                    .addGroup(panelTercerPuestoFila1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioTercerPuesto1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelTercerPuestoFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteTercerPuesto1)
+                            .addComponent(lblEquipoLocalTercerPuesto1)
+                            .addComponent(golesField1_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionTercerPuesto1))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorTercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorTercerPuesto.add(panelTercerPuestoFila1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 720, 90));
+
+        jScrollPaneTercerPuesto.setViewportView(panelInteriorTercerPuesto);
+
+        panelTercerPuesto.add(jScrollPaneTercerPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
+
         tabbedPane.addTab("3er PUESTO", panelTercerPuesto);
 
         panelFinal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelInteriorFinal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblFechaPartidoFinal1.setText("FechaPartido");
+
+        lblEquipoLocalFinal1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoLocalFinal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoLocalFinal1.setText("Equipo Local");
+
+        lblEquipoVisitanteFinal1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEquipoVisitanteFinal1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEquipoVisitanteFinal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/banderas/placeholder.png"))); // NOI18N
+        lblEquipoVisitanteFinal1.setText("Equipo Visitante");
+        lblEquipoVisitanteFinal1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblNombreEstadioFinal1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblNombreEstadioFinal1.setText("NombreEstadio");
+
+        golesField1_final1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        golesField2_final1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        guionFinal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guionFinal1.setText("-");
+
+        javax.swing.GroupLayout panelFinalFila1Layout = new javax.swing.GroupLayout(panelFinalFila1);
+        panelFinalFila1.setLayout(panelFinalFila1Layout);
+        panelFinalFila1Layout.setHorizontalGroup(
+            panelFinalFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFinalFila1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelFinalFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorFinal1)
+                    .addGroup(panelFinalFila1Layout.createSequentialGroup()
+                        .addComponent(lblFechaPartidoFinal1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombreEstadioFinal1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFinalFila1Layout.createSequentialGroup()
+                        .addComponent(lblEquipoLocalFinal1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(golesField1_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionFinal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesField2_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEquipoVisitanteFinal1)))
+                .addContainerGap())
+        );
+        panelFinalFila1Layout.setVerticalGroup(
+            panelFinalFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFinalFila1Layout.createSequentialGroup()
+                .addGroup(panelFinalFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFinalFila1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblFechaPartidoFinal1))
+                    .addGroup(panelFinalFila1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblNombreEstadioFinal1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelFinalFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEquipoVisitanteFinal1)
+                            .addComponent(lblEquipoLocalFinal1)
+                            .addComponent(golesField1_final1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(golesField2_final1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(guionFinal1))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparatorFinal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelInteriorFinal.add(panelFinalFila1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 720, 90));
+
+        jScrollPaneFinal.setViewportView(panelInteriorFinal);
+
+        panelFinal.add(jScrollPaneFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 770, 420));
+
         tabbedPane.addTab("FINAL", panelFinal);
 
         javax.swing.GroupLayout panelBodyLayout = new javax.swing.GroupLayout(panelBody);
@@ -4389,14 +5733,14 @@ public class Ventana extends javax.swing.JFrame {
         crearYCompletarTablaDePosiciones(grupo);
     }//GEN-LAST:event_btnVerTablaDePoscionesHActionPerformed
 
-        private void crearYCompletarTablaDePosiciones(Grupo grupo) {
+    private void crearYCompletarTablaDePosiciones(Grupo grupo) {
         ventanaTablaDePosiciones = new TablaDePosiciones((grupo));
         ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
         ventanaTablaDePosiciones.setLocationRelativeTo(null);
         ventanaTablaDePosiciones.setVisible(true);
     }
-        
+
     private void leerGolesDeGrupoYGuardarCambios(Grupo grupo) {
         HashSet<Equipo> equiposGrupoActualizados = new HashSet();
 
@@ -4651,6 +5995,22 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField golesField1_H4;
     private javax.swing.JFormattedTextField golesField1_H5;
     private javax.swing.JFormattedTextField golesField1_H6;
+    private javax.swing.JFormattedTextField golesField1_Octavos1;
+    private javax.swing.JFormattedTextField golesField1_Octavos2;
+    private javax.swing.JFormattedTextField golesField1_Octavos3;
+    private javax.swing.JFormattedTextField golesField1_Octavos4;
+    private javax.swing.JFormattedTextField golesField1_Octavos5;
+    private javax.swing.JFormattedTextField golesField1_Octavos6;
+    private javax.swing.JFormattedTextField golesField1_Octavos7;
+    private javax.swing.JFormattedTextField golesField1_Octavos8;
+    private javax.swing.JFormattedTextField golesField1_cuartos1;
+    private javax.swing.JFormattedTextField golesField1_cuartos2;
+    private javax.swing.JFormattedTextField golesField1_cuartos3;
+    private javax.swing.JFormattedTextField golesField1_cuartos4;
+    private javax.swing.JFormattedTextField golesField1_final1;
+    private javax.swing.JFormattedTextField golesField1_semifinales1;
+    private javax.swing.JFormattedTextField golesField1_semifinales2;
+    private javax.swing.JFormattedTextField golesField1_tercerPuesto1;
     private javax.swing.JFormattedTextField golesField2_A1;
     private javax.swing.JFormattedTextField golesField2_A2;
     private javax.swing.JFormattedTextField golesField2_A3;
@@ -4699,6 +6059,22 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField golesField2_H4;
     private javax.swing.JFormattedTextField golesField2_H5;
     private javax.swing.JFormattedTextField golesField2_H6;
+    private javax.swing.JFormattedTextField golesField2_Octavos1;
+    private javax.swing.JFormattedTextField golesField2_Octavos2;
+    private javax.swing.JFormattedTextField golesField2_Octavos3;
+    private javax.swing.JFormattedTextField golesField2_Octavos4;
+    private javax.swing.JFormattedTextField golesField2_Octavos5;
+    private javax.swing.JFormattedTextField golesField2_Octavos6;
+    private javax.swing.JFormattedTextField golesField2_Octavos7;
+    private javax.swing.JFormattedTextField golesField2_Octavos8;
+    private javax.swing.JFormattedTextField golesField2_cuartos1;
+    private javax.swing.JFormattedTextField golesField2_cuartos2;
+    private javax.swing.JFormattedTextField golesField2_cuartos3;
+    private javax.swing.JFormattedTextField golesField2_cuartos4;
+    private javax.swing.JFormattedTextField golesField2_final1;
+    private javax.swing.JFormattedTextField golesField2_semifinales1;
+    private javax.swing.JFormattedTextField golesField2_semifinales2;
+    private javax.swing.JFormattedTextField golesField2_tercerPuesto1;
     private javax.swing.JButton guardarBtnA;
     private javax.swing.JButton guardarBtnB;
     private javax.swing.JButton guardarBtnC;
@@ -4726,6 +6102,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel guionC4;
     private javax.swing.JLabel guionC5;
     private javax.swing.JLabel guionC6;
+    private javax.swing.JLabel guionCuartos1;
+    private javax.swing.JLabel guionCuartos2;
+    private javax.swing.JLabel guionCuartos3;
+    private javax.swing.JLabel guionCuartos4;
     private javax.swing.JLabel guionD1;
     private javax.swing.JLabel guionD2;
     private javax.swing.JLabel guionD3;
@@ -4744,6 +6124,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel guionF4;
     private javax.swing.JLabel guionF5;
     private javax.swing.JLabel guionF6;
+    private javax.swing.JLabel guionFinal1;
     private javax.swing.JLabel guionG1;
     private javax.swing.JLabel guionG2;
     private javax.swing.JLabel guionG3;
@@ -4755,14 +6136,30 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel guionH4;
     private javax.swing.JLabel guionH5;
     private javax.swing.JLabel guionH6;
+    private javax.swing.JLabel guionOctavos1;
+    private javax.swing.JLabel guionOctavos2;
+    private javax.swing.JLabel guionOctavos3;
+    private javax.swing.JLabel guionOctavos4;
+    private javax.swing.JLabel guionOctavos5;
+    private javax.swing.JLabel guionOctavos6;
+    private javax.swing.JLabel guionOctavos7;
+    private javax.swing.JLabel guionOctavos8;
+    private javax.swing.JLabel guionSemifinales1;
+    private javax.swing.JLabel guionSemifinales2;
+    private javax.swing.JLabel guionTercerPuesto1;
     private javax.swing.JScrollPane jScrollPaneA;
     private javax.swing.JScrollPane jScrollPaneB;
     private javax.swing.JScrollPane jScrollPaneC;
+    private javax.swing.JScrollPane jScrollPaneCuartos;
     private javax.swing.JScrollPane jScrollPaneD;
     private javax.swing.JScrollPane jScrollPaneE;
     private javax.swing.JScrollPane jScrollPaneF;
+    private javax.swing.JScrollPane jScrollPaneFinal;
     private javax.swing.JScrollPane jScrollPaneG;
     private javax.swing.JScrollPane jScrollPaneH;
+    private javax.swing.JScrollPane jScrollPaneOctavos;
+    private javax.swing.JScrollPane jScrollPaneSemifinales;
+    private javax.swing.JScrollPane jScrollPaneTercerPuesto;
     private javax.swing.JSeparator jSeparatorA1;
     private javax.swing.JSeparator jSeparatorA2;
     private javax.swing.JSeparator jSeparatorA3;
@@ -4781,6 +6178,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorC4;
     private javax.swing.JSeparator jSeparatorC5;
     private javax.swing.JSeparator jSeparatorC6;
+    private javax.swing.JSeparator jSeparatorCuartos1;
+    private javax.swing.JSeparator jSeparatorCuartos2;
+    private javax.swing.JSeparator jSeparatorCuartos3;
+    private javax.swing.JSeparator jSeparatorCuartos4;
     private javax.swing.JSeparator jSeparatorD1;
     private javax.swing.JSeparator jSeparatorD2;
     private javax.swing.JSeparator jSeparatorD3;
@@ -4799,6 +6200,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorF4;
     private javax.swing.JSeparator jSeparatorF5;
     private javax.swing.JSeparator jSeparatorF6;
+    private javax.swing.JSeparator jSeparatorFinal1;
     private javax.swing.JSeparator jSeparatorG1;
     private javax.swing.JSeparator jSeparatorG2;
     private javax.swing.JSeparator jSeparatorG3;
@@ -4811,6 +6213,17 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorH4;
     private javax.swing.JSeparator jSeparatorH5;
     private javax.swing.JSeparator jSeparatorH6;
+    private javax.swing.JSeparator jSeparatorOctavos1;
+    private javax.swing.JSeparator jSeparatorOctavos2;
+    private javax.swing.JSeparator jSeparatorOctavos3;
+    private javax.swing.JSeparator jSeparatorOctavos4;
+    private javax.swing.JSeparator jSeparatorOctavos5;
+    private javax.swing.JSeparator jSeparatorOctavos6;
+    private javax.swing.JSeparator jSeparatorOctavos7;
+    private javax.swing.JSeparator jSeparatorOctavos8;
+    private javax.swing.JSeparator jSeparatorSemifinales1;
+    private javax.swing.JSeparator jSeparatorSemifinales2;
+    private javax.swing.JSeparator jSeparatorTercerPuesto1;
     private javax.swing.JLabel labelLogo1;
     private javax.swing.JLabel labelSubtitulo;
     private javax.swing.JLabel labelTitulo;
@@ -4832,6 +6245,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblEquipoLocalC4;
     private javax.swing.JLabel lblEquipoLocalC5;
     private javax.swing.JLabel lblEquipoLocalC6;
+    private javax.swing.JLabel lblEquipoLocalCuartos1;
+    private javax.swing.JLabel lblEquipoLocalCuartos2;
+    private javax.swing.JLabel lblEquipoLocalCuartos3;
+    private javax.swing.JLabel lblEquipoLocalCuartos4;
     private javax.swing.JLabel lblEquipoLocalD1;
     private javax.swing.JLabel lblEquipoLocalD2;
     private javax.swing.JLabel lblEquipoLocalD3;
@@ -4850,6 +6267,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblEquipoLocalF4;
     private javax.swing.JLabel lblEquipoLocalF5;
     private javax.swing.JLabel lblEquipoLocalF6;
+    private javax.swing.JLabel lblEquipoLocalFinal1;
     private javax.swing.JLabel lblEquipoLocalG1;
     private javax.swing.JLabel lblEquipoLocalG2;
     private javax.swing.JLabel lblEquipoLocalG3;
@@ -4862,6 +6280,17 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblEquipoLocalH4;
     private javax.swing.JLabel lblEquipoLocalH5;
     private javax.swing.JLabel lblEquipoLocalH6;
+    private javax.swing.JLabel lblEquipoLocalOctavos1;
+    private javax.swing.JLabel lblEquipoLocalOctavos2;
+    private javax.swing.JLabel lblEquipoLocalOctavos3;
+    private javax.swing.JLabel lblEquipoLocalOctavos4;
+    private javax.swing.JLabel lblEquipoLocalOctavos5;
+    private javax.swing.JLabel lblEquipoLocalOctavos6;
+    private javax.swing.JLabel lblEquipoLocalOctavos7;
+    private javax.swing.JLabel lblEquipoLocalOctavos8;
+    private javax.swing.JLabel lblEquipoLocalSemifinales1;
+    private javax.swing.JLabel lblEquipoLocalSemifinales2;
+    private javax.swing.JLabel lblEquipoLocalTercerPuesto1;
     private javax.swing.JLabel lblEquipoVisitanteA1;
     private javax.swing.JLabel lblEquipoVisitanteA2;
     private javax.swing.JLabel lblEquipoVisitanteA3;
@@ -4880,6 +6309,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblEquipoVisitanteC4;
     private javax.swing.JLabel lblEquipoVisitanteC5;
     private javax.swing.JLabel lblEquipoVisitanteC6;
+    private javax.swing.JLabel lblEquipoVisitanteCuartos1;
+    private javax.swing.JLabel lblEquipoVisitanteCuartos2;
+    private javax.swing.JLabel lblEquipoVisitanteCuartos3;
+    private javax.swing.JLabel lblEquipoVisitanteCuartos4;
     private javax.swing.JLabel lblEquipoVisitanteD1;
     private javax.swing.JLabel lblEquipoVisitanteD2;
     private javax.swing.JLabel lblEquipoVisitanteD3;
@@ -4898,6 +6331,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblEquipoVisitanteF4;
     private javax.swing.JLabel lblEquipoVisitanteF5;
     private javax.swing.JLabel lblEquipoVisitanteF6;
+    private javax.swing.JLabel lblEquipoVisitanteFinal1;
     private javax.swing.JLabel lblEquipoVisitanteG1;
     private javax.swing.JLabel lblEquipoVisitanteG2;
     private javax.swing.JLabel lblEquipoVisitanteG3;
@@ -4910,6 +6344,17 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblEquipoVisitanteH4;
     private javax.swing.JLabel lblEquipoVisitanteH5;
     private javax.swing.JLabel lblEquipoVisitanteH6;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos1;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos2;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos3;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos4;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos5;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos6;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos7;
+    private javax.swing.JLabel lblEquipoVisitanteOctavos8;
+    private javax.swing.JLabel lblEquipoVisitanteSemifinales1;
+    private javax.swing.JLabel lblEquipoVisitanteSemifinales2;
+    private javax.swing.JLabel lblEquipoVisitanteTercerPuesto1;
     private javax.swing.JLabel lblFechaPartidoA1;
     private javax.swing.JLabel lblFechaPartidoA2;
     private javax.swing.JLabel lblFechaPartidoA3;
@@ -4928,6 +6373,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblFechaPartidoC4;
     private javax.swing.JLabel lblFechaPartidoC5;
     private javax.swing.JLabel lblFechaPartidoC6;
+    private javax.swing.JLabel lblFechaPartidoCuartos1;
+    private javax.swing.JLabel lblFechaPartidoCuartos2;
+    private javax.swing.JLabel lblFechaPartidoCuartos3;
+    private javax.swing.JLabel lblFechaPartidoCuartos4;
     private javax.swing.JLabel lblFechaPartidoD1;
     private javax.swing.JLabel lblFechaPartidoD2;
     private javax.swing.JLabel lblFechaPartidoD3;
@@ -4946,6 +6395,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblFechaPartidoF4;
     private javax.swing.JLabel lblFechaPartidoF5;
     private javax.swing.JLabel lblFechaPartidoF6;
+    private javax.swing.JLabel lblFechaPartidoFinal1;
     private javax.swing.JLabel lblFechaPartidoG1;
     private javax.swing.JLabel lblFechaPartidoG2;
     private javax.swing.JLabel lblFechaPartidoG3;
@@ -4958,6 +6408,17 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblFechaPartidoH4;
     private javax.swing.JLabel lblFechaPartidoH5;
     private javax.swing.JLabel lblFechaPartidoH6;
+    private javax.swing.JLabel lblFechaPartidoOctavos1;
+    private javax.swing.JLabel lblFechaPartidoOctavos2;
+    private javax.swing.JLabel lblFechaPartidoOctavos3;
+    private javax.swing.JLabel lblFechaPartidoOctavos4;
+    private javax.swing.JLabel lblFechaPartidoOctavos5;
+    private javax.swing.JLabel lblFechaPartidoOctavos6;
+    private javax.swing.JLabel lblFechaPartidoOctavos7;
+    private javax.swing.JLabel lblFechaPartidoOctavos8;
+    private javax.swing.JLabel lblFechaPartidoSemifinales1;
+    private javax.swing.JLabel lblFechaPartidoSemifinales2;
+    private javax.swing.JLabel lblFechaPartidoTercerPuesto1;
     private javax.swing.JLabel lblNombreEstadioA1;
     private javax.swing.JLabel lblNombreEstadioA2;
     private javax.swing.JLabel lblNombreEstadioA3;
@@ -4976,6 +6437,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreEstadioC4;
     private javax.swing.JLabel lblNombreEstadioC5;
     private javax.swing.JLabel lblNombreEstadioC6;
+    private javax.swing.JLabel lblNombreEstadioCuartos1;
+    private javax.swing.JLabel lblNombreEstadioCuartos2;
+    private javax.swing.JLabel lblNombreEstadioCuartos3;
+    private javax.swing.JLabel lblNombreEstadioCuartos4;
     private javax.swing.JLabel lblNombreEstadioD1;
     private javax.swing.JLabel lblNombreEstadioD2;
     private javax.swing.JLabel lblNombreEstadioD3;
@@ -4994,6 +6459,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreEstadioF4;
     private javax.swing.JLabel lblNombreEstadioF5;
     private javax.swing.JLabel lblNombreEstadioF6;
+    private javax.swing.JLabel lblNombreEstadioFinal1;
     private javax.swing.JLabel lblNombreEstadioG1;
     private javax.swing.JLabel lblNombreEstadioG2;
     private javax.swing.JLabel lblNombreEstadioG3;
@@ -5006,6 +6472,17 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreEstadioH4;
     private javax.swing.JLabel lblNombreEstadioH5;
     private javax.swing.JLabel lblNombreEstadioH6;
+    private javax.swing.JLabel lblNombreEstadioOctavos1;
+    private javax.swing.JLabel lblNombreEstadioOctavos2;
+    private javax.swing.JLabel lblNombreEstadioOctavos3;
+    private javax.swing.JLabel lblNombreEstadioOctavos4;
+    private javax.swing.JLabel lblNombreEstadioOctavos5;
+    private javax.swing.JLabel lblNombreEstadioOctavos6;
+    private javax.swing.JLabel lblNombreEstadioOctavos7;
+    private javax.swing.JLabel lblNombreEstadioOctavos8;
+    private javax.swing.JLabel lblNombreEstadioSemifinales1;
+    private javax.swing.JLabel lblNombreEstadioSemifinales2;
+    private javax.swing.JLabel lblNombreEstadioTercerPuesto1;
     private javax.swing.JPanel panelAFila1;
     private javax.swing.JPanel panelAFila2;
     private javax.swing.JPanel panelAFila3;
@@ -5026,6 +6503,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel panelCFila5;
     private javax.swing.JPanel panelCFila6;
     private javax.swing.JPanel panelCuartos;
+    private javax.swing.JPanel panelCuartosFila1;
+    private javax.swing.JPanel panelCuartosFila2;
+    private javax.swing.JPanel panelCuartosFila3;
+    private javax.swing.JPanel panelCuartosFila4;
     private javax.swing.JPanel panelDFila1;
     private javax.swing.JPanel panelDFila2;
     private javax.swing.JPanel panelDFila3;
@@ -5069,14 +6550,29 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel panelInteriorA;
     private javax.swing.JPanel panelInteriorB;
     private javax.swing.JPanel panelInteriorC;
+    private javax.swing.JPanel panelInteriorCuartos;
     private javax.swing.JPanel panelInteriorD;
     private javax.swing.JPanel panelInteriorE;
     private javax.swing.JPanel panelInteriorF;
+    private javax.swing.JPanel panelInteriorFinal;
     private javax.swing.JPanel panelInteriorG;
     private javax.swing.JPanel panelInteriorH;
+    private javax.swing.JPanel panelInteriorOctavos;
+    private javax.swing.JPanel panelInteriorSemifinales;
+    private javax.swing.JPanel panelInteriorTercerPuesto;
     private javax.swing.JPanel panelMain;
     private javax.swing.JPanel panelOctavos;
+    private javax.swing.JPanel panelOctavosFila1;
+    private javax.swing.JPanel panelOctavosFila2;
+    private javax.swing.JPanel panelOctavosFila3;
+    private javax.swing.JPanel panelOctavosFila4;
+    private javax.swing.JPanel panelOctavosFila5;
+    private javax.swing.JPanel panelOctavosFila6;
+    private javax.swing.JPanel panelOctavosFila7;
+    private javax.swing.JPanel panelOctavosFila8;
     private javax.swing.JPanel panelSemifinales;
+    private javax.swing.JPanel panelSemifinalesFila1;
+    private javax.swing.JPanel panelSemifinalesFila2;
     private javax.swing.JPanel panelTercerPuesto;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration//GEN-END:variables
@@ -5930,6 +7426,502 @@ public class Ventana extends javax.swing.JFrame {
             // Escribo los goles en los fields
             golesLocalGrupoH[i].setText(String.valueOf(p.getGolesEquipo1()));
             golesVisitantesGrupoH[i].setText(String.valueOf(p.getGolesEquipo2()));
+
+            i++;
+        }
+    }
+
+    private void loadPartidosOctavos() {
+
+        javax.swing.JLabel[] fechasOctavos = {
+            lblFechaPartidoOctavos1,
+            lblFechaPartidoOctavos2,
+            lblFechaPartidoOctavos3,
+            lblFechaPartidoOctavos4,
+            lblFechaPartidoOctavos5,
+            lblFechaPartidoOctavos6,
+            lblFechaPartidoOctavos7,
+            lblFechaPartidoOctavos8,};
+
+        javax.swing.JLabel[] equipoLocalesOctavos = {
+            lblEquipoLocalOctavos1,
+            lblEquipoLocalOctavos2,
+            lblEquipoLocalOctavos3,
+            lblEquipoLocalOctavos4,
+            lblEquipoLocalOctavos5,
+            lblEquipoLocalOctavos6,
+            lblEquipoLocalOctavos7,
+            lblEquipoLocalOctavos8,};
+
+        javax.swing.JLabel[] estadiosOctavos = {
+            lblNombreEstadioOctavos1,
+            lblNombreEstadioOctavos2,
+            lblNombreEstadioOctavos3,
+            lblNombreEstadioOctavos4,
+            lblNombreEstadioOctavos5,
+            lblNombreEstadioOctavos6,
+            lblNombreEstadioOctavos7,
+            lblNombreEstadioOctavos8,};
+
+        javax.swing.JLabel[] equiposVisitantesOctavos = {
+            lblEquipoVisitanteOctavos1,
+            lblEquipoVisitanteOctavos2,
+            lblEquipoVisitanteOctavos3,
+            lblEquipoVisitanteOctavos4,
+            lblEquipoVisitanteOctavos5,
+            lblEquipoVisitanteOctavos6,
+            lblEquipoVisitanteOctavos7,
+            lblEquipoVisitanteOctavos8,};
+
+        golesLocalOctavos[0] = golesField1_Octavos1;
+        golesLocalOctavos[1] = golesField1_Octavos2;
+        golesLocalOctavos[2] = golesField1_Octavos3;
+        golesLocalOctavos[3] = golesField1_Octavos4;
+        golesLocalOctavos[4] = golesField1_Octavos5;
+        golesLocalOctavos[5] = golesField1_Octavos6;
+        golesLocalOctavos[6] = golesField1_Octavos7;
+        golesLocalOctavos[7] = golesField1_Octavos8;
+
+        golesVisitantesOctavos[0] = golesField2_Octavos1;
+        golesVisitantesOctavos[1] = golesField2_Octavos2;
+        golesVisitantesOctavos[2] = golesField2_Octavos3;
+        golesVisitantesOctavos[3] = golesField2_Octavos4;
+        golesVisitantesOctavos[4] = golesField2_Octavos5;
+        golesVisitantesOctavos[5] = golesField2_Octavos6;
+        golesVisitantesOctavos[6] = golesField2_Octavos7;
+        golesVisitantesOctavos[7] = golesField2_Octavos8;
+
+        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.OCTAVOS);
+
+        Collections.sort(partidos, new Comparator<Partido>() {
+            @Override
+            public int compare(Partido p1, Partido p2) {
+                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+            }
+        });
+
+        List<Partido> partidosOrdenados = partidos.stream()
+                .sorted(Comparator.comparing(Partido::getFechaYHora))
+                .collect(Collectors.toList());
+
+        System.out.println(partidos);
+        int i = 0;
+        for (Partido p : partidosOrdenados) {
+
+            // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
+            idsPartidosOctavos.add(p.getId());
+
+            // Fecha con formato
+            fechasOctavos[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")));
+
+            // Nombre equipo local
+            String nombreEquipoLocal = p.getEquipo1() != null ? p.getEquipo1().getNombre() : "?";
+            equipoLocalesOctavos[i].setText(nombreEquipoLocal);
+
+            // Bandera equipo local
+            String pathBanderaEquipoLocal = p.getEquipo1() != null ? "src/static/img/banderas/" + p.getEquipo1().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoLocal = new ImageIcon(pathBanderaEquipoLocal);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoLocalAchicada = new ImageIcon(imagenEquipoLocal.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equipoLocalesOctavos[i].setIcon(imagenEquipoLocalAchicada);
+
+            estadiosOctavos[i].setText("Estadio " + p.getEstadio().getNombre());
+
+            // Nombre equipo visitante
+            String nombreEquipoVisitante = p.getEquipo2() != null ? p.getEquipo2().getNombre() : "?";
+            equiposVisitantesOctavos[i].setText(nombreEquipoVisitante);
+
+            // Bandera equipo visitante
+            String pathBanderaEquipoVisitante = p.getEquipo2() != null ? "src/static/img/banderas/" + p.getEquipo2().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoVisitante = new ImageIcon(pathBanderaEquipoVisitante);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoVisitanteAchicada = new ImageIcon(imagenEquipoVisitante.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equiposVisitantesOctavos[i].setIcon(imagenEquipoVisitanteAchicada);
+            equiposVisitantesOctavos[i].setHorizontalTextPosition(JLabel.LEFT);
+
+            // Si los equipos no están definidos deshabilito los campos
+            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+                golesLocalOctavos[i].setEnabled(false);
+                golesVisitantesOctavos[i].setEnabled(false);
+            } else {
+                // Escribo los goles en los fields
+                golesLocalOctavos[i].setText(String.valueOf(p.getGolesEquipo1()));
+                golesVisitantesOctavos[i].setText(String.valueOf(p.getGolesEquipo2()));
+            }
+
+            i++;
+        }
+    }
+
+    private void loadPartidosCuartos() {
+
+        javax.swing.JLabel[] fechasCuartos = {
+            lblFechaPartidoCuartos1,
+            lblFechaPartidoCuartos2,
+            lblFechaPartidoCuartos3,
+            lblFechaPartidoCuartos4,};
+
+        javax.swing.JLabel[] equipoLocalesCuartos = {
+            lblEquipoLocalCuartos1,
+            lblEquipoLocalCuartos2,
+            lblEquipoLocalCuartos3,
+            lblEquipoLocalCuartos4,};
+
+        javax.swing.JLabel[] estadiosCuartos = {
+            lblNombreEstadioCuartos1,
+            lblNombreEstadioCuartos2,
+            lblNombreEstadioCuartos3,
+            lblNombreEstadioCuartos4,};
+
+        javax.swing.JLabel[] equiposVisitantesCuartos = {
+            lblEquipoVisitanteCuartos1,
+            lblEquipoVisitanteCuartos2,
+            lblEquipoVisitanteCuartos3,
+            lblEquipoVisitanteCuartos4,};
+
+        golesLocalCuartos[0] = golesField1_cuartos1;
+        golesLocalCuartos[1] = golesField1_cuartos2;
+        golesLocalCuartos[2] = golesField1_cuartos3;
+        golesLocalCuartos[3] = golesField1_cuartos4;
+
+        golesVisitantesCuartos[0] = golesField2_cuartos1;
+        golesVisitantesCuartos[1] = golesField2_cuartos2;
+        golesVisitantesCuartos[2] = golesField2_cuartos3;
+        golesVisitantesCuartos[3] = golesField2_cuartos4;
+
+        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.CUARTOS);
+
+        Collections.sort(partidos, new Comparator<Partido>() {
+            @Override
+            public int compare(Partido p1, Partido p2) {
+                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+            }
+        });
+
+        List<Partido> partidosOrdenados = partidos.stream()
+                .sorted(Comparator.comparing(Partido::getFechaYHora))
+                .collect(Collectors.toList());
+
+        System.out.println(partidos);
+        int i = 0;
+        for (Partido p : partidosOrdenados) {
+
+            // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
+            idsPartidosCuartos.add(p.getId());
+
+            // Fecha con formato
+            fechasCuartos[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")));
+
+            // Nombre equipo local
+            String nombreEquipoLocal = p.getEquipo1() != null ? p.getEquipo1().getNombre() : "?";
+            equipoLocalesCuartos[i].setText(nombreEquipoLocal);
+
+            // Bandera equipo local
+            String pathBanderaEquipoLocal = p.getEquipo1() != null ? "src/static/img/banderas/" + p.getEquipo1().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoLocal = new ImageIcon(pathBanderaEquipoLocal);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoLocalAchicada = new ImageIcon(imagenEquipoLocal.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equipoLocalesCuartos[i].setIcon(imagenEquipoLocalAchicada);
+
+            estadiosCuartos[i].setText("Estadio " + p.getEstadio().getNombre());
+
+            // Nombre equipo visitante
+            String nombreEquipoVisitante = p.getEquipo2() != null ? p.getEquipo2().getNombre() : "?";
+            equiposVisitantesCuartos[i].setText(nombreEquipoVisitante);
+
+            // Bandera equipo visitante
+            String pathBanderaEquipoVisitante = p.getEquipo2() != null ? "src/static/img/banderas/" + p.getEquipo2().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoVisitante = new ImageIcon(pathBanderaEquipoVisitante);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoVisitanteAchicada = new ImageIcon(imagenEquipoVisitante.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equiposVisitantesCuartos[i].setIcon(imagenEquipoVisitanteAchicada);
+            equiposVisitantesCuartos[i].setHorizontalTextPosition(JLabel.LEFT);
+
+            // Si los equipos no están definidos deshabilito los campos
+            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+                golesLocalCuartos[i].setEnabled(false);
+                golesVisitantesCuartos[i].setEnabled(false);
+            } else {
+                // Escribo los goles en los fields
+                golesLocalCuartos[i].setText(String.valueOf(p.getGolesEquipo1()));
+                golesVisitantesCuartos[i].setText(String.valueOf(p.getGolesEquipo2()));
+            }
+
+            i++;
+        }
+    }
+
+    private void loadPartidosSemifinales() {
+
+        javax.swing.JLabel[] fechasSemifinales = {
+            lblFechaPartidoSemifinales1,
+            lblFechaPartidoSemifinales2,};
+
+        javax.swing.JLabel[] equipoLocalesSemifinales = {
+            lblEquipoLocalSemifinales1,
+            lblEquipoLocalSemifinales2,};
+
+        javax.swing.JLabel[] estadiosSemifinales = {
+            lblNombreEstadioSemifinales1,
+            lblNombreEstadioSemifinales2,};
+
+        javax.swing.JLabel[] equiposVisitantesSemifinales = {
+            lblEquipoVisitanteSemifinales1,
+            lblEquipoVisitanteSemifinales2,};
+
+        golesLocalSemifinales[0] = golesField1_semifinales1;
+        golesLocalSemifinales[1] = golesField1_semifinales2;
+
+        golesVisitantesSemifinales[0] = golesField2_semifinales1;
+        golesVisitantesSemifinales[1] = golesField2_semifinales2;
+
+        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.SEMIFINALES);
+
+        Collections.sort(partidos, new Comparator<Partido>() {
+            @Override
+            public int compare(Partido p1, Partido p2) {
+                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+            }
+        });
+
+        List<Partido> partidosOrdenados = partidos.stream()
+                .sorted(Comparator.comparing(Partido::getFechaYHora))
+                .collect(Collectors.toList());
+
+        System.out.println(partidos);
+        int i = 0;
+        for (Partido p : partidosOrdenados) {
+
+            // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
+            idsPartidosSemifinales.add(p.getId());
+
+            // Fecha con formato
+            fechasSemifinales[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")));
+
+            // Nombre equipo local
+            String nombreEquipoLocal = p.getEquipo1() != null ? p.getEquipo1().getNombre() : "?";
+            equipoLocalesSemifinales[i].setText(nombreEquipoLocal);
+
+            // Bandera equipo local
+            String pathBanderaEquipoLocal = p.getEquipo1() != null ? "src/static/img/banderas/" + p.getEquipo1().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoLocal = new ImageIcon(pathBanderaEquipoLocal);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoLocalAchicada = new ImageIcon(imagenEquipoLocal.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equipoLocalesSemifinales[i].setIcon(imagenEquipoLocalAchicada);
+
+            estadiosSemifinales[i].setText("Estadio " + p.getEstadio().getNombre());
+
+            // Nombre equipo visitante
+            String nombreEquipoVisitante = p.getEquipo2() != null ? p.getEquipo2().getNombre() : "?";
+            equiposVisitantesSemifinales[i].setText(nombreEquipoVisitante);
+
+            // Bandera equipo visitante
+            String pathBanderaEquipoVisitante = p.getEquipo2() != null ? "src/static/img/banderas/" + p.getEquipo2().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoVisitante = new ImageIcon(pathBanderaEquipoVisitante);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoVisitanteAchicada = new ImageIcon(imagenEquipoVisitante.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equiposVisitantesSemifinales[i].setIcon(imagenEquipoVisitanteAchicada);
+            equiposVisitantesSemifinales[i].setHorizontalTextPosition(JLabel.LEFT);
+
+            // Si los equipos no están definidos deshabilito los campos
+            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+                golesLocalSemifinales[i].setEnabled(false);
+                golesVisitantesSemifinales[i].setEnabled(false);
+            } else {
+                // Escribo los goles en los fields
+                golesLocalSemifinales[i].setText(String.valueOf(p.getGolesEquipo1()));
+                golesVisitantesSemifinales[i].setText(String.valueOf(p.getGolesEquipo2()));
+            }
+
+            i++;
+        }
+    }
+
+    private void loadPartidosTercerPuesto() {
+
+        javax.swing.JLabel[] fechasTercerPuesto = {
+            lblFechaPartidoTercerPuesto1,};
+
+        javax.swing.JLabel[] equipoLocalesTercerPuesto = {
+            lblEquipoLocalTercerPuesto1,};
+
+        javax.swing.JLabel[] estadiosTercerPuesto = {
+            lblNombreEstadioTercerPuesto1,};
+
+        javax.swing.JLabel[] equiposVisitantesTercerPuesto = {
+            lblEquipoVisitanteTercerPuesto1,};
+
+        golesLocalTercerPuesto[0] = golesField1_tercerPuesto1;
+
+        golesVisitantesTercerPuesto[0] = golesField2_tercerPuesto1;
+
+        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.TERCER_PUESTO);
+
+        Collections.sort(partidos, new Comparator<Partido>() {
+            @Override
+            public int compare(Partido p1, Partido p2) {
+                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+            }
+        });
+
+        List<Partido> partidosOrdenados = partidos.stream()
+                .sorted(Comparator.comparing(Partido::getFechaYHora))
+                .collect(Collectors.toList());
+
+        System.out.println(partidos);
+        int i = 0;
+        for (Partido p : partidosOrdenados) {
+
+            // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
+            idsPartidosTercerPuesto.add(p.getId());
+
+            // Fecha con formato
+            fechasTercerPuesto[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")));
+
+            // Nombre equipo local
+            String nombreEquipoLocal = p.getEquipo1() != null ? p.getEquipo1().getNombre() : "?";
+            equipoLocalesTercerPuesto[i].setText(nombreEquipoLocal);
+
+            // Bandera equipo local
+            String pathBanderaEquipoLocal = p.getEquipo1() != null ? "src/static/img/banderas/" + p.getEquipo1().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoLocal = new ImageIcon(pathBanderaEquipoLocal);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoLocalAchicada = new ImageIcon(imagenEquipoLocal.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equipoLocalesTercerPuesto[i].setIcon(imagenEquipoLocalAchicada);
+
+            estadiosTercerPuesto[i].setText("Estadio " + p.getEstadio().getNombre());
+
+            // Nombre equipo visitante
+            String nombreEquipoVisitante = p.getEquipo2() != null ? p.getEquipo2().getNombre() : "?";
+            equiposVisitantesTercerPuesto[i].setText(nombreEquipoVisitante);
+
+            // Bandera equipo visitante
+            String pathBanderaEquipoVisitante = p.getEquipo2() != null ? "src/static/img/banderas/" + p.getEquipo2().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoVisitante = new ImageIcon(pathBanderaEquipoVisitante);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoVisitanteAchicada = new ImageIcon(imagenEquipoVisitante.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equiposVisitantesTercerPuesto[i].setIcon(imagenEquipoVisitanteAchicada);
+            equiposVisitantesTercerPuesto[i].setHorizontalTextPosition(JLabel.LEFT);
+
+            // Si los equipos no están definidos deshabilito los campos
+            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+                golesLocalTercerPuesto[i].setEnabled(false);
+                golesVisitantesTercerPuesto[i].setEnabled(false);
+            } else {
+                // Escribo los goles en los fields
+                golesLocalTercerPuesto[i].setText(String.valueOf(p.getGolesEquipo1()));
+                golesVisitantesTercerPuesto[i].setText(String.valueOf(p.getGolesEquipo2()));
+            }
+
+            i++;
+        }
+    }
+
+    private void loadPartidosFinal() {
+
+        javax.swing.JLabel[] fechasFinal = {
+            lblFechaPartidoFinal1,};
+
+        javax.swing.JLabel[] equipoLocalesFinal = {
+            lblEquipoLocalFinal1,};
+
+        javax.swing.JLabel[] estadiosFinal = {
+            lblNombreEstadioFinal1,};
+
+        javax.swing.JLabel[] equiposVisitantesFinal = {
+            lblEquipoVisitanteFinal1,};
+
+        golesLocalFinal[0] = golesField1_final1;
+
+        golesVisitantesFinal[0] = golesField2_final1;
+
+        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.FINAL);
+
+        Collections.sort(partidos, new Comparator<Partido>() {
+            @Override
+            public int compare(Partido p1, Partido p2) {
+                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+            }
+        });
+
+        List<Partido> partidosOrdenados = partidos.stream()
+                .sorted(Comparator.comparing(Partido::getFechaYHora))
+                .collect(Collectors.toList());
+
+        System.out.println(partidos);
+        int i = 0;
+        for (Partido p : partidosOrdenados) {
+
+            // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
+            idsPartidosFinal.add(p.getId());
+
+            // Fecha con formato
+            fechasFinal[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")));
+
+            // Nombre equipo local
+            String nombreEquipoLocal = p.getEquipo1() != null ? p.getEquipo1().getNombre() : "?";
+            equipoLocalesFinal[i].setText(nombreEquipoLocal);
+
+            // Bandera equipo local
+            String pathBanderaEquipoLocal = p.getEquipo1() != null ? "src/static/img/banderas/" + p.getEquipo1().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoLocal = new ImageIcon(pathBanderaEquipoLocal);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoLocalAchicada = new ImageIcon(imagenEquipoLocal.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equipoLocalesFinal[i].setIcon(imagenEquipoLocalAchicada);
+
+            estadiosFinal[i].setText("Estadio " + p.getEstadio().getNombre());
+
+            // Nombre equipo visitante
+            String nombreEquipoVisitante = p.getEquipo2() != null ? p.getEquipo2().getNombre() : "?";
+            equiposVisitantesFinal[i].setText(nombreEquipoVisitante);
+
+            // Bandera equipo visitante
+            String pathBanderaEquipoVisitante = p.getEquipo2() != null ? "src/static/img/banderas/" + p.getEquipo2().getId() + ".png" : "src/static/img/banderas/placeholder.png";
+            ImageIcon imagenEquipoVisitante = new ImageIcon(pathBanderaEquipoVisitante);
+
+            // Achico la imagen
+            ImageIcon imagenEquipoVisitanteAchicada = new ImageIcon(imagenEquipoVisitante.getImage().getScaledInstance(50, 33, Image.SCALE_SMOOTH));
+
+            // Vinculo la imagen con el label
+            equiposVisitantesFinal[i].setIcon(imagenEquipoVisitanteAchicada);
+            equiposVisitantesFinal[i].setHorizontalTextPosition(JLabel.LEFT);
+
+            // Si los equipos no están definidos deshabilito los campos
+            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+                golesLocalFinal[i].setEnabled(false);
+                golesVisitantesFinal[i].setEnabled(false);
+            } else {
+                // Escribo los goles en los fields
+                golesLocalFinal[i].setText(String.valueOf(p.getGolesEquipo1()));
+                golesVisitantesFinal[i].setText(String.valueOf(p.getGolesEquipo2()));
+            }
 
             i++;
         }
