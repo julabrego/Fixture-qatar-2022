@@ -16,6 +16,7 @@ import fixture.repository.migrations.PartidosMigrations;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -83,6 +84,11 @@ public class GrupoConstructor extends javax.swing.JFrame {
         estadios = new ArrayList();
         List<JLabel> fechas;
         fechas= new ArrayList();
+        List<JLabel> imgEquiposLocal;
+        imgEquiposLocal = new ArrayList();
+        List<JLabel> imgEquiposVisit;
+        imgEquiposVisit = new ArrayList();
+        
         //
         equiposVisit.add(equipoVisit1);
         equiposVisit.add(equipoVisit2);
@@ -126,6 +132,19 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoVisit.add(golesEquipoVisit5);
         golesEquipoVisit.add(golesEquipoVisit6);
         //
+        imgEquiposLocal.add(imgLocal1);
+        imgEquiposLocal.add(imgLocal2);
+        imgEquiposLocal.add(imgLocal3);
+        imgEquiposLocal.add(imgLocal4);
+        imgEquiposLocal.add(imgLocal5);
+        imgEquiposLocal.add(imgLocal6);
+        //
+        imgEquiposVisit.add(imgVisit1);
+        imgEquiposVisit.add(imgVisit2);
+        imgEquiposVisit.add(imgVisit3);
+        imgEquiposVisit.add(imgVisit4);
+        imgEquiposVisit.add(imgVisit5);
+        imgEquiposVisit.add(imgVisit6);
         //
         Collections.sort(partidos,new Comparator<Partido>() {
             @Override
@@ -138,14 +157,25 @@ public class GrupoConstructor extends javax.swing.JFrame {
         int i = 0;
         JLabel txt = new JLabel();
         for (Partido partido : partidos) {
+            //
+            ImageIcon imageEquipoLocal = new ImageIcon(new ImageIcon(getClass().getResource("/static/img/banderas/" + partido.getEquipo1().getId() + ".png")).getImage().getScaledInstance(40, 23, Image.SCALE_SMOOTH));
+            imgEquiposLocal.get(i).setIcon(imageEquipoLocal);
+            imgEquiposLocal.get(i).setText("");
+            //
+            ImageIcon imageEquipoVisit = new ImageIcon(new ImageIcon(getClass().getResource("/static/img/banderas/" + partido.getEquipo2().getId() + ".png")).getImage().getScaledInstance(40, 23, Image.SCALE_SMOOTH));
+            imgEquiposVisit.get(i).setIcon(imageEquipoVisit);
+            imgEquiposVisit.get(i).setText("");
+            
             idDePartido.add(partido.getId());
             
             equiposVisit.get(i).setText(partido.getEquipo2().getNombre());
             equiposLocal.get(i).setText(partido.getEquipo1().getNombre());
             
-            estadios.get(i).setText(partido.getEstadio().getNombre());
+            estadios.get(i).setText("Estadio " + partido.getEstadio().getNombre());
+            estadios.get(i).setHorizontalTextPosition(JLabel.LEFT);
+ 
             
-            fechas.get(i).setText(partido.getFechaYHora().toString());
+            fechas.get(i).setText(partido.getFechaYHora().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm")));
             
             golesEquipoLocal.get(i).setText(String.valueOf(partido.getGolesEquipo1()));
             golesEquipoVisit.get(i).setText(String.valueOf(partido.getGolesEquipo2()));
@@ -240,6 +270,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoLocal1 = new javax.swing.JFormattedTextField();
         golesEquipoVisit1 = new javax.swing.JFormattedTextField();
         guionA1 = new javax.swing.JLabel();
+        imgLocal1 = new javax.swing.JLabel();
+        imgVisit1 = new javax.swing.JLabel();
         panelAFila2 = new javax.swing.JPanel();
         fechaPartido2 = new javax.swing.JLabel();
         equipoLocal2 = new javax.swing.JLabel();
@@ -249,6 +281,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoLocal2 = new javax.swing.JFormattedTextField();
         golesEquipoVisit2 = new javax.swing.JFormattedTextField();
         guionA2 = new javax.swing.JLabel();
+        imgVisit2 = new javax.swing.JLabel();
+        imgLocal2 = new javax.swing.JLabel();
         panelAFila3 = new javax.swing.JPanel();
         fechaPartido3 = new javax.swing.JLabel();
         equipoLocal3 = new javax.swing.JLabel();
@@ -258,6 +292,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoLocal3 = new javax.swing.JFormattedTextField();
         golesEquipoVisit3 = new javax.swing.JFormattedTextField();
         guionA3 = new javax.swing.JLabel();
+        imgVisit3 = new javax.swing.JLabel();
+        imgLocal3 = new javax.swing.JLabel();
         panelAFila4 = new javax.swing.JPanel();
         fechaPartido4 = new javax.swing.JLabel();
         equipoLocal4 = new javax.swing.JLabel();
@@ -267,6 +303,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoLocal4 = new javax.swing.JFormattedTextField();
         golesEquipoVisit4 = new javax.swing.JFormattedTextField();
         guionA4 = new javax.swing.JLabel();
+        imgVisit4 = new javax.swing.JLabel();
+        imgLocal4 = new javax.swing.JLabel();
         panelAFila5 = new javax.swing.JPanel();
         fechaPartido5 = new javax.swing.JLabel();
         equipoLocal5 = new javax.swing.JLabel();
@@ -276,6 +314,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoLocal5 = new javax.swing.JFormattedTextField();
         golesEquipoVisit5 = new javax.swing.JFormattedTextField();
         guionA5 = new javax.swing.JLabel();
+        imgVisit5 = new javax.swing.JLabel();
+        imgLocal5 = new javax.swing.JLabel();
         panelAFila6 = new javax.swing.JPanel();
         fechaPartido6 = new javax.swing.JLabel();
         equipoLocal6 = new javax.swing.JLabel();
@@ -285,6 +325,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
         golesEquipoLocal6 = new javax.swing.JFormattedTextField();
         golesEquipoVisit6 = new javax.swing.JFormattedTextField();
         guionA6 = new javax.swing.JLabel();
+        imgVisit6 = new javax.swing.JLabel();
+        imgLocal6 = new javax.swing.JLabel();
         guardarDatos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -346,6 +388,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
         guionA1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionA1.setText("-");
 
+        imgLocal1.setText("jLabel1");
+
+        imgVisit1.setText("jLabel2");
+
         javax.swing.GroupLayout panelAFila1Layout = new javax.swing.GroupLayout(panelAFila1);
         panelAFila1.setLayout(panelAFila1Layout);
         panelAFila1Layout.setHorizontalGroup(
@@ -355,19 +401,27 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addGroup(panelAFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparatorA1)
                     .addGroup(panelAFila1Layout.createSequentialGroup()
-                        .addComponent(fechaPartido1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estadioPartido1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila1Layout.createSequentialGroup()
-                        .addComponent(equipoLocal1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionA1, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesEquipoVisit1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(equipoVisit1)))
+                        .addGroup(panelAFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAFila1Layout.createSequentialGroup()
+                                .addComponent(imgLocal1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(equipoLocal1)
+                                .addGap(48, 48, 48)
+                                .addComponent(golesEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(guionA1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(golesEquipoVisit1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelAFila1Layout.createSequentialGroup()
+                                .addComponent(fechaPartido1)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addGroup(panelAFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila1Layout.createSequentialGroup()
+                                .addComponent(equipoVisit1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(imgVisit1))
+                            .addComponent(estadioPartido1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         panelAFila1Layout.setVerticalGroup(
@@ -376,17 +430,19 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addGroup(panelAFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAFila1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(fechaPartido1))
+                        .addGroup(panelAFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fechaPartido1)
+                            .addComponent(estadioPartido1)))
                     .addGroup(panelAFila1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(estadioPartido1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(36, 36, 36)
                         .addGroup(panelAFila1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(equipoVisit1)
                             .addComponent(equipoLocal1)
                             .addComponent(golesEquipoLocal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesEquipoVisit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionA1))))
+                            .addComponent(guionA1)
+                            .addComponent(imgLocal1)
+                            .addComponent(imgVisit1))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorA1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -416,6 +472,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
         guionA2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionA2.setText("-");
 
+        imgVisit2.setText("jLabel3");
+
+        imgLocal2.setText("jLabel4");
+
         javax.swing.GroupLayout panelAFila2Layout = new javax.swing.GroupLayout(panelAFila2);
         panelAFila2.setLayout(panelAFila2Layout);
         panelAFila2Layout.setHorizontalGroup(
@@ -424,20 +484,24 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelAFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparatorA2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila2Layout.createSequentialGroup()
+                        .addComponent(imgLocal2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(equipoLocal2)
+                        .addGap(47, 47, 47)
+                        .addComponent(golesEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionA2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesEquipoVisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(equipoVisit2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(imgVisit2))
                     .addGroup(panelAFila2Layout.createSequentialGroup()
                         .addComponent(fechaPartido2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estadioPartido2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila2Layout.createSequentialGroup()
-                        .addComponent(equipoLocal2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionA2, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesEquipoVisit2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(equipoVisit2)))
+                        .addComponent(estadioPartido2)))
                 .addContainerGap())
         );
         panelAFila2Layout.setVerticalGroup(
@@ -446,17 +510,19 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addGroup(panelAFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAFila2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(fechaPartido2))
+                        .addGroup(panelAFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fechaPartido2)
+                            .addComponent(estadioPartido2)))
                     .addGroup(panelAFila2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(estadioPartido2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(36, 36, 36)
                         .addGroup(panelAFila2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(equipoVisit2)
                             .addComponent(equipoLocal2)
                             .addComponent(golesEquipoLocal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesEquipoVisit2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionA2))))
+                            .addComponent(guionA2)
+                            .addComponent(imgVisit2)
+                            .addComponent(imgLocal2))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorA2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -483,6 +549,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
         guionA3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionA3.setText("-");
 
+        imgVisit3.setText("jLabel5");
+
+        imgLocal3.setText("jLabel6");
+
         javax.swing.GroupLayout panelAFila3Layout = new javax.swing.GroupLayout(panelAFila3);
         panelAFila3.setLayout(panelAFila3Layout);
         panelAFila3Layout.setHorizontalGroup(
@@ -491,20 +561,24 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelAFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparatorA3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila3Layout.createSequentialGroup()
+                        .addComponent(imgLocal3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(equipoLocal3)
+                        .addGap(43, 43, 43)
+                        .addComponent(golesEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionA3, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesEquipoVisit3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(equipoVisit3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(imgVisit3))
                     .addGroup(panelAFila3Layout.createSequentialGroup()
                         .addComponent(fechaPartido3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estadioPartido3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila3Layout.createSequentialGroup()
-                        .addComponent(equipoLocal3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionA3, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesEquipoVisit3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(equipoVisit3)))
+                        .addComponent(estadioPartido3)))
                 .addContainerGap())
         );
         panelAFila3Layout.setVerticalGroup(
@@ -513,17 +587,19 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addGroup(panelAFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAFila3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(fechaPartido3))
+                        .addGroup(panelAFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fechaPartido3)
+                            .addComponent(estadioPartido3)))
                     .addGroup(panelAFila3Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(estadioPartido3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(36, 36, 36)
                         .addGroup(panelAFila3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(equipoVisit3)
                             .addComponent(equipoLocal3)
                             .addComponent(golesEquipoLocal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesEquipoVisit3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionA3))))
+                            .addComponent(guionA3)
+                            .addComponent(imgVisit3)
+                            .addComponent(imgLocal3))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorA3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -551,6 +627,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
         guionA4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionA4.setText("-");
 
+        imgVisit4.setText("jLabel7");
+
+        imgLocal4.setText("jLabel8");
+
         javax.swing.GroupLayout panelAFila4Layout = new javax.swing.GroupLayout(panelAFila4);
         panelAFila4.setLayout(panelAFila4Layout);
         panelAFila4Layout.setHorizontalGroup(
@@ -559,20 +639,24 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelAFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparatorA4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila4Layout.createSequentialGroup()
+                        .addComponent(imgLocal4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(equipoLocal4)
+                        .addGap(43, 43, 43)
+                        .addComponent(golesEquipoLocal4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionA4, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesEquipoVisit4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(equipoVisit4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(imgVisit4))
                     .addGroup(panelAFila4Layout.createSequentialGroup()
                         .addComponent(fechaPartido4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estadioPartido4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila4Layout.createSequentialGroup()
-                        .addComponent(equipoLocal4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesEquipoLocal4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionA4, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesEquipoVisit4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(equipoVisit4)))
+                        .addComponent(estadioPartido4)))
                 .addContainerGap())
         );
         panelAFila4Layout.setVerticalGroup(
@@ -581,17 +665,19 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addGroup(panelAFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAFila4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(fechaPartido4))
+                        .addGroup(panelAFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fechaPartido4)
+                            .addComponent(estadioPartido4)))
                     .addGroup(panelAFila4Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(estadioPartido4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(36, 36, 36)
                         .addGroup(panelAFila4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(equipoVisit4)
                             .addComponent(equipoLocal4)
                             .addComponent(golesEquipoLocal4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesEquipoVisit4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionA4))))
+                            .addComponent(guionA4)
+                            .addComponent(imgVisit4)
+                            .addComponent(imgLocal4))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorA4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -619,6 +705,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
         guionA5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionA5.setText("-");
 
+        imgVisit5.setText("jLabel9");
+
+        imgLocal5.setText("jLabel10");
+
         javax.swing.GroupLayout panelAFila5Layout = new javax.swing.GroupLayout(panelAFila5);
         panelAFila5.setLayout(panelAFila5Layout);
         panelAFila5Layout.setHorizontalGroup(
@@ -627,20 +717,24 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelAFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparatorA5)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila5Layout.createSequentialGroup()
+                        .addComponent(imgLocal5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(equipoLocal5)
+                        .addGap(37, 37, 37)
+                        .addComponent(golesEquipoLocal5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionA5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesEquipoVisit5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(equipoVisit5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(imgVisit5))
                     .addGroup(panelAFila5Layout.createSequentialGroup()
                         .addComponent(fechaPartido5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estadioPartido5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila5Layout.createSequentialGroup()
-                        .addComponent(equipoLocal5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesEquipoLocal5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionA5, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesEquipoVisit5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(equipoVisit5)))
+                        .addComponent(estadioPartido5)))
                 .addContainerGap())
         );
         panelAFila5Layout.setVerticalGroup(
@@ -649,17 +743,19 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addGroup(panelAFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAFila5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(fechaPartido5))
+                        .addGroup(panelAFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fechaPartido5)
+                            .addComponent(estadioPartido5)))
                     .addGroup(panelAFila5Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(estadioPartido5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(36, 36, 36)
                         .addGroup(panelAFila5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(equipoVisit5)
                             .addComponent(equipoLocal5)
                             .addComponent(golesEquipoLocal5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesEquipoVisit5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionA5))))
+                            .addComponent(guionA5)
+                            .addComponent(imgVisit5)
+                            .addComponent(imgLocal5))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorA5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -687,6 +783,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
         guionA6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionA6.setText("-");
 
+        imgVisit6.setText("jLabel11");
+
+        imgLocal6.setText("jLabel12");
+
         javax.swing.GroupLayout panelAFila6Layout = new javax.swing.GroupLayout(panelAFila6);
         panelAFila6.setLayout(panelAFila6Layout);
         panelAFila6Layout.setHorizontalGroup(
@@ -695,20 +795,24 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelAFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparatorA6)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila6Layout.createSequentialGroup()
+                        .addComponent(imgLocal6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(equipoLocal6)
+                        .addGap(36, 36, 36)
+                        .addComponent(golesEquipoLocal6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guionA6, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(golesEquipoVisit6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(equipoVisit6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(imgVisit6))
                     .addGroup(panelAFila6Layout.createSequentialGroup()
                         .addComponent(fechaPartido6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estadioPartido6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAFila6Layout.createSequentialGroup()
-                        .addComponent(equipoLocal6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesEquipoLocal6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionA6, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesEquipoVisit6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(equipoVisit6)))
+                        .addComponent(estadioPartido6)))
                 .addContainerGap())
         );
         panelAFila6Layout.setVerticalGroup(
@@ -717,17 +821,19 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 .addGroup(panelAFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAFila6Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(fechaPartido6))
+                        .addGroup(panelAFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fechaPartido6)
+                            .addComponent(estadioPartido6)))
                     .addGroup(panelAFila6Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(estadioPartido6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(36, 36, 36)
                         .addGroup(panelAFila6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(equipoVisit6)
                             .addComponent(equipoLocal6)
                             .addComponent(golesEquipoLocal6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesEquipoVisit6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionA6))))
+                            .addComponent(guionA6)
+                            .addComponent(imgVisit6)
+                            .addComponent(imgLocal6))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorA6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1029,6 +1135,18 @@ public class GrupoConstructor extends javax.swing.JFrame {
     private javax.swing.JLabel guionA4;
     private javax.swing.JLabel guionA5;
     private javax.swing.JLabel guionA6;
+    private javax.swing.JLabel imgLocal1;
+    private javax.swing.JLabel imgLocal2;
+    private javax.swing.JLabel imgLocal3;
+    private javax.swing.JLabel imgLocal4;
+    private javax.swing.JLabel imgLocal5;
+    private javax.swing.JLabel imgLocal6;
+    private javax.swing.JLabel imgVisit1;
+    private javax.swing.JLabel imgVisit2;
+    private javax.swing.JLabel imgVisit3;
+    private javax.swing.JLabel imgVisit4;
+    private javax.swing.JLabel imgVisit5;
+    private javax.swing.JLabel imgVisit6;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
