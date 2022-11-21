@@ -162,7 +162,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         Grupo grupo = grupoRepository.get(letragrupo);
         ArrayList<Equipo> equiposGrupo = grupo.getEquipos();       
         String titulo = "Grupo " + letragrupo;
-        grupo1.setText(titulo);
+        grupo1.setText(titulo.toUpperCase());
         ArrayList<JLabel> equipos = new ArrayList();
         equipos.add(equipo1);
         equipos.add(equipo2);
@@ -174,6 +174,13 @@ public class GrupoConstructor extends javax.swing.JFrame {
         img.add(equipoIcon2);
         img.add(equipoIcon3);
         img.add(equipoIcon4);
+        //
+        Collections.sort(equiposGrupo, new Comparator<Equipo>() {
+                @Override
+                public int compare(Equipo e1, Equipo e2) {
+                    return e1.getPuntosDeEquipo() > e2.getPuntosDeEquipo() ? -1 : 1; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                }
+            });
         //
         int i= 0;
         for(Equipo equipo : equiposGrupo ){
