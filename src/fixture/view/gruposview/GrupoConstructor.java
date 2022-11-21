@@ -202,6 +202,12 @@ public class GrupoConstructor extends javax.swing.JFrame {
         }
         
     }
+      
+      private void limpiarTabla(){
+          tModel = (DefaultTableModel) jTable1.getModel();
+          tModel.setRowCount(0);
+          
+      }
     
 
     /**
@@ -840,8 +846,11 @@ public class GrupoConstructor extends javax.swing.JFrame {
 
     private void guardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarDatosActionPerformed
         //
+        limpiarTabla();
+        //
         HashSet<Equipo> equipoActualizado = new HashSet();    
         Grupo grupo = grupoRepository.get(letraGrupo);
+        
         //
         for(Equipo e : grupo.getEquipos()){
             e.limpiarDatosEquipo();
@@ -913,8 +922,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 for(Equipo e : equipoActualizado){
                     equipoRepository.actualizarDatosEquipoEnArchivo(e);
                     e.imprimirDatosDeEquipo();
+                    
                 }
                 partidoRepository.guardarGolesPartido();
+                cargarGrupo(letraGrupo);
                 JOptionPane.showMessageDialog(this, "Se ha guardado con exito!", "Fixture Qatar 2022", JOptionPane.INFORMATION_MESSAGE);
             
         } catch (Exception e) {
