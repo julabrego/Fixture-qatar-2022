@@ -212,8 +212,12 @@ public class GrupoConstructor extends javax.swing.JFrame {
                 }
             });
         //
+        
+        ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
+        recuperarEquipoDeEquipoRepository(equiposGrupo, equiposDeEquipoRepository);
+        
         int i= 0;
-        for(Equipo equipo : equiposGrupo ){
+        for(Equipo equipo : equiposDeEquipoRepository ){
             //
             //
             equipos.get(i).setText(equipo.getNombre());
@@ -238,6 +242,14 @@ public class GrupoConstructor extends javax.swing.JFrame {
             i++;
         }
         
+    }
+
+    private void recuperarEquipoDeEquipoRepository(ArrayList<Equipo> listadoDeEquipos, ArrayList<Equipo> listaDeEquiposACompletar) {
+        // Recuperar el dato de cada equipo de EquipoRepository
+        for(Equipo equipo : listadoDeEquipos){
+            Equipo equipoEncontrado = equipoRepository.find(equipo.getId());
+            listaDeEquiposACompletar.add(equipoEncontrado);
+        }
     }
       
       private void limpiarTabla(){
@@ -964,8 +976,11 @@ public class GrupoConstructor extends javax.swing.JFrame {
         HashSet<Equipo> equipoActualizado = new HashSet();    
         Grupo grupo = grupoRepository.get(letraGrupo);
         
+        ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
+        recuperarEquipoDeEquipoRepository(grupo.getEquipos(), equiposDeEquipoRepository);
+        
         //
-        for(Equipo e : grupo.getEquipos()){
+        for(Equipo e : equiposDeEquipoRepository){
             e.limpiarDatosEquipo();
             equipoActualizado.add(e);
         }
