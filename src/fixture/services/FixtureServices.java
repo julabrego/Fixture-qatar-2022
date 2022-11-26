@@ -4,13 +4,35 @@
  */
 package fixture.services;
 
+import fixture.model.Equipo;
+import fixture.model.Grupo;
+import fixture.model.Partido;
+import fixture.repository.EquipoRepository;
+import fixture.repository.GrupoRepository;
+import fixture.repository.PartidoRepository;
+import java.util.ArrayList;
+
 /**
  *
  * @author Nico
  */
-public class FixtureServices {
+public interface FixtureServices {
     
-    public FixtureServices(){}
+    void instanciarRepositorios();
+    
+    Grupo obtenerGrupo(char caracter);
+    
+    ArrayList<Partido> obtenerPartido(Grupo grupo);
+    
+    ArrayList<Equipo> obtenerEquiposByGrupo(Grupo grupo);
+    
+    Equipo obtenerEquipoById(Equipo equipo);
+    
+    void actualizarDatosDeEquipoEnArchivo(Equipo equipoActualizado);
+    
+    void guardarGolesDePartido();
+    
+    
     
     
 }

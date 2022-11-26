@@ -13,6 +13,8 @@ import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
 import fixture.repository.migrations.PartidosMigrations;
+import fixture.services.FixtureServiceImplement;
+import fixture.services.FixtureServices;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -37,10 +39,10 @@ public class GrupoConstructor extends javax.swing.JFrame {
     /**
      * Creates new form GrupoConstructor
      */
+    
+    
     char letraGrupo;
-    PartidoRepository partidoRepository;
-    GrupoRepository grupoRepository;
-    EquipoRepository equipoRepository;
+    FixtureServices fixtureService = new FixtureServiceImplement();
     ArrayList<Integer> idDePartido = new ArrayList<Integer>();
     ArrayList<JFormattedTextField> golesEquipoLocal = new ArrayList();
     ArrayList<JFormattedTextField> golesEquipoVisit = new ArrayList();
@@ -50,7 +52,6 @@ public class GrupoConstructor extends javax.swing.JFrame {
     public GrupoConstructor(char letra) {
         this.letraGrupo = letra;
         initComponents();
-        instanciarRepos();
         inicializarGrupo(letraGrupo);
         cargarGrupo(letraGrupo);
     }
@@ -62,17 +63,12 @@ public class GrupoConstructor extends javax.swing.JFrame {
     WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
     Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
-    private void instanciarRepos(){
-        //PartidosMigrations.up();
-        
-        //GruposMigrations.up();
-        equipoRepository = new EquipoRepository();
-        partidoRepository = new PartidoRepository();
-        grupoRepository = new GrupoRepository();
-    };
+ 
     private void inicializarGrupo(char letraGrupo){
-        Grupo grupo = grupoRepository.get(letraGrupo);
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupo);
+        //
+        Grupo grupo = fixtureService.obtenerGrupo(letraGrupo);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartido(grupo);
+        //
         String titulo = "Grupo " + letraGrupo;
         jLabelTitulo.setText(titulo.toUpperCase());
         //
@@ -175,7 +171,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
             estadios.get(i).setHorizontalTextPosition(JLabel.LEFT);
  
             
-            fechas.get(i).setText(partido.getFechaYHora().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm")));
+            fechas.get(i).setText(partido.getFechaYHora().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm ")));
             
             golesEquipoLocal.get(i).setText(String.valueOf(partido.getGolesEquipo1()));
             golesEquipoVisit.get(i).setText(String.valueOf(partido.getGolesEquipo2()));
@@ -189,8 +185,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
     };
     
       private void cargarGrupo(char letragrupo){
-        Grupo grupo = grupoRepository.get(letragrupo);
-        ArrayList<Equipo> equiposGrupo = grupo.getEquipos();       
+        Grupo grupo = fixtureService.obtenerGrupo(letragrupo);
+        ArrayList<Equipo> equiposGrupo = fixtureService.obtenerEquiposByGrupo(grupo);
         String titulo = "Grupo " + letragrupo;
         grupo1.setText(titulo.toUpperCase());
         ArrayList<JLabel> equipos = new ArrayList();
@@ -205,16 +201,18 @@ public class GrupoConstructor extends javax.swing.JFrame {
         img.add(equipoIcon3);
         img.add(equipoIcon4);
         //
-        Collections.sort(equiposGrupo, new Comparator<Equipo>() {
+        //
+        
+        ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
+        recuperarEquipoDeEquipoRepository(equiposGrupo, equiposDeEquipoRepository);
+        //
+         Collections.sort(equiposDeEquipoRepository, new Comparator<Equipo>() {
                 @Override
                 public int compare(Equipo e1, Equipo e2) {
                     return e1.getPuntosDeEquipo() > e2.getPuntosDeEquipo() ? -1 : 1; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
                 }
             });
         //
-        
-        ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
-        recuperarEquipoDeEquipoRepository(equiposGrupo, equiposDeEquipoRepository);
         
         int i= 0;
         for(Equipo equipo : equiposDeEquipoRepository ){
@@ -247,7 +245,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
     private void recuperarEquipoDeEquipoRepository(ArrayList<Equipo> listadoDeEquipos, ArrayList<Equipo> listaDeEquiposACompletar) {
         // Recuperar el dato de cada equipo de EquipoRepository
         for(Equipo equipo : listadoDeEquipos){
-            Equipo equipoEncontrado = equipoRepository.find(equipo.getId());
+            Equipo equipoEncontrado = fixtureService.obtenerEquipoById(equipo);
             listaDeEquiposACompletar.add(equipoEncontrado);
         }
     }
@@ -974,7 +972,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         limpiarTabla();
         //
         HashSet<Equipo> equipoActualizado = new HashSet();    
-        Grupo grupo = grupoRepository.get(letraGrupo);
+        Grupo grupo = fixtureService.obtenerGrupo(letraGrupo);
         
         ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
         recuperarEquipoDeEquipoRepository(grupo.getEquipos(), equiposDeEquipoRepository);
@@ -987,7 +985,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         //
             int i = 0;
             for(Integer id : idDePartido ){
-             for(Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupo)){
+             for(Partido p : fixtureService.obtenerPartido(grupo)){
                  if(p.getId() == id){
                      //Seteo los goles de los equipos
                      p.setGolesEquipo1(Integer.parseInt(golesEquipoLocal.get(i).getText()));
@@ -1048,11 +1046,11 @@ public class GrupoConstructor extends javax.swing.JFrame {
             
             try {
                 for(Equipo e : equipoActualizado){
-                    equipoRepository.actualizarDatosEquipoEnArchivo(e);
+                    fixtureService.actualizarDatosDeEquipoEnArchivo(e);
                     e.imprimirDatosDeEquipo();
                     
                 }
-                partidoRepository.guardarGolesPartido();
+                fixtureService.guardarGolesDePartido();
                 cargarGrupo(letraGrupo);
                 JOptionPane.showMessageDialog(this, "Se ha guardado con exito!", "Fixture Qatar 2022", JOptionPane.INFORMATION_MESSAGE);
             
