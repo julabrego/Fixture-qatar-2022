@@ -6087,10 +6087,112 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarBtnFinalActionPerformed
 
-    private void crearYCompletarTablaDePosiciones(Grupo grupo) {
-        HashSet<Equipo> equipos = recuperarDatosDeEquipoDeEquipoRepository(grupo);
+    private ArrayList<Equipo> ordenarEquipos(ArrayList<Equipo> equipos){
+        // Criterios de ordenamiento:
+        //  1) Mayor puntaje
+        //  2) Mayor diferencia de goles
+        //  3) Mayor cantidad de goles totales
+        // Dispongo de dos booleanos para informar al usuario si se requiere selección manual
         
-        ventanaTablaDePosiciones = new TablaDePosiciones(equipos);
+        boolean primerPuestoPendiente = false;
+        boolean segundoPuestoPendiente = false;
+        
+        // Los ordeno por puntaje
+        Collections.sort(equipos, new Comparator<Equipo>() {
+            @Override
+            public int compare(Equipo e1, Equipo e2) {
+                return e1.getPuntos() > e2.getPuntos() ? -1 : 1;
+            }
+        });
+
+        // Verifico si es necesario reordenar por 
+        boolean puntajesIguales = false;
+        int auxPuntaje = -1;
+        for (Equipo equipo : equipos) {
+            if (equipo.getPuntos() == auxPuntaje) {
+                puntajesIguales = true;
+            }
+            auxPuntaje = equipo.getPuntos();
+        }
+
+        // Los reordeno por diferencia de goles si encontré dos equipos con igual puntaje
+        if (puntajesIguales) {
+            Collections.sort(equipos, new Comparator<Equipo>() {
+                @Override
+                public int compare(Equipo e1, Equipo e2) {
+                    int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
+                    int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
+
+                    if (e1.getPuntos() == e2.getPuntos()) {
+                        return diferenciaDeGolesE1 > diferenciaDeGolesE2 ? -1 : 1;
+                    }
+                    return 0;
+                }
+            });
+
+            // Verifico is es necesario reordenar por golesHechos
+            boolean diferenciaDeGolesIguales = false;
+            int auxDiferenciaDeGoles = equipos.get(0).getGolesHechos() - equipos.get(0).getGolesEnContra();
+            for (int i = 1; i < equipos.size(); i++) {
+                int diferenciaDeGoles = equipos.get(i).getGolesHechos() - equipos.get(i).getGolesEnContra();
+                if (diferenciaDeGoles == auxDiferenciaDeGoles) {
+                    diferenciaDeGolesIguales = true;
+                }
+                auxDiferenciaDeGoles = diferenciaDeGoles;
+            }
+
+            // Los reordeno por golesHechos si ecuentro dos equipos con igual diferencia de goles
+            if (diferenciaDeGolesIguales) {
+                Collections.sort(equipos, new Comparator<Equipo>() {
+                    @Override
+                    public int compare(Equipo e1, Equipo e2) {
+                        int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
+                        int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
+
+                        if (diferenciaDeGolesE1 == diferenciaDeGolesE2) {
+                            return e1.getGolesHechos() < e2.getGolesHechos() ? -1 : 1;
+                        }
+                        return 0;
+                    }
+                });
+            }
+        }
+
+        // Los reordeno por goles hechos
+        Collections.sort(equipos, new Comparator<Equipo>() {
+            @Override
+            public int compare(Equipo e1, Equipo e2) {
+                int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
+                int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
+
+                if (diferenciaDeGolesE1 == diferenciaDeGolesE2) {
+                    return e1.getGolesHechos() > e2.getGolesHechos() ? -1 : 1;
+                }
+                return 0;
+            }
+        });
+        
+        // Valido si hay que elegir manualmente segundo puesto
+        boolean segundoYTerceroIgualPuntos = equipos.get(1).getPuntos() == equipos.get(2).getPuntos();
+        
+        int dgSegundo = equipos.get(1).getGolesHechos() - equipos.get(1).getGolesEnContra();
+        int dgTercero = equipos.get(2).getGolesHechos() - equipos.get(2).getGolesEnContra();
+        boolean segundoYTerceroIgualDG = dgSegundo == dgTercero;
+        
+        boolean segundoYTerceroIgualGolesHechos = equipos.get(1).getGolesHechos() == equipos.get(2).getGolesHechos();
+        
+        if(segundoYTerceroIgualPuntos && segundoYTerceroIgualDG && segundoYTerceroIgualGolesHechos){
+            JOptionPane.showMessageDialog(null, "Coinciden 2do y 3ro");
+        }
+        
+        return equipos;
+    }
+    
+    private void crearYCompletarTablaDePosiciones(Grupo grupo) {
+        ArrayList<Equipo> equipos = new ArrayList(recuperarDatosDeEquipoDeEquipoRepository(grupo));
+        ArrayList<Equipo> equiposOrdenados = ordenarEquipos(equipos);
+        
+        ventanaTablaDePosiciones = new TablaDePosiciones(equiposOrdenados);
         ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         ventanaTablaDePosiciones.setLocationRelativeTo(null);
