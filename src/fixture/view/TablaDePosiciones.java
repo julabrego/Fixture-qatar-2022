@@ -28,11 +28,15 @@ public class TablaDePosiciones extends javax.swing.JFrame {
     public TablaDePosiciones(HashSet<Equipo> e) {
         // Transformo el HashSet a ArrayList, para poder ordenarlo
         equipos = new ArrayList(e);
-      
+
         initComponents();
 
         DefaultTableModel tablaPosicionesModel = (DefaultTableModel) tablaPosiciones.getModel();
 
+        // Criterios de ordenamiento:
+        //  1) Mayor puntaje
+        //  2) Mayor diferencia de goles
+        //  3) Mayor cantidad de goles totales
         // Los ordeno por puntaje
         Collections.sort(equipos, new Comparator<Equipo>() {
             @Override
@@ -40,17 +44,19 @@ public class TablaDePosiciones extends javax.swing.JFrame {
                 return e1.getPuntos() > e2.getPuntos() ? -1 : 1;
             }
         });
-        
-        // Verifico si es necesario reordenar
+
+        // Verifico si es necesario reordenar por 
         boolean puntajesIguales = false;
         int auxPuntaje = -1;
-        for(Equipo equipo : equipos){
-            if(equipo.getPuntos() == auxPuntaje) puntajesIguales = true;
+        for (Equipo equipo : equipos) {
+            if (equipo.getPuntos() == auxPuntaje) {
+                puntajesIguales = true;
+            }
             auxPuntaje = equipo.getPuntos();
         }
-        
+
         // Los reordeno por diferencia de goles si encontré dos equipos con igual puntaje
-        if(puntajesIguales){
+        if (puntajesIguales) {
             Collections.sort(equipos, new Comparator<Equipo>() {
                 @Override
                 public int compare(Equipo e1, Equipo e2) {
@@ -63,22 +69,49 @@ public class TablaDePosiciones extends javax.swing.JFrame {
                     return 0;
                 }
             });
+
+            // Verifico is es necesario reordenar por golesHechos
+            boolean diferenciaDeGolesIguales = false;
+            int auxDiferenciaDeGoles = equipos.get(0).getGolesHechos() - equipos.get(0).getGolesEnContra();
+            for (int i = 1; i < equipos.size(); i++) {
+                int diferenciaDeGoles = equipos.get(i).getGolesHechos() - equipos.get(i).getGolesEnContra();
+                if (diferenciaDeGoles == auxDiferenciaDeGoles) {
+                    diferenciaDeGolesIguales = true;
+                }
+                auxDiferenciaDeGoles = diferenciaDeGoles;
+            }
+
+            // Los reordeno por golesHechos si ecuentro dos equipos con igual diferencia de goles
+            if (diferenciaDeGolesIguales) {
+                Collections.sort(equipos, new Comparator<Equipo>() {
+                    @Override
+                    public int compare(Equipo e1, Equipo e2) {
+                        int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
+                        int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
+
+                        if (diferenciaDeGolesE1 == diferenciaDeGolesE2) {
+                            return e1.getGolesHechos() < e2.getGolesHechos() ? -1 : 1;
+                        }
+                        return 0;
+                    }
+                });
+            }
         }
-        
+
         // Los reordeno por goles hechos
         Collections.sort(equipos, new Comparator<Equipo>() {
             @Override
-            public int compare(Equipo e1, Equipo e2){
+            public int compare(Equipo e1, Equipo e2) {
                 int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
                 int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
-                
-                if(diferenciaDeGolesE1 == diferenciaDeGolesE2){
+
+                if (diferenciaDeGolesE1 == diferenciaDeGolesE2) {
                     return e1.getGolesHechos() > e2.getGolesHechos() ? -1 : 1;
                 }
                 return 0;
             }
         });
-        
+
         for (Equipo equipo : equipos) {
             if (nonNull(equipo)) {
                 // Calculo la diferencia de goles
