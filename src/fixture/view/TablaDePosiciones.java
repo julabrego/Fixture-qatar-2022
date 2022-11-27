@@ -5,15 +5,11 @@
 package fixture.view;
 
 import fixture.model.Equipo;
-import fixture.model.Grupo;
-import fixture.model.Partido;
-import fixture.repository.EquipoRepository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
+import java.util.HashSet;
 import static java.util.Objects.nonNull;
-import java.util.stream.Collectors;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,54 +18,83 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TablaDePosiciones extends javax.swing.JFrame {
 
-    private Grupo grupo;
-    private EquipoRepository equipoRepository;
+    private ArrayList<Equipo> equipos;
 
     /**
      * Creates new form TablaDePosiciones
      *
-     * @param g
+     * @param e
      */
-    public TablaDePosiciones(Grupo g) {
-        grupo = g;
-        equipoRepository = new EquipoRepository();
-        ArrayList<Equipo> equiposGrupo = new ArrayList();
-        
-        // Traigo los equipos del repositorio de Equipos
-        for(Equipo equipoGrupo : grupo.getEquipos()){
-            Equipo equipoRecuperadoDelRepositorio = equipoRepository.find(equipoGrupo.getId());
-            equiposGrupo.add(equipoRecuperadoDelRepositorio);
-        }
-
+    public TablaDePosiciones(HashSet<Equipo> e) {
+        // Transformo el HashSet a ArrayList, para poder ordenarlo
+        equipos = new ArrayList(e);
+      
         initComponents();
 
         DefaultTableModel tablaPosicionesModel = (DefaultTableModel) tablaPosiciones.getModel();
 
         // Los ordeno por puntaje
-        Collections.sort(equiposGrupo, new Comparator<Equipo>() {
+        Collections.sort(equipos, new Comparator<Equipo>() {
             @Override
             public int compare(Equipo e1, Equipo e2) {
                 return e1.getPuntos() > e2.getPuntos() ? -1 : 1;
             }
         });
+        
+        // Verifico si es necesario reordenar
+        boolean puntajesIguales = false;
+        int auxPuntaje = -1;
+        for(Equipo equipo : equipos){
+            if(equipo.getPuntos() == auxPuntaje) puntajesIguales = true;
+            auxPuntaje = equipo.getPuntos();
+        }
+        
+        // Los reordeno por diferencia de goles si encontré dos equipos con igual puntaje
+        if(puntajesIguales){
+            Collections.sort(equipos, new Comparator<Equipo>() {
+                @Override
+                public int compare(Equipo e1, Equipo e2) {
+                    int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
+                    int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
 
-        for (Equipo equipo : equiposGrupo) {
-            Equipo equipoRecuperadoDelRepositorio = equipoRepository.find(equipo.getId());
-            if (nonNull(equipoRecuperadoDelRepositorio)) {
+                    if (e1.getPuntos() == e2.getPuntos()) {
+                        return diferenciaDeGolesE1 > diferenciaDeGolesE2 ? -1 : 1;
+                    }
+                    return 0;
+                }
+            });
+        }
+        
+        // Los reordeno por goles hechos
+        Collections.sort(equipos, new Comparator<Equipo>() {
+            @Override
+            public int compare(Equipo e1, Equipo e2){
+                int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
+                int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
+                
+                if(diferenciaDeGolesE1 == diferenciaDeGolesE2){
+                    return e1.getGolesHechos() > e2.getGolesHechos() ? -1 : 1;
+                }
+                return 0;
+            }
+        });
+        
+        for (Equipo equipo : equipos) {
+            if (nonNull(equipo)) {
                 // Calculo la diferencia de goles
-                int diferenciaDeGoles = equipoRecuperadoDelRepositorio.getGolesHechos() - equipoRecuperadoDelRepositorio.getGolesEnContra();
+                int diferenciaDeGoles = equipo.getGolesHechos() - equipo.getGolesEnContra();
 
                 // Creo la fila con los datos del equipo iterado
                 Object[] filaTablaPosiciones = {
-                    equipoRecuperadoDelRepositorio.getNombre(),
-                    equipoRecuperadoDelRepositorio.getPartidosJugados(),
-                    equipoRecuperadoDelRepositorio.getPartidosGanados(),
-                    equipoRecuperadoDelRepositorio.getPartidosEmpatados(),
-                    equipoRecuperadoDelRepositorio.getPartidosPerdidos(),
-                    equipoRecuperadoDelRepositorio.getGolesHechos(),
-                    equipoRecuperadoDelRepositorio.getGolesEnContra(),
+                    equipo.getNombre(),
+                    equipo.getPartidosJugados(),
+                    equipo.getPartidosGanados(),
+                    equipo.getPartidosEmpatados(),
+                    equipo.getPartidosPerdidos(),
+                    equipo.getGolesHechos(),
+                    equipo.getGolesEnContra(),
                     diferenciaDeGoles,
-                    equipoRecuperadoDelRepositorio.getPuntos()
+                    equipo.getPuntos()
                 };
 
                 // Agrego la fila creada a la tabla

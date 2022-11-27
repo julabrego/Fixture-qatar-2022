@@ -6088,7 +6088,9 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_guardarBtnFinalActionPerformed
 
     private void crearYCompletarTablaDePosiciones(Grupo grupo) {
-        ventanaTablaDePosiciones = new TablaDePosiciones((grupo));
+        HashSet<Equipo> equipos = recuperarDatosDeEquipoDeEquipoRepository(grupo);
+        
+        ventanaTablaDePosiciones = new TablaDePosiciones(equipos);
         ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         ventanaTablaDePosiciones.setLocationRelativeTo(null);
@@ -6096,19 +6098,13 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     private void leerGolesDeGrupoYGuardarCambios(Grupo grupo) {
-        HashSet<Equipo> equiposGrupoActualizados = new HashSet();
+        HashSet<Equipo> equiposGrupoActualizados = recuperarDatosDeEquipoDeEquipoRepository(grupo);
 
-        // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
-        for (Equipo equipoGrupo : grupo.getEquipos()) {
-            Equipo equipoEncontrado = equipoRepository.find(equipoGrupo.getId());
-
-            // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
-            equipoEncontrado.limpiarDatosDePartidos();
-
-            // esta lista (HashSet) va a ser la encargada que gestionar los datos de Equipos en el repositorio correspondiente
-            equiposGrupoActualizados.add(equipoEncontrado);
+        // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
+        for(Equipo equipo : equiposGrupoActualizados){
+            equipo.limpiarDatosDePartidos();
         }
-
+        
         // Busco el array conteniendo los ids de partidos y los campos de formulario del grupo que corresponda
         ArrayList<Integer> listadoDeIds = new ArrayList();
         JFormattedTextField[] golesLocal = {};
@@ -6186,6 +6182,19 @@ public class Ventana extends javax.swing.JFrame {
         }
 
         guardarCambios(grupo, equiposGrupoActualizados);
+    }
+
+    private HashSet<Equipo> recuperarDatosDeEquipoDeEquipoRepository(Grupo grupo) {
+        HashSet<Equipo> equiposGrupoActualizados = new HashSet();
+        // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
+        for (Equipo equipoGrupo : grupo.getEquipos()) {
+            Equipo equipoEncontrado = equipoRepository.find(equipoGrupo.getId());
+            
+            // esta lista (HashSet) va a ser la encargada que gestionar los datos de Equipos en el repositorio correspondiente
+            equiposGrupoActualizados.add(equipoEncontrado);
+        }
+
+        return equiposGrupoActualizados;
     }
 
     private void guardarCambios(Grupo grupo, HashSet<Equipo> equiposGrupoActualizados) throws HeadlessException {
