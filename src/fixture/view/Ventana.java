@@ -6087,7 +6087,10 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarBtnFinalActionPerformed
 
-    private ArrayList<Equipo> ordenarEquipos(ArrayList<Equipo> equipos){
+    private ArrayList<Equipo> ordenarEquiposYCompletarOctavos(HashSet<Equipo> e, boolean guardandoCambios){
+        
+        ArrayList<Equipo> equipos = new ArrayList(e);
+        
         // Criterios de ordenamiento:
         //  1) Mayor puntaje
         //  2) Mayor diferencia de goles
@@ -6172,25 +6175,81 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         
-        // Valido si hay que elegir manualmente segundo puesto
-        boolean segundoYTerceroIgualPuntos = equipos.get(1).getPuntos() == equipos.get(2).getPuntos();
-        
-        int dgSegundo = equipos.get(1).getGolesHechos() - equipos.get(1).getGolesEnContra();
-        int dgTercero = equipos.get(2).getGolesHechos() - equipos.get(2).getGolesEnContra();
-        boolean segundoYTerceroIgualDG = dgSegundo == dgTercero;
-        
-        boolean segundoYTerceroIgualGolesHechos = equipos.get(1).getGolesHechos() == equipos.get(2).getGolesHechos();
-        
-        if(segundoYTerceroIgualPuntos && segundoYTerceroIgualDG && segundoYTerceroIgualGolesHechos){
-            JOptionPane.showMessageDialog(null, "Coinciden 2do y 3ro");
+        // Este bloque se ejecuta solamente cuando se da click en btn guardar
+        if(guardandoCambios){
+            // Valido si hay que elegir manualmente segundo o primer puesto
+            boolean necesitaOrdenManual = false;
+            
+            // Valido si hay que elegir manualmente segundo puesto
+            boolean segundoYTerceroIgualPuntos = equipos.get(1).getPuntos() == equipos.get(2).getPuntos();
+
+            int dgSegundo = equipos.get(1).getGolesHechos() - equipos.get(1).getGolesEnContra();
+            int dgTercero = equipos.get(2).getGolesHechos() - equipos.get(2).getGolesEnContra();
+            boolean segundoYTerceroIgualDG = dgSegundo == dgTercero;
+
+            boolean segundoYTerceroIgualGolesHechos = equipos.get(1).getGolesHechos() == equipos.get(2).getGolesHechos();
+
+            if (segundoYTerceroIgualPuntos && segundoYTerceroIgualDG && segundoYTerceroIgualGolesHechos) {
+                necesitaOrdenManual = true;
+                
+                Object[] opciones = {equipos.get(1).getNombre(), equipos.get(2).getNombre(), "Omitir"};
+                int seleccion = JOptionPane.showOptionDialog(null, "Debe elegir manualmente el equipo que quedó en 2do puesto", "Selección manual", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
+                
+                switch(seleccion){
+                    case 0:
+                        equipos.get(1).setOctavos(true);
+                        break;
+                    case 1:
+                        equipos.get(2).setOctavos(true);
+                        break;
+                }
+            }
+            
+            // Valido si hay que elegir manualmente primer puesto
+            boolean primerYSegundoIgualPuntos = equipos.get(0).getPuntos() == equipos.get(1).getPuntos();
+
+            int dgPrimero = equipos.get(0).getGolesHechos() - equipos.get(0).getGolesEnContra();
+            boolean primerYSegundoIgualDG = dgPrimero == dgSegundo;
+
+            boolean primerYSegundoIgualGolesHechos = equipos.get(0).getGolesHechos() == equipos.get(1).getGolesHechos();
+
+            if (primerYSegundoIgualPuntos && primerYSegundoIgualDG && primerYSegundoIgualGolesHechos) {
+                necesitaOrdenManual = true;
+                
+                Object[] opciones = {equipos.get(0).getNombre(), equipos.get(1).getNombre(), "Omitir"};
+                int seleccion = JOptionPane.showOptionDialog(null, "Debe elegir manualmente el equipo que quedó en 1er puesto", "Selección manual", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
+                
+                switch(seleccion){
+                    case 0:
+                        equipos.get(0).setOctavos(true);
+                        break;
+                    case 1:
+                        equipos.get(0).setOctavos(true);
+                        break;
+                }
+            }
+            
+            // Si tuve que elegir manualmente algún puesto reordeno la tabla
+            // TODO: Decidir cómo manejar esto
+            if(necesitaOrdenManual){
+                if (equipos.get(1).isOctavos() && !equipos.get(0).isOctavos()) {
+                    Collections.swap(equipos, 1, 0);
+                }
+                if (equipos.get(2).isOctavos()) {
+                    Collections.swap(equipos, 2, 1);
+                }
+            }
+            
         }
         
         return equipos;
     }
     
     private void crearYCompletarTablaDePosiciones(Grupo grupo) {
-        ArrayList<Equipo> equipos = new ArrayList(recuperarDatosDeEquipoDeEquipoRepository(grupo));
-        ArrayList<Equipo> equiposOrdenados = ordenarEquipos(equipos);
+        HashSet<Equipo> equipos = recuperarDatosDeEquipoDeEquipoRepository(grupo);
+        
+        // Ordeno antes de generar la tabla
+        ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equipos, false);
         
         ventanaTablaDePosiciones = new TablaDePosiciones(equiposOrdenados);
         ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -6283,6 +6342,8 @@ public class Ventana extends javax.swing.JFrame {
             i++;
         }
 
+        // Ordeno y completo fase de 8vos
+        ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equiposGrupoActualizados, true);
         guardarCambios(grupo, equiposGrupoActualizados);
     }
 
