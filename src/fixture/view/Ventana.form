@@ -6563,11 +6563,15 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos1" pref="114" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos1" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos1" pref="55" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos1" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -6598,6 +6602,8 @@
                                                       <Component id="guionOctavos1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roA" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -6676,6 +6682,20 @@
                                     <Property name="text" type="java.lang.String" value="2do B"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila2">
@@ -6702,11 +6722,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalOctavos2" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos2" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos2" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos2" pref="114" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos2" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos2" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos2" pref="54" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos2" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos2" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos2" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -6737,6 +6761,8 @@
                                                       <Component id="guionOctavos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roC" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doD" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -6815,6 +6841,20 @@
                                     <Property name="text" type="java.lang.String" value="2do D"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos2">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos2">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila3">
@@ -6841,11 +6881,15 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos3" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos3" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos3" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos3" pref="114" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos3" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos3" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos3" pref="55" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos3" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos3" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos3" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -6876,6 +6920,8 @@
                                                       <Component id="guionOctavos3" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roB" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos3" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -6954,6 +7000,20 @@
                                     <Property name="text" type="java.lang.String" value="2do A"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos3">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos3">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila4">
@@ -6980,11 +7040,15 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos4" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos4" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos4" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos4" pref="114" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos4" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos4" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos4" pref="54" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos4" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos4" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos4" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -7015,6 +7079,8 @@
                                                       <Component id="guionOctavos4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roD" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7093,6 +7159,20 @@
                                     <Property name="text" type="java.lang.String" value="2do C"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos4">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos4">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila5">
@@ -7119,11 +7199,15 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos5" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos5" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos5" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos5" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos5" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos5" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos5" pref="58" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos5" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos5" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos5" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -7154,6 +7238,8 @@
                                                       <Component id="guionOctavos5" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roE" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos5" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7232,6 +7318,20 @@
                                     <Property name="text" type="java.lang.String" value="2do F"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos5">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos5">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila6">
@@ -7258,11 +7358,15 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos6" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos6" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos6" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos6" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos6" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos6" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos6" pref="53" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos6" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos6" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos6" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -7293,6 +7397,8 @@
                                                       <Component id="guionOctavos6" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roG" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doH" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos6" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7371,6 +7477,20 @@
                                     <Property name="text" type="java.lang.String" value="2do H"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos6">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos6">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila7">
@@ -7397,11 +7517,15 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos7" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos7" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos7" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos7" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos7" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos7" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos7" pref="59" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField12_Octavos7" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos7" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos7" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -7432,6 +7556,8 @@
                                                       <Component id="guionOctavos7" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roF" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doE" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField12_Octavos7" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7510,6 +7636,20 @@
                                     <Property name="text" type="java.lang.String" value="2do E"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos7">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField12_Octavos7">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelOctavosFila8">
@@ -7536,11 +7676,15 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="lblEquipoLocalOctavos8" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_Octavos8" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_Octavos8" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionOctavos8" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_Octavos8" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_Octavos8" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionOctavos8" pref="53" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos8" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_Octavos8" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteOctavos8" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -7571,6 +7715,8 @@
                                                       <Component id="guionOctavos8" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label1roH" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_Octavos8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos8" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7649,6 +7795,20 @@
                                     <Property name="text" type="java.lang.String" value="2do G"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_Octavos8">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos8">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                           </SubComponents>
@@ -7720,11 +7880,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalCuartos1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_cuartos1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_cuartos1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionCuartos1" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_cuartos1" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_cuartos1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionCuartos1" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_cuartos1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_cuartos1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteCuartos1" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -7751,6 +7915,8 @@
                                                       <Component id="golesField1_cuartos1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_cuartos1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionCuartos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_cuartos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_cuartos1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7819,6 +7985,20 @@
                                     <Property name="text" type="java.lang.String" value="-"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_cuartos1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_cuartos1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelCuartosFila2">
@@ -7843,11 +8023,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalCuartos2" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_cuartos2" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_cuartos2" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionCuartos2" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_cuartos2" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_cuartos2" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionCuartos2" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_cuartos2" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_cuartos2" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteCuartos2" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -7874,6 +8058,8 @@
                                                       <Component id="golesField1_cuartos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_cuartos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionCuartos2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_cuartos2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_cuartos2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7942,6 +8128,20 @@
                                     <Property name="text" type="java.lang.String" value="-"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_cuartos2">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_cuartos2">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelCuartosFila3">
@@ -7966,11 +8166,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalCuartos3" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_cuartos3" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_cuartos3" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionCuartos3" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_cuartos3" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_cuartos3" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionCuartos3" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_cuartos3" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_cuartos3" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteCuartos3" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -7997,6 +8201,8 @@
                                                       <Component id="golesField1_cuartos3" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_cuartos3" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionCuartos3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_cuartos3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_cuartos3" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -8065,6 +8271,20 @@
                                     <Property name="text" type="java.lang.String" value="-"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_cuartos3">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_cuartos3">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelCuartosFila4">
@@ -8089,11 +8309,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalCuartos4" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_cuartos4" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_cuartos4" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionCuartos4" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_cuartos4" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_cuartos4" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionCuartos4" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_cuartos4" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_cuartos4" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteCuartos4" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -8120,6 +8344,8 @@
                                                       <Component id="golesField1_cuartos4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_cuartos4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionCuartos4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_cuartos4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_cuartos4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -8186,6 +8412,20 @@
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
                                     <Property name="text" type="java.lang.String" value="-"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_cuartos4">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_cuartos4">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
                                   </Properties>
                                 </Component>
                               </SubComponents>
@@ -8259,11 +8499,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalSemifinales1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_semifinales1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_semifinales1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionSemifinales1" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_semifinales1" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_semifinales1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionSemifinales1" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_semifinales1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_semifinales1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteSemifinales1" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -8290,6 +8534,8 @@
                                                       <Component id="golesField1_semifinales1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_semifinales1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionSemifinales1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_semifinales1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_semifinales1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -8358,6 +8604,20 @@
                                     <Property name="text" type="java.lang.String" value="-"/>
                                   </Properties>
                                 </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_semifinales1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_semifinales1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
                               </SubComponents>
                             </Container>
                             <Container class="javax.swing.JPanel" name="panelSemifinalesFila2">
@@ -8382,11 +8642,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalSemifinales2" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_semifinales2" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_semifinales2" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionSemifinales2" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_semifinales2" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_semifinales2" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionSemifinales2" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_semifinales2" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_semifinales2" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteSemifinales2" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -8413,6 +8677,8 @@
                                                       <Component id="golesField1_semifinales2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_semifinales2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionSemifinales2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_semifinales2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_semifinales2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -8479,6 +8745,20 @@
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
                                     <Property name="text" type="java.lang.String" value="-"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_semifinales2">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_semifinales2">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
                                   </Properties>
                                 </Component>
                               </SubComponents>
@@ -8556,11 +8836,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalTercerPuesto1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_tercerPuesto1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_tercerPuesto1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionTercerPuesto1" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_tercerPuesto1" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_tercerPuesto1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionTercerPuesto1" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_tercerPuesto1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_tercerPuesto1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteTercerPuesto1" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -8587,6 +8871,8 @@
                                                       <Component id="golesField1_tercerPuesto1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_tercerPuesto1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionTercerPuesto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_tercerPuesto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_tercerPuesto1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -8653,6 +8939,20 @@
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
                                     <Property name="text" type="java.lang.String" value="-"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_tercerPuesto1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_tercerPuesto1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
                                   </Properties>
                                 </Component>
                               </SubComponents>
@@ -8730,11 +9030,15 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="lblEquipoLocalFinal1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="golesField1_final1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="golesField1_final1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="guionFinal1" max="32767" attributes="0"/>
+                                                  <Component id="penalesField1_final1" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="golesField2_final1" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="guionFinal1" pref="127" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_final1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="golesField2_final1" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="lblEquipoVisitanteFinal1" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -8761,6 +9065,8 @@
                                                       <Component id="golesField1_final1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="golesField2_final1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="guionFinal1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField1_final1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_final1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -8827,6 +9133,20 @@
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
                                     <Property name="text" type="java.lang.String" value="-"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField1_final1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_final1">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                                      <Format format="#0" subtype="-1" type="0"/>
+                                    </Property>
                                   </Properties>
                                 </Component>
                               </SubComponents>
