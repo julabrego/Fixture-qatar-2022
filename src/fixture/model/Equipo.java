@@ -12,6 +12,7 @@ public class Equipo implements Serializable{
     private int partidosPerdidos;
     private int partidosEmpatados;
     private int puntosDeEquipo;
+    private int difDeGoles;
     
     public void imprimirDatosDeEquipo(){
         System.out.println("Equipo: " + nombre);
@@ -22,6 +23,9 @@ public class Equipo implements Serializable{
         System.out.println("Goles convertidos: " + golesHechos);
         System.out.println("Goles Recibidos: " + golesRecibidos);
         System.out.println("Puntos: " + puntosDeEquipo);
+    }
+    public int calcularDifDeGoles(){
+       return difDeGoles = golesHechos - golesRecibidos;
     }
     
     

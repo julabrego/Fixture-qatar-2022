@@ -13,6 +13,9 @@ import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import fixture.repository.migrations.GruposMigrations;
 import fixture.repository.migrations.PartidosMigrations;
+import fixture.services.ComparadorDeListaEquipos;
+import fixture.services.ComparadorEquipoByDifGoles;
+import fixture.services.ComparadorEquipoByPuntos;
 import fixture.services.FixtureServiceImplement;
 import fixture.services.FixtureServices;
 import java.awt.Image;
@@ -206,12 +209,11 @@ public class GrupoConstructor extends javax.swing.JFrame {
         ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
         recuperarEquipoDeEquipoRepository(equiposGrupo, equiposDeEquipoRepository);
         //
-         Collections.sort(equiposDeEquipoRepository, new Comparator<Equipo>() {
-                @Override
-                public int compare(Equipo e1, Equipo e2) {
-                    return e1.getPuntosDeEquipo() > e2.getPuntosDeEquipo() ? -1 : 1; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-                }
-            });
+         Collections.sort(equiposDeEquipoRepository, new ComparadorDeListaEquipos(
+         new ComparadorEquipoByPuntos(),
+         new ComparadorEquipoByDifGoles())
+         );
+             
         //
         
         int i= 0;
