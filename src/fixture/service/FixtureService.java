@@ -7,7 +7,13 @@ package fixture.service;
 import fixture.exceptions.FixtureRuntimeException;
 import fixture.exceptions.FixtureException;
 import fixture.exceptions.GolesNegativosFixtureException;
+import fixture.model.Equipo;
+import fixture.model.Fase;
+import fixture.model.Grupo;
 import fixture.model.Partido;
+import fixture.repository.EquipoRepository;
+import fixture.repository.GrupoRepository;
+import fixture.repository.PartidoRepository;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,54 +21,35 @@ import java.util.List;
  *
  * @author miguel.mino
  */
-public class FixtureService {
+public interface FixtureService   {
     
-    public void validarGoles(ArrayList<Partido> partidos){
-        
-        for(Partido partido : partidos){
-            if(partido.getGolesEquipo1() < 0 ){
-                throw new GolesNegativosFixtureException(
-                        "Los goles de Local no deben ser menores que 0", partido.getEquipo1() );
-            }
-            
-            if( partido.getGolesEquipo2() < 0){
-                throw new GolesNegativosFixtureException(
-                "Los goles de Visitante no deben ser menores que 0", partido.getEquipo2());
-            }
-        }
-    }
-            
-            
-    public void metodo(){
+    Grupo obtenerGrupo(char caracter);
     
-        try{
-            metodoConError();
-            metodoConErrorChequeda();   
-        }catch(FixtureException | FixtureRuntimeException ex){
-            
-            ex.printStackTrace();
-            System.out.println("ocurrio un error FixtureException");
-            
-        }catch(Exception ex){
-            System.out.println("ocurrio un error FixtureException");
-        }finally{
-            System.out.println("Siempre se ejecuta");
-        }
-    }
-
-    private void metodoConError() 
-    {
-       throw new FixtureRuntimeException("Not supported yet."); 
-    }
+    Grupo obtenerGrupoA();
     
-    private void metodoConErrorChequeda() throws FixtureException
-    {
-       throw new FixtureException("Not supported yet."); 
-    }
+    ArrayList<Partido> obtenerPartidosDeFaseGrupo(Grupo grupoA);
     
+    ArrayList<Partido> obtenerPartidosDeFaseGrupo(char caracter);
     
-    public static void main(String [] args){
-        FixtureService service = new FixtureService();
-        service.metodo();
-    }
+    void metodo();
+    
+    ArrayList<Partido> obtenerPartidosDeFaseOctavos();
+    
+    ArrayList<Partido> obtenerPartidosDeFaseCuartos();
+    
+    ArrayList<Partido> obtenerPartidosDeFaseSemifinal();
+    
+    ArrayList<Partido> obtenerPartidosDeTercerPuesto();
+    
+    ArrayList<Partido> obtenerPartidoFinal();
+    
+    Equipo obtenerEquipoPorId(String id);
+    
+    void validarGoles(ArrayList<Partido> partidos);
+    
+    void guardarPartidosEnArchivo();
+    
+    void actualizarDatosDeEquiopoEnArchivo(Equipo equipoGrupo);
+    
+     Equipo obtenerEquipo(Equipo equipoGrupo);
 }

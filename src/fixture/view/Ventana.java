@@ -15,6 +15,7 @@ import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import java.awt.HeadlessException;
 import fixture.service.FixtureService;
+import fixture.service.FixtureServiceImpl;
 import java.awt.Image;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -36,9 +37,7 @@ import javax.swing.JOptionPane;
  */
 public class Ventana extends javax.swing.JFrame {
 
-    private GrupoRepository grupoRepository;
-    private PartidoRepository partidoRepository;
-    private EquipoRepository equipoRepository;
+    private FixtureService fixtureService ;
 
     private ImageIcon logoImage;
 
@@ -112,13 +111,13 @@ public class Ventana extends javax.swing.JFrame {
     // Defino la variable que va a contener las tablas de posiciones
     JFrame ventanaTablaDePosiciones;
 
-    FixtureService fixtureService = new FixtureService();
 
-    public Ventana() {
 
+    public Ventana(FixtureService fixtureService) {
+
+        this.fixtureService = fixtureService;
+        
         initComponents();
-
-        cargarRepositorios();
 
         loadPartidosGrupoA();
 
@@ -145,6 +144,7 @@ public class Ventana extends javax.swing.JFrame {
         loadPartidosTercerPuesto();
 
         loadPartidosFinal();
+        
     }
 
     /**
@@ -4463,10 +4463,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doB.setText("2do B");
 
-        penalesField1_Octavos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_Octavos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila1Layout = new javax.swing.GroupLayout(panelOctavosFila1);
         panelOctavosFila1.setLayout(panelOctavosFila1Layout);
         panelOctavosFila1Layout.setHorizontalGroup(
@@ -4484,15 +4480,11 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos1, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4517,9 +4509,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos1)
                             .addComponent(label1roA)
-                            .addComponent(label2doB)
-                            .addComponent(penalesField1_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_Octavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doB))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4553,10 +4543,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doD.setText("2do D");
 
-        penalesField1_Octavos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_Octavos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila2Layout = new javax.swing.GroupLayout(panelOctavosFila2);
         panelOctavosFila2.setLayout(panelOctavosFila2Layout);
         panelOctavosFila2Layout.setHorizontalGroup(
@@ -4574,15 +4560,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOctavosFila2Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalOctavos2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos2, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos2, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4607,9 +4589,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos2)
                             .addComponent(label1roC)
-                            .addComponent(label2doD)
-                            .addComponent(penalesField1_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_Octavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doD))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4643,10 +4623,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doA.setText("2do A");
 
-        penalesField1_Octavos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_Octavos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila3Layout = new javax.swing.GroupLayout(panelOctavosFila3);
         panelOctavosFila3.setLayout(panelOctavosFila3Layout);
         panelOctavosFila3Layout.setHorizontalGroup(
@@ -4664,15 +4640,11 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos3, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4697,9 +4669,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos3)
                             .addComponent(label1roB)
-                            .addComponent(label2doA)
-                            .addComponent(penalesField1_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_Octavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doA))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4733,10 +4703,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doC.setText("2do C");
 
-        penalesField1_Octavos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_Octavos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila4Layout = new javax.swing.GroupLayout(panelOctavosFila4);
         panelOctavosFila4.setLayout(panelOctavosFila4Layout);
         panelOctavosFila4Layout.setHorizontalGroup(
@@ -4754,15 +4720,11 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos4, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos4, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4787,9 +4749,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos4)
                             .addComponent(label1roD)
-                            .addComponent(label2doC)
-                            .addComponent(penalesField1_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_Octavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doC))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4823,10 +4783,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doF.setText("2do F");
 
-        penalesField1_Octavos5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_Octavos5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila5Layout = new javax.swing.GroupLayout(panelOctavosFila5);
         panelOctavosFila5.setLayout(panelOctavosFila5Layout);
         panelOctavosFila5Layout.setHorizontalGroup(
@@ -4844,15 +4800,11 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos5, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4877,9 +4829,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos5)
                             .addComponent(label1roE)
-                            .addComponent(label2doF)
-                            .addComponent(penalesField1_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_Octavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doF))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4913,10 +4863,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doH.setText("2do H");
 
-        penalesField1_Octavos6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_Octavos6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila6Layout = new javax.swing.GroupLayout(panelOctavosFila6);
         panelOctavosFila6.setLayout(panelOctavosFila6Layout);
         panelOctavosFila6Layout.setHorizontalGroup(
@@ -4934,15 +4880,11 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos6, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4967,9 +4909,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos6)
                             .addComponent(label1roG)
-                            .addComponent(label2doH)
-                            .addComponent(penalesField1_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_Octavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doH))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5003,10 +4943,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doE.setText("2do E");
 
-        penalesField1_Octavos7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField12_Octavos7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila7Layout = new javax.swing.GroupLayout(panelOctavosFila7);
         panelOctavosFila7.setLayout(panelOctavosFila7Layout);
         panelOctavosFila7Layout.setHorizontalGroup(
@@ -5024,15 +4960,11 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos7, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField12_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5057,9 +4989,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos7)
                             .addComponent(label1roF)
-                            .addComponent(label2doE)
-                            .addComponent(penalesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField12_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doE))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5093,10 +5023,6 @@ public class Ventana extends javax.swing.JFrame {
 
         label2doG.setText("2do G");
 
-        penalesField1_Octavos8.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_Octavos8.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelOctavosFila8Layout = new javax.swing.GroupLayout(panelOctavosFila8);
         panelOctavosFila8.setLayout(panelOctavosFila8Layout);
         panelOctavosFila8Layout.setHorizontalGroup(
@@ -5114,15 +5040,11 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblEquipoLocalOctavos8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionOctavos8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionOctavos8, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteOctavos8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5147,9 +5069,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(golesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(guionOctavos8)
                             .addComponent(label1roH)
-                            .addComponent(label2doG)
-                            .addComponent(penalesField1_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_Octavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label2doG))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5197,10 +5117,6 @@ public class Ventana extends javax.swing.JFrame {
         guionCuartos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionCuartos1.setText("-");
 
-        penalesField1_cuartos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_cuartos1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelCuartosFila1Layout = new javax.swing.GroupLayout(panelCuartosFila1);
         panelCuartosFila1.setLayout(panelCuartosFila1Layout);
         panelCuartosFila1Layout.setHorizontalGroup(
@@ -5216,15 +5132,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila1Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalCuartos1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionCuartos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionCuartos1, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteCuartos1)))
                 .addContainerGap())
@@ -5245,9 +5157,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalCuartos1)
                             .addComponent(golesField1_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionCuartos1)
-                            .addComponent(penalesField1_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_cuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionCuartos1))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorCuartos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5277,10 +5187,6 @@ public class Ventana extends javax.swing.JFrame {
         guionCuartos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionCuartos2.setText("-");
 
-        penalesField1_cuartos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_cuartos2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelCuartosFila2Layout = new javax.swing.GroupLayout(panelCuartosFila2);
         panelCuartosFila2.setLayout(panelCuartosFila2Layout);
         panelCuartosFila2Layout.setHorizontalGroup(
@@ -5296,15 +5202,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila2Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalCuartos2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionCuartos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionCuartos2, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteCuartos2)))
                 .addContainerGap())
@@ -5325,9 +5227,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalCuartos2)
                             .addComponent(golesField1_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionCuartos2)
-                            .addComponent(penalesField1_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_cuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionCuartos2))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorCuartos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5357,10 +5257,6 @@ public class Ventana extends javax.swing.JFrame {
         guionCuartos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionCuartos3.setText("-");
 
-        penalesField1_cuartos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_cuartos3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelCuartosFila3Layout = new javax.swing.GroupLayout(panelCuartosFila3);
         panelCuartosFila3.setLayout(panelCuartosFila3Layout);
         panelCuartosFila3Layout.setHorizontalGroup(
@@ -5376,15 +5272,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila3Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalCuartos3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionCuartos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionCuartos3, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteCuartos3)))
                 .addContainerGap())
@@ -5405,9 +5297,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalCuartos3)
                             .addComponent(golesField1_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionCuartos3)
-                            .addComponent(penalesField1_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_cuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionCuartos3))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorCuartos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5437,10 +5327,6 @@ public class Ventana extends javax.swing.JFrame {
         guionCuartos4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionCuartos4.setText("-");
 
-        penalesField1_cuartos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_cuartos4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelCuartosFila4Layout = new javax.swing.GroupLayout(panelCuartosFila4);
         panelCuartosFila4.setLayout(panelCuartosFila4Layout);
         panelCuartosFila4Layout.setHorizontalGroup(
@@ -5456,15 +5342,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCuartosFila4Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalCuartos4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionCuartos4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionCuartos4, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteCuartos4)))
                 .addContainerGap())
@@ -5485,9 +5367,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalCuartos4)
                             .addComponent(golesField1_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionCuartos4)
-                            .addComponent(penalesField1_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_cuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionCuartos4))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorCuartos4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5535,10 +5415,6 @@ public class Ventana extends javax.swing.JFrame {
         guionSemifinales1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionSemifinales1.setText("-");
 
-        penalesField1_semifinales1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_semifinales1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelSemifinalesFila1Layout = new javax.swing.GroupLayout(panelSemifinalesFila1);
         panelSemifinalesFila1.setLayout(panelSemifinalesFila1Layout);
         panelSemifinalesFila1Layout.setHorizontalGroup(
@@ -5554,15 +5430,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSemifinalesFila1Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalSemifinales1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionSemifinales1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionSemifinales1, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteSemifinales1)))
                 .addContainerGap())
@@ -5583,9 +5455,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalSemifinales1)
                             .addComponent(golesField1_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionSemifinales1)
-                            .addComponent(penalesField1_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_semifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionSemifinales1))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorSemifinales1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5615,10 +5485,6 @@ public class Ventana extends javax.swing.JFrame {
         guionSemifinales2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionSemifinales2.setText("-");
 
-        penalesField1_semifinales2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_semifinales2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelSemifinalesFila2Layout = new javax.swing.GroupLayout(panelSemifinalesFila2);
         panelSemifinalesFila2.setLayout(panelSemifinalesFila2Layout);
         panelSemifinalesFila2Layout.setHorizontalGroup(
@@ -5634,15 +5500,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSemifinalesFila2Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalSemifinales2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionSemifinales2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionSemifinales2, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteSemifinales2)))
                 .addContainerGap())
@@ -5663,9 +5525,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalSemifinales2)
                             .addComponent(golesField1_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionSemifinales2)
-                            .addComponent(penalesField1_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_semifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionSemifinales2))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorSemifinales2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5713,10 +5573,6 @@ public class Ventana extends javax.swing.JFrame {
         guionTercerPuesto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionTercerPuesto1.setText("-");
 
-        penalesField1_tercerPuesto1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_tercerPuesto1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelTercerPuestoFila1Layout = new javax.swing.GroupLayout(panelTercerPuestoFila1);
         panelTercerPuestoFila1.setLayout(panelTercerPuestoFila1Layout);
         panelTercerPuestoFila1Layout.setHorizontalGroup(
@@ -5732,15 +5588,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTercerPuestoFila1Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalTercerPuesto1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionTercerPuesto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionTercerPuesto1, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteTercerPuesto1)))
                 .addContainerGap())
@@ -5761,9 +5613,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalTercerPuesto1)
                             .addComponent(golesField1_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionTercerPuesto1)
-                            .addComponent(penalesField1_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_tercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionTercerPuesto1))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorTercerPuesto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5811,10 +5661,6 @@ public class Ventana extends javax.swing.JFrame {
         guionFinal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         guionFinal1.setText("-");
 
-        penalesField1_final1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        penalesField2_final1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         javax.swing.GroupLayout panelFinalFila1Layout = new javax.swing.GroupLayout(panelFinalFila1);
         panelFinalFila1.setLayout(panelFinalFila1Layout);
         panelFinalFila1Layout.setHorizontalGroup(
@@ -5830,15 +5676,11 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFinalFila1Layout.createSequentialGroup()
                         .addComponent(lblEquipoLocalFinal1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(golesField1_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField1_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField1_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guionFinal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(guionFinal1, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField2_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(golesField2_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(golesField2_final1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblEquipoVisitanteFinal1)))
                 .addContainerGap())
@@ -5859,9 +5701,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(lblEquipoLocalFinal1)
                             .addComponent(golesField1_final1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(golesField2_final1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(guionFinal1)
-                            .addComponent(penalesField1_final1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField2_final1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(guionFinal1))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorFinal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5963,7 +5803,7 @@ public class Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))
+                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 780, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5979,92 +5819,73 @@ public class Ventana extends javax.swing.JFrame {
 
     private void guardarBtnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnAActionPerformed
 
-        Grupo grupoA = grupoRepository.get('a');
-
-        leerGolesDeGrupoYGuardarCambios(grupoA);
-
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('a'));
     }//GEN-LAST:event_guardarBtnAActionPerformed
 
     private void guardarBtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnBActionPerformed
-        Grupo grupoB = grupoRepository.get('b');
-
-        leerGolesDeGrupoYGuardarCambios(grupoB);
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('b'));
     }//GEN-LAST:event_guardarBtnBActionPerformed
 
     private void guardarBtnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnCActionPerformed
-        Grupo grupoC = grupoRepository.get('c');
-
-        leerGolesDeGrupoYGuardarCambios(grupoC);
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('c'));
     }//GEN-LAST:event_guardarBtnCActionPerformed
 
     private void guardarBtnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnDActionPerformed
-        Grupo grupoD = grupoRepository.get('d');
-
-        leerGolesDeGrupoYGuardarCambios(grupoD);
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('d'));
     }//GEN-LAST:event_guardarBtnDActionPerformed
 
     private void guardarBtnEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnEActionPerformed
-        Grupo grupoE = grupoRepository.get('e');
-
-        leerGolesDeGrupoYGuardarCambios(grupoE);
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('e'));
     }//GEN-LAST:event_guardarBtnEActionPerformed
 
     private void guardarBtnFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnFActionPerformed
-        Grupo grupoF = grupoRepository.get('f');
-
-        leerGolesDeGrupoYGuardarCambios(grupoF);
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('f'));
     }//GEN-LAST:event_guardarBtnFActionPerformed
 
     private void guardarBtnGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnGActionPerformed
-        Grupo grupoG = grupoRepository.get('g');
-
-        leerGolesDeGrupoYGuardarCambios(grupoG);
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('g'));
     }//GEN-LAST:event_guardarBtnGActionPerformed
 
     private void guardarBtnHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnHActionPerformed
-        Grupo grupoH = grupoRepository.get('h');
-
-        leerGolesDeGrupoYGuardarCambios(grupoH);
+        leerGolesDeGrupoYGuardarCambios(fixtureService.obtenerGrupo('h'));
     }//GEN-LAST:event_guardarBtnHActionPerformed
 
     private void btnVerTablaDePoscionesAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesAActionPerformed
-        Grupo grupo = grupoRepository.get('a');
-        crearYCompletarTablaDePosiciones(grupo);
+
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('a'));
     }//GEN-LAST:event_btnVerTablaDePoscionesAActionPerformed
 
     private void btnVerTablaDePoscionesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesBActionPerformed
-        Grupo grupo = grupoRepository.get('b');
-        crearYCompletarTablaDePosiciones(grupo);
+
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('b'));
     }//GEN-LAST:event_btnVerTablaDePoscionesBActionPerformed
 
     private void btnVerTablaDePoscionesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesCActionPerformed
-        Grupo grupo = grupoRepository.get('c');
-        crearYCompletarTablaDePosiciones(grupo);
+
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('c'));
     }//GEN-LAST:event_btnVerTablaDePoscionesCActionPerformed
 
     private void btnVerTablaDePoscionesDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesDActionPerformed
-        Grupo grupo = grupoRepository.get('d');
-        crearYCompletarTablaDePosiciones(grupo);
+
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('d'));
     }//GEN-LAST:event_btnVerTablaDePoscionesDActionPerformed
 
     private void btnVerTablaDePoscionesEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesEActionPerformed
-        Grupo grupo = grupoRepository.get('e');
-        crearYCompletarTablaDePosiciones(grupo);
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('e'));
     }//GEN-LAST:event_btnVerTablaDePoscionesEActionPerformed
 
     private void btnVerTablaDePoscionesFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesFActionPerformed
-        Grupo grupo = grupoRepository.get('f');
-        crearYCompletarTablaDePosiciones(grupo);
+
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('f'));
     }//GEN-LAST:event_btnVerTablaDePoscionesFActionPerformed
 
     private void btnVerTablaDePoscionesGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesGActionPerformed
-        Grupo grupo = grupoRepository.get('g');
-        crearYCompletarTablaDePosiciones(grupo);
+
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('g'));
     }//GEN-LAST:event_btnVerTablaDePoscionesGActionPerformed
 
     private void btnVerTablaDePoscionesHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaDePoscionesHActionPerformed
-        Grupo grupo = grupoRepository.get('h');
-        crearYCompletarTablaDePosiciones(grupo);
+        crearYCompletarTablaDePosiciones(fixtureService.obtenerGrupo('h'));
     }//GEN-LAST:event_btnVerTablaDePoscionesHActionPerformed
 
     private void guardarBtnOctavosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnOctavosActionPerformed
@@ -6098,97 +5919,103 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     private void leerGolesDeGrupoYGuardarCambios(Grupo grupo) {
-        HashSet<Equipo> equiposGrupoActualizados = recuperarDatosDeEquipoDeEquipoRepository(grupo);
+        HashSet<Equipo> equiposGrupoActualizados = new HashSet();
 
-        // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
-        for(Equipo equipo : equiposGrupoActualizados){
-            equipo.limpiarDatosDePartidos();
-        }
-        
-        // Busco el array conteniendo los ids de partidos y los campos de formulario del grupo que corresponda
-        ArrayList<Integer> listadoDeIds = new ArrayList();
-        JFormattedTextField[] golesLocal = {};
-        JFormattedTextField[] golesVisitante = {};
-
-        switch (grupo.getLetra()) {
-            case 'a':
-                listadoDeIds = idsPartidosGrupoA;
-                golesLocal = golesLocalGrupoA;
-                golesVisitante = golesVisitantesGrupoA;
-                break;
-            case 'b':
-                listadoDeIds = idsPartidosGrupoB;
-                golesLocal = golesLocalGrupoB;
-                golesVisitante = golesVisitantesGrupoB;
-                break;
-            case 'c':
-                listadoDeIds = idsPartidosGrupoC;
-                golesLocal = golesLocalGrupoC;
-                golesVisitante = golesVisitantesGrupoC;
-                break;
-            case 'd':
-                listadoDeIds = idsPartidosGrupoD;
-                golesLocal = golesLocalGrupoD;
-                golesVisitante = golesVisitantesGrupoD;
-                break;
-            case 'e':
-                listadoDeIds = idsPartidosGrupoE;
-                golesLocal = golesLocalGrupoE;
-                golesVisitante = golesVisitantesGrupoE;
-                break;
-            case 'f':
-                listadoDeIds = idsPartidosGrupoF;
-                golesLocal = golesLocalGrupoF;
-                golesVisitante = golesVisitantesGrupoF;
-                break;
-            case 'g':
-                listadoDeIds = idsPartidosGrupoG;
-                golesLocal = golesLocalGrupoG;
-                golesVisitante = golesVisitantesGrupoG;
-                break;
-            case 'h':
-                listadoDeIds = idsPartidosGrupoH;
-                golesLocal = golesLocalGrupoH;
-                golesVisitante = golesVisitantesGrupoH;
-                break;
-        }
-
-        int i = 0;
-        for (Integer id : listadoDeIds) {
-            for (Partido p : partidoRepository.findBy(Fase.DE_GRUPOS, grupo)) {
-                if (p.getId() == id) {
-                    p.setGolesEquipo1(Integer.parseInt(golesLocal[i].getText()));
-                    p.setGolesEquipo2(Integer.parseInt(golesVisitante[i].getText()));
-
-                    // Equipos que jugaron el partido
-                    Equipo equipo1 = p.getEquipo1(); // A este nivel el objeto referencia al de GrupoRepository
-                    Equipo equipo2 = p.getEquipo2(); // A este nivel el objeto referencia al de GrupoRepository
-
-                    // Hago que equipo1 y equipo2 referencien a los equipos recuperados de EquipoRepository
-                    for (Equipo equipoAActualizar : equiposGrupoActualizados) {
-                        if (equipoAActualizar.getId().equals(p.getEquipo1().getId())) {
-                            equipo1 = equipoAActualizar;
-                        }
-
-                        if (equipoAActualizar.getId().equals(p.getEquipo2().getId())) {
-                            equipo2 = equipoAActualizar;
-                        }
-                    }
-
-                    actualizarValoresDeEquipo(equipo1, equipo2, p, equiposGrupoActualizados);
-                }
+        // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
+        for (Equipo equipoGrupo : grupo.getEquipos()) {
+           
+            // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
+            for(Equipo equipo : equiposGrupoActualizados){
+                equipo.limpiarDatosDePartidos();
             }
-            i++;
-        }
 
-        guardarCambios(grupo, equiposGrupoActualizados);
+            // Busco el array conteniendo los ids de partidos y los campos de formulario del grupo que corresponda
+            ArrayList<Integer> listadoDeIds = new ArrayList();
+            JFormattedTextField[] golesLocal = {};
+            JFormattedTextField[] golesVisitante = {};
+
+            switch (grupo.getLetra()) {
+                case 'a':
+                    listadoDeIds = idsPartidosGrupoA;
+                    golesLocal = golesLocalGrupoA;
+                    golesVisitante = golesVisitantesGrupoA;
+                    break;
+                case 'b':
+                    listadoDeIds = idsPartidosGrupoB;
+                    golesLocal = golesLocalGrupoB;
+                    golesVisitante = golesVisitantesGrupoB;
+                    break;
+                case 'c':
+                    listadoDeIds = idsPartidosGrupoC;
+                    golesLocal = golesLocalGrupoC;
+                    golesVisitante = golesVisitantesGrupoC;
+                    break;
+                case 'd':
+                    listadoDeIds = idsPartidosGrupoD;
+                    golesLocal = golesLocalGrupoD;
+                    golesVisitante = golesVisitantesGrupoD;
+                    break;
+                case 'e':
+                    listadoDeIds = idsPartidosGrupoE;
+                    golesLocal = golesLocalGrupoE;
+                    golesVisitante = golesVisitantesGrupoE;
+                    break;
+                case 'f':
+                    listadoDeIds = idsPartidosGrupoF;
+                    golesLocal = golesLocalGrupoF;
+                    golesVisitante = golesVisitantesGrupoF;
+                    break;
+                case 'g':
+                    listadoDeIds = idsPartidosGrupoG;
+                    golesLocal = golesLocalGrupoG;
+                    golesVisitante = golesVisitantesGrupoG;
+                    break;
+                case 'h':
+                    listadoDeIds = idsPartidosGrupoH;
+                    golesLocal = golesLocalGrupoH;
+                    golesVisitante = golesVisitantesGrupoH;
+                    break;
+            }
+
+            int i = 0;
+            for (Integer id : listadoDeIds) {
+                for (Partido p : fixtureService.obtenerPartidosDeFaseGrupo(grupo)) {
+                    if (p.getId() == id) {
+
+                        p.setGolesEquipo1(Integer.parseInt(golesLocal[i].getText()));
+                        p.setGolesEquipo2(Integer.parseInt(golesVisitante[i].getText()));
+
+                        // Equipos que jugaron el partido
+                        Equipo equipo1 = p.getEquipo1(); // A este nivel el objeto referencia al de GrupoRepository
+                        Equipo equipo2 = p.getEquipo2(); // A este nivel el objeto referencia al de GrupoRepository
+
+                        // Hago que equipo1 y equipo2 referencien a los equipos recuperados de EquipoRepository
+                        for (Equipo equipoAActualizar : equiposGrupoActualizados) {
+                            if (equipoAActualizar.getId().equals(p.getEquipo1().getId())) {
+                                equipo1 = equipoAActualizar;
+                            }
+
+                            if (equipoAActualizar.getId().equals(p.getEquipo2().getId())) {
+                                equipo2 = equipoAActualizar;
+                            }
+                        }
+
+                        actualizarValoresDeEquipo(equipo1, equipo2, p, equiposGrupoActualizados);
+                    }
+                }
+                i++;
+            }
+
+            guardarCambios(grupo, equiposGrupoActualizados);
+        }
     }
 
+        
     private HashSet<Equipo> recuperarDatosDeEquipoDeEquipoRepository(Grupo grupo) {
         HashSet<Equipo> equiposGrupoActualizados = new HashSet();
         // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
         for (Equipo equipoGrupo : grupo.getEquipos()) {
-            Equipo equipoEncontrado = equipoRepository.find(equipoGrupo.getId());
+            Equipo equipoEncontrado = fixtureService.obtenerEquipo(equipoGrupo);
             
             // esta lista (HashSet) va a ser la encargada que gestionar los datos de Equipos en el repositorio correspondiente
             equiposGrupoActualizados.add(equipoEncontrado);
@@ -6197,14 +6024,16 @@ public class Ventana extends javax.swing.JFrame {
         return equiposGrupoActualizados;
     }
 
+
     private void guardarCambios(Grupo grupo, HashSet<Equipo> equiposGrupoActualizados) throws HeadlessException {
         try {
-            fixtureService.validarGoles(partidoRepository.findBy(Fase.DE_GRUPOS, grupo));
-            partidoRepository.guardarPartidosEnArchivo();
+            fixtureService.validarGoles(fixtureService.obtenerPartidosDeFaseGrupo(grupo));
+            
+            fixtureService.guardarPartidosEnArchivo();
 
             // Guardo los datos y puntaje de equipos actualizados
             for (Equipo equipoGrupo : equiposGrupoActualizados) {
-                equipoRepository.actualizarDatosDeEquiopoEnArchivo(equipoGrupo);
+                fixtureService.actualizarDatosDeEquiopoEnArchivo(equipoGrupo);
             }
 
             JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
@@ -6258,48 +6087,6 @@ public class Ventana extends javax.swing.JFrame {
         equiposGrupoActualizados.add(equipo2);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerTablaDePoscionesA;
@@ -7042,9 +6829,8 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoA[4] = golesField2_A5;
         golesVisitantesGrupoA[5] = golesField2_A6;
 
-        Grupo grupoA = grupoRepository.get('a');
-
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoA);
+        Grupo grupoA = fixtureService.obtenerGrupoA();   
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo(grupoA);
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7099,6 +6885,8 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+
+    
     private void loadPartidosGrupoB() {
 
         javax.swing.JLabel[] fechasB = {
@@ -7147,10 +6935,8 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoB[3] = golesField2_B4;
         golesVisitantesGrupoB[4] = golesField2_B5;
         golesVisitantesGrupoB[5] = golesField2_B6;
-
-        Grupo grupoB = grupoRepository.get('b');
-
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoB);
+        
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('b');
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7254,9 +7040,8 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoC[4] = golesField2_C5;
         golesVisitantesGrupoC[5] = golesField2_C6;
 
-        Grupo grupoC = grupoRepository.get('c');
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoC);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('c');
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7361,9 +7146,8 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoD[4] = golesField2_D5;
         golesVisitantesGrupoD[5] = golesField2_D6;
 
-        Grupo grupoD = grupoRepository.get('d');
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoD);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('d');
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7468,9 +7252,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoE[4] = golesField2_E5;
         golesVisitantesGrupoE[5] = golesField2_E6;
 
-        Grupo grupoE = grupoRepository.get('e');
-
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoE);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('e');
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7575,9 +7357,8 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoF[4] = golesField2_F5;
         golesVisitantesGrupoF[5] = golesField2_F6;
 
-        Grupo grupoF = grupoRepository.get('f');
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoF);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('f');
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7682,9 +7463,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoG[4] = golesField2_G5;
         golesVisitantesGrupoG[5] = golesField2_G6;
 
-        Grupo grupoG = grupoRepository.get('g');
-
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoG);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('g');
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7789,9 +7568,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoH[4] = golesField2_H5;
         golesVisitantesGrupoH[5] = golesField2_H6;
 
-        Grupo grupoH = grupoRepository.get('h');
-
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoH);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('h');
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -7907,7 +7684,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesOctavos[6] = golesField2_Octavos7;
         golesVisitantesOctavos[7] = golesField2_Octavos8;
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.OCTAVOS);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseOctavos();
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -8011,7 +7788,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesCuartos[2] = golesField2_cuartos3;
         golesVisitantesCuartos[3] = golesField2_cuartos4;
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.CUARTOS);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseCuartos();
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -8103,7 +7880,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesSemifinales[0] = golesField2_semifinales1;
         golesVisitantesSemifinales[1] = golesField2_semifinales2;
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.SEMIFINALES);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseSemifinal();
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -8189,7 +7966,7 @@ public class Ventana extends javax.swing.JFrame {
 
         golesVisitantesTercerPuesto[0] = golesField2_tercerPuesto1;
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.TERCER_PUESTO);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeTercerPuesto();
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -8275,7 +8052,7 @@ public class Ventana extends javax.swing.JFrame {
 
         golesVisitantesFinal[0] = golesField2_final1;
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.FINAL);
+        ArrayList<Partido> partidos = fixtureService.obtenerPartidoFinal();
 
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
@@ -8343,12 +8120,5 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
-    private void cargarRepositorios() {
 
-        //GruposMigrations.up();
-        //PartidosMigrations.up();
-        grupoRepository = new GrupoRepository();
-        partidoRepository = new PartidoRepository();
-        equipoRepository = new EquipoRepository();
-    }
 }
