@@ -7255,8 +7255,6 @@ public class Ventana extends javax.swing.JFrame {
         
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('b');
 
-        ArrayList<Partido> partidos = partidoRepository.findBy(Fase.DE_GRUPOS, grupoB);
-
         Collections.sort(partidos, new Comparator<Partido>() {
             @Override
             public int compare(Partido p1, Partido p2) {
