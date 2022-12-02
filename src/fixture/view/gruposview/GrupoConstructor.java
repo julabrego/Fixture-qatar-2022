@@ -209,11 +209,8 @@ public class GrupoConstructor extends javax.swing.JFrame {
         ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
         recuperarEquipoDeEquipoRepository(equiposGrupo, equiposDeEquipoRepository);
         //
-         Collections.sort(equiposDeEquipoRepository, new ComparadorDeListaEquipos(
-         new ComparadorEquipoByPuntos(),
-         new ComparadorEquipoByDifGoles())
-         );
-             
+        //Se ordena la lista de equipos usando comparadores --->
+         fixtureService.ordenarListaTablaDePosiciones(equiposDeEquipoRepository);    
         //
         
         int i= 0;

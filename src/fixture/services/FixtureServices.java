@@ -32,6 +32,8 @@ public interface FixtureServices {
     
     void guardarGolesDePartido();
     
+    void ordenarListaTablaDePosiciones(ArrayList<Equipo> lista);
+    
     
     
     

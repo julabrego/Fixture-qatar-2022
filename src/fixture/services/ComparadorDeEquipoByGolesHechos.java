@@ -11,13 +11,12 @@ import java.util.Comparator;
  *
  * @author Nico
  */
-public class ComparadorEquipoByDifGoles implements Comparator<Equipo> {
-
+public class ComparadorDeEquipoByGolesHechos implements Comparator<Equipo>{
 
     @Override
     public int compare(Equipo o1, Equipo o2) {
-        if(o1.getPuntosDeEquipo() == o2.getPuntosDeEquipo()){
-        return o1.calcularDifDeGoles() > o2.calcularDifDeGoles() ? -1 : 1;
+        if(o1.calcularDifDeGoles() == o2.calcularDifDeGoles() ){
+        return o1.getGolesHechos() > o2.getGolesHechos() ? -1 : 1;
         }
         return 0;
     }
