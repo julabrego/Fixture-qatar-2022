@@ -6141,20 +6141,6 @@ public class Ventana extends javax.swing.JFrame {
                 });
             }
         }
-
-        // Los reordeno por goles hechos
-        Collections.sort(equipos, new Comparator<Equipo>() {
-            @Override
-            public int compare(Equipo e1, Equipo e2) {
-                int diferenciaDeGolesE1 = e1.getGolesHechos() - e1.getGolesEnContra();
-                int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
-
-                if (diferenciaDeGolesE1 == diferenciaDeGolesE2) {
-                    return e1.getGolesHechos() > e2.getGolesHechos() ? -1 : 1;
-                }
-                return 0;
-            }
-        });
         
         // Este bloque se ejecuta solamente cuando se da click en btn guardar
         if(guardandoCambios){
