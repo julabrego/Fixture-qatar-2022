@@ -69,6 +69,10 @@ public class FixtureServiceImpl implements FixtureService{
         return partidoRepository.findBy(Fase.TERCER_PUESTO);
     }
     
+    public Partido obtenerPartidoPorId(int id){
+        return partidoRepository.find(id);
+    }
+    
     public ArrayList<Partido> obtenerPartidoFinal(){
         return partidoRepository.findBy(Fase.FINAL);
     }

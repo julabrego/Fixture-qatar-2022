@@ -51,4 +51,17 @@ public class PartidoRepository {
         return (ArrayList<Partido>) partidosGrupo.stream().collect(Collectors.toList());
         
     }
+    
+    // Buscar un partido
+    public Partido find(int id){
+        Partido partidoEncontrado = null;
+        
+        for(Partido partido : partidos){
+            if(partido.getId() == id){
+                partidoEncontrado = partido;
+            }
+        }
+        
+        return partidoEncontrado;
+    }
 }

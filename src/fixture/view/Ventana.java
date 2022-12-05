@@ -24,6 +24,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
@@ -6068,7 +6069,7 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarBtnFinalActionPerformed
 
-    private ArrayList<Equipo> ordenarEquiposYCompletarOctavos(HashSet<Equipo> e, boolean guardandoCambios){
+    private ArrayList<Equipo> ordenarEquiposYCompletarOctavos(HashSet<Equipo> e, Grupo grupo, boolean guardandoCambios){
         
         ArrayList<Equipo> equipos = new ArrayList(e);
         
@@ -6142,7 +6143,16 @@ public class Ventana extends javax.swing.JFrame {
             }
         }
         
+        // Completar equipos de fase de 8vos
+        HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos = new HashMap<>();
+        Equipo[] equiposParaOctavos = {equipos.get(0), equipos.get(1)};
+        
+        grupoEquiposPrimerosPuestos.put(grupo.getLetra(), equiposParaOctavos);
+        
+        escribirEquiposEnOctavos(grupoEquiposPrimerosPuestos);
+        
         // Este bloque se ejecuta solamente cuando se da click en btn guardar
+        // ...
         if(guardandoCambios){
             // Valido si hay que elegir manualmente segundo o primer puesto
             boolean necesitaOrdenManual = false;
@@ -6212,11 +6222,65 @@ public class Ventana extends javax.swing.JFrame {
         return equipos;
     }
     
+    
+    
+    private void escribirEquiposEnOctavos(HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos){
+        // Primer puesto de tabla de posiciones
+        // Segundo puesto de tabla de posiciones
+        
+        // Dónde ubicar 1er puesto
+        // Dónde ubicar 2do puesto
+        
+        Character letra = (Character) grupoEquiposPrimerosPuestos.keySet().toArray()[0];
+        
+        Partido partidoPrimerPuesto;
+        Partido partidoSegundoPuesto;
+        
+        switch(letra){
+            case 'a': 
+                // Buscar el partido de ID 49
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(49);
+                
+                // Buscar el partido de ID 52
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(52);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('a')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('a')[1]);
+
+                lblEquipoLocalOctavos1.setText(partidoPrimerPuesto.getEquipo1().getNombre());
+                lblEquipoVisitanteOctavos3.setText(partidoSegundoPuesto.getEquipo2().getNombre() );
+                break;
+            
+            case 'b':
+                // Buscar el partido de ID 52
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(52);
+                
+                // Buscar el partido de ID 49
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(49);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('b')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('b')[1]);
+                
+                break;
+                
+            // case 'c'
+            // case 'd'
+            // ...
+        }
+        
+        // 1A -> equipo1 de id 49
+        // 2B -> equipo2 de id 49
+        
+        // 1B -> equipo1 de id 52
+        // 2A -> equipo2 de id 52
+        
+    }
+    
     private void crearYCompletarTablaDePosiciones(Grupo grupo) {
         HashSet<Equipo> equipos = recuperarDatosDeEquipoDeEquipoRepository(grupo);
         
         // Ordeno antes de generar la tabla
-        ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equipos, false);
+        ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equipos, grupo, false);
         
         ventanaTablaDePosiciones = new TablaDePosiciones(equiposOrdenados);
         ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -6310,6 +6374,11 @@ public class Ventana extends javax.swing.JFrame {
             i++;
         }
 
+        // Ordeno antes de generar la tabla
+        // TODO: Iterar sobre implementación de actualización de equipos de octavos cuando los puntos coinciden
+        // Llevar llamado a ordenarEquiposYCompletarOctavos a guardarCambios o refactorizar guardarCambios para que
+        // espere recibir el listado ordenado
+        ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equiposGrupoActualizados, grupo, false);
         guardarCambios(grupo, equiposGrupoActualizados);
     }
 
@@ -8008,7 +8077,7 @@ public class Ventana extends javax.swing.JFrame {
             idsPartidosOctavos.add(p.getId());
 
             // Fecha con formato
-            fechasOctavos[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")));
+            fechasOctavos[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")) + "(id: " + p.getId() +")");
 
             // Nombre equipo local
             String nombreEquipoLocal = p.getEquipo1() != null ? p.getEquipo1().getNombre() : "?";
@@ -8041,7 +8110,7 @@ public class Ventana extends javax.swing.JFrame {
             equiposVisitantesOctavos[i].setIcon(imagenEquipoVisitanteAchicada);
             equiposVisitantesOctavos[i].setHorizontalTextPosition(JLabel.LEFT);
 
-            // Si los equipos no están definidos deshabilito los campos
+            // Si los equipos no están definidos deshabilito los campos    
             if (p.getEquipo1() == null || p.getEquipo2() == null) {
                 golesLocalOctavos[i].setEnabled(false);
                 golesVisitantesOctavos[i].setEnabled(false);

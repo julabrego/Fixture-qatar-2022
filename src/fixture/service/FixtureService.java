@@ -31,6 +31,8 @@ public interface FixtureService   {
     
     ArrayList<Partido> obtenerPartidosDeFaseGrupo(char caracter);
     
+    Partido obtenerPartidoPorId(int id);
+    
     void metodo();
     
     ArrayList<Partido> obtenerPartidosDeFaseOctavos();
