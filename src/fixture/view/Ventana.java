@@ -6242,18 +6242,16 @@ public class Ventana extends javax.swing.JFrame {
                 partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(49);
                 
                 // Buscar el partido de ID 52
-                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(52);
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(51);
 
                 partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('a')[0]);
                 partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('a')[1]);
 
-                lblEquipoLocalOctavos1.setText(partidoPrimerPuesto.getEquipo1().getNombre());
-                lblEquipoVisitanteOctavos3.setText(partidoSegundoPuesto.getEquipo2().getNombre() );
                 break;
             
             case 'b':
                 // Buscar el partido de ID 52
-                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(52);
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(51);
                 
                 // Buscar el partido de ID 49
                 partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(49);
@@ -6268,11 +6266,8 @@ public class Ventana extends javax.swing.JFrame {
             // ...
         }
         
-        // 1A -> equipo1 de id 49
-        // 2B -> equipo2 de id 49
-        
-        // 1B -> equipo1 de id 52
-        // 2A -> equipo2 de id 52
+        // Escribo los datos en la pestaña de octavos
+        loadPartidosOctavos();
         
     }
     
@@ -6374,12 +6369,10 @@ public class Ventana extends javax.swing.JFrame {
             i++;
         }
 
-        // Ordeno antes de generar la tabla
-        // TODO: Iterar sobre implementación de actualización de equipos de octavos cuando los puntos coinciden
-        // Llevar llamado a ordenarEquiposYCompletarOctavos a guardarCambios o refactorizar guardarCambios para que
-        // espere recibir el listado ordenado
+        // Ordenar los equipos en la tabla de posiciones y guardarlos
+        // TODO: Cambiar a true el booleano
         ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equiposGrupoActualizados, grupo, false);
-        guardarCambios(grupo, equiposGrupoActualizados);
+        guardarCambios(grupo, equiposOrdenados);
     }
 
         
@@ -6397,7 +6390,7 @@ public class Ventana extends javax.swing.JFrame {
     }
 
 
-    private void guardarCambios(Grupo grupo, HashSet<Equipo> equiposGrupoActualizados) throws HeadlessException {
+    private void guardarCambios(Grupo grupo, ArrayList<Equipo> equiposGrupoActualizados) throws HeadlessException {
         try {
             fixtureService.validarGoles(fixtureService.obtenerPartidosDeFaseGrupo(grupo));
             
