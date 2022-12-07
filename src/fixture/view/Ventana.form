@@ -7523,7 +7523,7 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="guionOctavos7" pref="59" max="32767" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="penalesField12_Octavos7" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="penalesField2_Octavos7" min="-2" pref="50" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="golesField2_Octavos7" min="-2" pref="64" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -7557,7 +7557,7 @@
                                                       <Component id="label1roF" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="label2doE" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="penalesField1_Octavos7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="penalesField12_Octavos7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="penalesField2_Octavos7" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -7643,7 +7643,7 @@
                                     </Property>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JFormattedTextField" name="penalesField12_Octavos7">
+                                <Component class="javax.swing.JFormattedTextField" name="penalesField2_Octavos7">
                                   <Properties>
                                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                                       <Format format="#0" subtype="-1" type="0"/>

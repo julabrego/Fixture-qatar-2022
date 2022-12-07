@@ -85,27 +85,37 @@ public class Ventana extends javax.swing.JFrame {
     // Preparo arreglos para leer los campos de octavos
     private ArrayList<Integer> idsPartidosOctavos = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalOctavos = new JFormattedTextField[8];
+    private JFormattedTextField[] penalesLocalOctavos = new JFormattedTextField[8];
     private JFormattedTextField[] golesVisitantesOctavos = new JFormattedTextField[8];
+    private JFormattedTextField[] penalesVisitantesOctavos = new JFormattedTextField[8];
 
     // Preparo arreglos para leer los campos de cuartos
     private ArrayList<Integer> idsPartidosCuartos = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalCuartos = new JFormattedTextField[4];
+    private JFormattedTextField[] penalesLocalCuartos = new JFormattedTextField[4];
     private JFormattedTextField[] golesVisitantesCuartos = new JFormattedTextField[4];
+    private JFormattedTextField[] penalesVisitantesCuartos = new JFormattedTextField[4];
 
     // Preparo arreglos para leer los campos de semifinales
     private ArrayList<Integer> idsPartidosSemifinales = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalSemifinales = new JFormattedTextField[2];
+    private JFormattedTextField[] penalesLocalSemifinales = new JFormattedTextField[2];
     private JFormattedTextField[] golesVisitantesSemifinales = new JFormattedTextField[2];
+    private JFormattedTextField[] penalesVisitantesSemifinales = new JFormattedTextField[2];
 
     // Preparo arreglos para leer los campos de tercer puesto
     private ArrayList<Integer> idsPartidosTercerPuesto = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalTercerPuesto = new JFormattedTextField[1];
+    private JFormattedTextField[] penalesLocalTercerPuesto = new JFormattedTextField[1];
     private JFormattedTextField[] golesVisitantesTercerPuesto = new JFormattedTextField[1];
+    private JFormattedTextField[] penalesVisitantesTercerPuesto = new JFormattedTextField[1];
 
     // Preparo arreglos para leer los campos de final
     private ArrayList<Integer> idsPartidosFinal = new ArrayList<Integer>();
     private JFormattedTextField[] golesLocalFinal = new JFormattedTextField[1];
+    private JFormattedTextField[] penalesLocalFinal = new JFormattedTextField[1];
     private JFormattedTextField[] golesVisitantesFinal = new JFormattedTextField[1];
+    private JFormattedTextField[] penalesVisitantesFinal = new JFormattedTextField[1];
 
     private HashMap<Character, IdsPartidosConResultados> lectorDeDatosDePartidos = new HashMap();
 
@@ -723,7 +733,7 @@ public class Ventana extends javax.swing.JFrame {
         label1roF = new javax.swing.JLabel();
         label2doE = new javax.swing.JLabel();
         penalesField1_Octavos7 = new javax.swing.JFormattedTextField();
-        penalesField12_Octavos7 = new javax.swing.JFormattedTextField();
+        penalesField2_Octavos7 = new javax.swing.JFormattedTextField();
         panelOctavosFila8 = new javax.swing.JPanel();
         lblFechaPartidoOctavos8 = new javax.swing.JLabel();
         lblEquipoLocalOctavos8 = new javax.swing.JLabel();
@@ -5004,7 +5014,7 @@ public class Ventana extends javax.swing.JFrame {
 
         penalesField1_Octavos7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        penalesField12_Octavos7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        penalesField2_Octavos7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         javax.swing.GroupLayout panelOctavosFila7Layout = new javax.swing.GroupLayout(panelOctavosFila7);
         panelOctavosFila7.setLayout(panelOctavosFila7Layout);
@@ -5029,7 +5039,7 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(guionOctavos7, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(penalesField12_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(penalesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(golesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -5058,7 +5068,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(label1roF)
                             .addComponent(label2doE)
                             .addComponent(penalesField1_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(penalesField12_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(penalesField2_Octavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparatorOctavos7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -7171,7 +7181,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel panelSemifinalesFila1;
     private javax.swing.JPanel panelSemifinalesFila2;
     private javax.swing.JPanel panelTercerPuesto;
-    private javax.swing.JFormattedTextField penalesField12_Octavos7;
     private javax.swing.JFormattedTextField penalesField1_Octavos1;
     private javax.swing.JFormattedTextField penalesField1_Octavos2;
     private javax.swing.JFormattedTextField penalesField1_Octavos3;
@@ -7194,6 +7203,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField penalesField2_Octavos4;
     private javax.swing.JFormattedTextField penalesField2_Octavos5;
     private javax.swing.JFormattedTextField penalesField2_Octavos6;
+    private javax.swing.JFormattedTextField penalesField2_Octavos7;
     private javax.swing.JFormattedTextField penalesField2_Octavos8;
     private javax.swing.JFormattedTextField penalesField2_cuartos1;
     private javax.swing.JFormattedTextField penalesField2_cuartos2;
@@ -8105,6 +8115,24 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesOctavos[6] = golesField2_Octavos7;
         golesVisitantesOctavos[7] = golesField2_Octavos8;
 
+        penalesLocalOctavos[0] = penalesField1_Octavos1;
+        penalesLocalOctavos[1] = penalesField1_Octavos2;
+        penalesLocalOctavos[2] = penalesField1_Octavos3;
+        penalesLocalOctavos[3] = penalesField1_Octavos4;
+        penalesLocalOctavos[4] = penalesField1_Octavos5;
+        penalesLocalOctavos[5] = penalesField1_Octavos6;
+        penalesLocalOctavos[6] = penalesField1_Octavos7;
+        penalesLocalOctavos[7] = penalesField1_Octavos8;
+
+        penalesVisitantesOctavos[0] = penalesField2_Octavos1;
+        penalesVisitantesOctavos[1] = penalesField2_Octavos2;
+        penalesVisitantesOctavos[2] = penalesField2_Octavos3;
+        penalesVisitantesOctavos[3] = penalesField2_Octavos4;
+        penalesVisitantesOctavos[4] = penalesField2_Octavos5;
+        penalesVisitantesOctavos[5] = penalesField2_Octavos6;
+        penalesVisitantesOctavos[6] = penalesField2_Octavos7;
+        penalesVisitantesOctavos[7] = penalesField2_Octavos8;
+
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseOctavos();
 
         System.out.println(partidos);
@@ -8149,13 +8177,24 @@ public class Ventana extends javax.swing.JFrame {
             equiposVisitantesOctavos[i].setHorizontalTextPosition(JLabel.LEFT);
 
             // Si los equipos no están definidos deshabilito los campos    
-            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+            if (p.getEquipo1() == null) {
                 golesLocalOctavos[i].setEnabled(false);
-                golesVisitantesOctavos[i].setEnabled(false);
+                penalesLocalOctavos[i].setEnabled(false);
             } else {
-                // Escribo los goles en los fields
+                golesLocalOctavos[i].setEnabled(true);
+                penalesLocalOctavos[i].setEnabled(true);
                 golesLocalOctavos[i].setText(String.valueOf(p.getGolesEquipo1()));
+                penalesLocalOctavos[i].setText(String.valueOf(p.getPenalesEquipo1()));
+            }
+
+            if (p.getEquipo2() == null) {
+                golesVisitantesOctavos[i].setEnabled(false);
+                penalesVisitantesOctavos[i].setEnabled(false);
+            } else {
+                golesVisitantesOctavos[i].setEnabled(true);
+                penalesVisitantesOctavos[i].setEnabled(true);
                 golesVisitantesOctavos[i].setText(String.valueOf(p.getGolesEquipo2()));
+                penalesVisitantesOctavos[i].setText(String.valueOf(p.getPenalesEquipo2()));
             }
 
             i++;
@@ -8198,22 +8237,32 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesCuartos[2] = golesField2_cuartos3;
         golesVisitantesCuartos[3] = golesField2_cuartos4;
 
+        penalesLocalCuartos[0] = penalesField1_cuartos1;
+        penalesLocalCuartos[1] = penalesField1_cuartos2;
+        penalesLocalCuartos[2] = penalesField1_cuartos3;
+        penalesLocalCuartos[3] = penalesField1_cuartos4;
+
+        penalesVisitantesCuartos[0] = penalesField2_cuartos1;
+        penalesVisitantesCuartos[1] = penalesField2_cuartos2;
+        penalesVisitantesCuartos[2] = penalesField2_cuartos3;
+        penalesVisitantesCuartos[3] = penalesField2_cuartos4;
+
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseCuartos();
 
-        Collections.sort(partidos, new Comparator<Partido>() {
-            @Override
-            public int compare(Partido p1, Partido p2) {
-                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-            }
-        });
-
-        List<Partido> partidosOrdenados = partidos.stream()
-                .sorted(Comparator.comparing(Partido::getFechaYHora))
-                .collect(Collectors.toList());
-
+        // TODO: Borrar ordenamiento
+//        Collections.sort(partidos, new Comparator<Partido>() {
+//            @Override
+//            public int compare(Partido p1, Partido p2) {
+//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+//            }
+//        });
+//
+//        List<Partido> partidosOrdenados = partidos.stream()
+//                .sorted(Comparator.comparing(Partido::getFechaYHora))
+//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
-        for (Partido p : partidosOrdenados) {
+        for (Partido p : partidos) {
 
             // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
             idsPartidosCuartos.add(p.getId());
@@ -8253,13 +8302,24 @@ public class Ventana extends javax.swing.JFrame {
             equiposVisitantesCuartos[i].setHorizontalTextPosition(JLabel.LEFT);
 
             // Si los equipos no están definidos deshabilito los campos
-            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+            if (p.getEquipo1() == null) {
                 golesLocalCuartos[i].setEnabled(false);
-                golesVisitantesCuartos[i].setEnabled(false);
+                penalesLocalCuartos[i].setEnabled(false);
             } else {
-                // Escribo los goles en los fields
+                golesLocalCuartos[i].setEnabled(true);
+                penalesLocalCuartos[i].setEnabled(true);
                 golesLocalCuartos[i].setText(String.valueOf(p.getGolesEquipo1()));
+                penalesLocalCuartos[i].setText(String.valueOf(p.getPenalesEquipo1()));
+            }
+
+            if (p.getEquipo2() == null) {
+                golesVisitantesCuartos[i].setEnabled(false);
+                penalesVisitantesCuartos[i].setEnabled(false);
+            } else {
+                golesVisitantesCuartos[i].setEnabled(true);
+                penalesVisitantesCuartos[i].setEnabled(true);
                 golesVisitantesCuartos[i].setText(String.valueOf(p.getGolesEquipo2()));
+                penalesVisitantesCuartos[i].setText(String.valueOf(p.getPenalesEquipo2()));
             }
 
             i++;
@@ -8290,22 +8350,28 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesSemifinales[0] = golesField2_semifinales1;
         golesVisitantesSemifinales[1] = golesField2_semifinales2;
 
+        penalesLocalSemifinales[0] = penalesField1_semifinales1;
+        penalesLocalSemifinales[1] = penalesField1_semifinales2;
+
+        penalesVisitantesSemifinales[0] = penalesField2_semifinales1;
+        penalesVisitantesSemifinales[1] = penalesField2_semifinales2;
+
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseSemifinal();
 
-        Collections.sort(partidos, new Comparator<Partido>() {
-            @Override
-            public int compare(Partido p1, Partido p2) {
-                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-            }
-        });
-
-        List<Partido> partidosOrdenados = partidos.stream()
-                .sorted(Comparator.comparing(Partido::getFechaYHora))
-                .collect(Collectors.toList());
-
+        // TODO: Borrar ordenamiento
+//        Collections.sort(partidos, new Comparator<Partido>() {
+//            @Override
+//            public int compare(Partido p1, Partido p2) {
+//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+//            }
+//        });
+//
+//        List<Partido> partidosOrdenados = partidos.stream()
+//                .sorted(Comparator.comparing(Partido::getFechaYHora))
+//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
-        for (Partido p : partidosOrdenados) {
+        for (Partido p : partidos) {
 
             // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
             idsPartidosSemifinales.add(p.getId());
@@ -8345,13 +8411,24 @@ public class Ventana extends javax.swing.JFrame {
             equiposVisitantesSemifinales[i].setHorizontalTextPosition(JLabel.LEFT);
 
             // Si los equipos no están definidos deshabilito los campos
-            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+            if (p.getEquipo1() == null) {
                 golesLocalSemifinales[i].setEnabled(false);
-                golesVisitantesSemifinales[i].setEnabled(false);
+                penalesLocalSemifinales[i].setEnabled(false);
             } else {
-                // Escribo los goles en los fields
+                golesLocalSemifinales[i].setEnabled(true);
+                penalesLocalSemifinales[i].setEnabled(true);
                 golesLocalSemifinales[i].setText(String.valueOf(p.getGolesEquipo1()));
+                penalesLocalSemifinales[i].setText(String.valueOf(p.getPenalesEquipo1()));
+            }
+
+            if (p.getEquipo2() == null) {
+                golesVisitantesSemifinales[i].setEnabled(false);
+                penalesVisitantesSemifinales[i].setEnabled(false);
+            } else {
+                golesVisitantesSemifinales[i].setEnabled(true);
+                penalesVisitantesSemifinales[i].setEnabled(true);
                 golesVisitantesSemifinales[i].setText(String.valueOf(p.getGolesEquipo2()));
+                penalesVisitantesSemifinales[i].setText(String.valueOf(p.getPenalesEquipo2()));
             }
 
             i++;
@@ -8376,22 +8453,26 @@ public class Ventana extends javax.swing.JFrame {
 
         golesVisitantesTercerPuesto[0] = golesField2_tercerPuesto1;
 
+        penalesLocalTercerPuesto[0] = penalesField1_tercerPuesto1;
+
+        penalesVisitantesTercerPuesto[0] = penalesField2_tercerPuesto1;
+
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeTercerPuesto();
 
-        Collections.sort(partidos, new Comparator<Partido>() {
-            @Override
-            public int compare(Partido p1, Partido p2) {
-                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-            }
-        });
-
-        List<Partido> partidosOrdenados = partidos.stream()
-                .sorted(Comparator.comparing(Partido::getFechaYHora))
-                .collect(Collectors.toList());
-
+        // TODO: Borrar ordenamiento
+//        Collections.sort(partidos, new Comparator<Partido>() {
+//            @Override
+//            public int compare(Partido p1, Partido p2) {
+//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+//            }
+//        });
+//
+//        List<Partido> partidosOrdenados = partidos.stream()
+//                .sorted(Comparator.comparing(Partido::getFechaYHora))
+//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
-        for (Partido p : partidosOrdenados) {
+        for (Partido p : partidos) {
 
             // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
             idsPartidosTercerPuesto.add(p.getId());
@@ -8430,14 +8511,24 @@ public class Ventana extends javax.swing.JFrame {
             equiposVisitantesTercerPuesto[i].setIcon(imagenEquipoVisitanteAchicada);
             equiposVisitantesTercerPuesto[i].setHorizontalTextPosition(JLabel.LEFT);
 
-            // Si los equipos no están definidos deshabilito los campos
-            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+            if (p.getEquipo1() == null) {
                 golesLocalTercerPuesto[i].setEnabled(false);
-                golesVisitantesTercerPuesto[i].setEnabled(false);
+                penalesLocalTercerPuesto[i].setEnabled(false);
             } else {
-                // Escribo los goles en los fields
+                golesLocalTercerPuesto[i].setEnabled(true);
+                penalesLocalTercerPuesto[i].setEnabled(true);
                 golesLocalTercerPuesto[i].setText(String.valueOf(p.getGolesEquipo1()));
+                penalesLocalTercerPuesto[i].setText(String.valueOf(p.getPenalesEquipo1()));
+            }
+
+            if (p.getEquipo2() == null) {
+                golesVisitantesTercerPuesto[i].setEnabled(false);
+                penalesVisitantesTercerPuesto[i].setEnabled(false);
+            } else {
+                golesVisitantesTercerPuesto[i].setEnabled(true);
+                penalesVisitantesTercerPuesto[i].setEnabled(true);
                 golesVisitantesTercerPuesto[i].setText(String.valueOf(p.getGolesEquipo2()));
+                penalesVisitantesTercerPuesto[i].setText(String.valueOf(p.getPenalesEquipo2()));
             }
 
             i++;
@@ -8459,25 +8550,27 @@ public class Ventana extends javax.swing.JFrame {
             lblEquipoVisitanteFinal1,};
 
         golesLocalFinal[0] = golesField1_final1;
-
         golesVisitantesFinal[0] = golesField2_final1;
+
+        penalesLocalFinal[0] = penalesField1_final1;
+        penalesVisitantesFinal[0] = penalesField2_final1;
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidoFinal();
 
-        Collections.sort(partidos, new Comparator<Partido>() {
-            @Override
-            public int compare(Partido p1, Partido p2) {
-                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-            }
-        });
-
-        List<Partido> partidosOrdenados = partidos.stream()
-                .sorted(Comparator.comparing(Partido::getFechaYHora))
-                .collect(Collectors.toList());
-
+        // TODO: Borrar ordenamiento
+//        Collections.sort(partidos, new Comparator<Partido>() {
+//            @Override
+//            public int compare(Partido p1, Partido p2) {
+//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
+//            }
+//        });
+//
+//        List<Partido> partidosOrdenados = partidos.stream()
+//                .sorted(Comparator.comparing(Partido::getFechaYHora))
+//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
-        for (Partido p : partidosOrdenados) {
+        for (Partido p : partidos) {
 
             // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
             idsPartidosFinal.add(p.getId());
@@ -8516,14 +8609,24 @@ public class Ventana extends javax.swing.JFrame {
             equiposVisitantesFinal[i].setIcon(imagenEquipoVisitanteAchicada);
             equiposVisitantesFinal[i].setHorizontalTextPosition(JLabel.LEFT);
 
-            // Si los equipos no están definidos deshabilito los campos
-            if (p.getEquipo1() == null || p.getEquipo2() == null) {
+            if (p.getEquipo1() == null) {
                 golesLocalFinal[i].setEnabled(false);
-                golesVisitantesFinal[i].setEnabled(false);
+                penalesLocalFinal[i].setEnabled(false);
             } else {
-                // Escribo los goles en los fields
+                golesLocalFinal[i].setEnabled(true);
+                penalesLocalFinal[i].setEnabled(true);
                 golesLocalFinal[i].setText(String.valueOf(p.getGolesEquipo1()));
+                penalesLocalFinal[i].setText(String.valueOf(p.getPenalesEquipo1()));
+            }
+
+            if (p.getEquipo2() == null) {
+                golesVisitantesFinal[i].setEnabled(false);
+                penalesVisitantesFinal[i].setEnabled(false);
+            } else {
+                golesVisitantesFinal[i].setEnabled(true);
+                penalesVisitantesFinal[i].setEnabled(true);
                 golesVisitantesFinal[i].setText(String.valueOf(p.getGolesEquipo2()));
+                penalesVisitantesFinal[i].setText(String.valueOf(p.getPenalesEquipo2()));
             }
 
             i++;
