@@ -38,7 +38,7 @@ import javax.swing.JOptionPane;
  */
 public class Ventana extends javax.swing.JFrame {
 
-    private FixtureService fixtureService ;
+    private FixtureService fixtureService;
 
     private ImageIcon logoImage;
 
@@ -112,12 +112,10 @@ public class Ventana extends javax.swing.JFrame {
     // Defino la variable que va a contener las tablas de posiciones
     JFrame ventanaTablaDePosiciones;
 
-
-
     public Ventana(FixtureService fixtureService) {
 
         this.fixtureService = fixtureService;
-        
+
         initComponents();
 
         loadPartidosGrupoA();
@@ -145,7 +143,7 @@ public class Ventana extends javax.swing.JFrame {
         loadPartidosTercerPuesto();
 
         loadPartidosFinal();
-        
+
     }
 
     /**
@@ -6069,19 +6067,18 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarBtnFinalActionPerformed
 
-    private ArrayList<Equipo> ordenarEquiposYCompletarOctavos(HashSet<Equipo> e, Grupo grupo, boolean guardandoCambios){
-        
+    private ArrayList<Equipo> ordenarEquiposYCompletarOctavos(HashSet<Equipo> e, Grupo grupo, boolean guardandoCambios) {
+
         ArrayList<Equipo> equipos = new ArrayList(e);
-        
+
         // Criterios de ordenamiento:
         //  1) Mayor puntaje
         //  2) Mayor diferencia de goles
         //  3) Mayor cantidad de goles totales
         // Dispongo de dos booleanos para informar al usuario si se requiere selección manual
-        
         boolean primerPuestoPendiente = false;
         boolean segundoPuestoPendiente = false;
-        
+
         // Los ordeno por puntaje
         Collections.sort(equipos, new Comparator<Equipo>() {
             @Override
@@ -6142,21 +6139,21 @@ public class Ventana extends javax.swing.JFrame {
                 });
             }
         }
-        
+
         // Completar equipos de fase de 8vos
         HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos = new HashMap<>();
         Equipo[] equiposParaOctavos = {equipos.get(0), equipos.get(1)};
-        
+
         grupoEquiposPrimerosPuestos.put(grupo.getLetra(), equiposParaOctavos);
-        
+
         escribirEquiposEnOctavos(grupoEquiposPrimerosPuestos);
-        
+
         // Este bloque se ejecuta solamente cuando se da click en btn guardar
         // ...
-        if(guardandoCambios){
+        if (guardandoCambios) {
             // Valido si hay que elegir manualmente segundo o primer puesto
             boolean necesitaOrdenManual = false;
-            
+
             // Valido si hay que elegir manualmente segundo puesto
             boolean segundoYTerceroIgualPuntos = equipos.get(1).getPuntos() == equipos.get(2).getPuntos();
 
@@ -6168,11 +6165,11 @@ public class Ventana extends javax.swing.JFrame {
 
             if (segundoYTerceroIgualPuntos && segundoYTerceroIgualDG && segundoYTerceroIgualGolesHechos) {
                 necesitaOrdenManual = true;
-                
+
                 Object[] opciones = {equipos.get(1).getNombre(), equipos.get(2).getNombre(), "Omitir"};
                 int seleccion = JOptionPane.showOptionDialog(null, "Debe elegir manualmente el equipo que quedó en 2do puesto", "Selección manual", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
-                
-                switch(seleccion){
+
+                switch (seleccion) {
                     case 0:
                         equipos.get(1).setOctavos(true);
                         break;
@@ -6181,7 +6178,7 @@ public class Ventana extends javax.swing.JFrame {
                         break;
                 }
             }
-            
+
             // Valido si hay que elegir manualmente primer puesto
             boolean primerYSegundoIgualPuntos = equipos.get(0).getPuntos() == equipos.get(1).getPuntos();
 
@@ -6192,11 +6189,11 @@ public class Ventana extends javax.swing.JFrame {
 
             if (primerYSegundoIgualPuntos && primerYSegundoIgualDG && primerYSegundoIgualGolesHechos) {
                 necesitaOrdenManual = true;
-                
+
                 Object[] opciones = {equipos.get(0).getNombre(), equipos.get(1).getNombre(), "Omitir"};
                 int seleccion = JOptionPane.showOptionDialog(null, "Debe elegir manualmente el equipo que quedó en 1er puesto", "Selección manual", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
-                
-                switch(seleccion){
+
+                switch (seleccion) {
                     case 0:
                         equipos.get(0).setOctavos(true);
                         break;
@@ -6205,10 +6202,10 @@ public class Ventana extends javax.swing.JFrame {
                         break;
                 }
             }
-            
+
             // Si tuve que elegir manualmente algún puesto reordeno la tabla
             // TODO: Decidir cómo manejar esto
-            if(necesitaOrdenManual){
+            if (necesitaOrdenManual) {
                 if (equipos.get(1).isOctavos() && !equipos.get(0).isOctavos()) {
                     Collections.swap(equipos, 1, 0);
                 }
@@ -6216,31 +6213,28 @@ public class Ventana extends javax.swing.JFrame {
                     Collections.swap(equipos, 2, 1);
                 }
             }
-            
+
         }
-        
+
         return equipos;
     }
-    
-    
-    
-    private void escribirEquiposEnOctavos(HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos){
+
+    private void escribirEquiposEnOctavos(HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos) {
         // Primer puesto de tabla de posiciones
         // Segundo puesto de tabla de posiciones
-        
+
         // Dónde ubicar 1er puesto
         // Dónde ubicar 2do puesto
-        
         Character letra = (Character) grupoEquiposPrimerosPuestos.keySet().toArray()[0];
-        
+
         Partido partidoPrimerPuesto;
         Partido partidoSegundoPuesto;
-        
-        switch(letra){
-            case 'a': 
+
+        switch (letra) {
+            case 'a':
                 // Buscar el partido de ID 49
                 partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(49);
-                
+
                 // Buscar el partido de ID 52
                 partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(51);
 
@@ -6248,35 +6242,104 @@ public class Ventana extends javax.swing.JFrame {
                 partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('a')[1]);
 
                 break;
-            
+
             case 'b':
                 // Buscar el partido de ID 52
                 partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(51);
-                
+
                 // Buscar el partido de ID 49
                 partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(49);
 
                 partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('b')[0]);
                 partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('b')[1]);
-                
+
                 break;
-                
-            // case 'c'
-            // case 'd'
-            // ...
+
+            case 'c':
+                // Buscar el partido de ID 50
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(50);
+
+                // Buscar el partido de ID 52
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(52);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('c')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('c')[1]);
+
+                break;
+
+            case 'd':
+                // Buscar el partido de ID 52
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(52);
+
+                // Buscar el partido de ID 50
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(50);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('d')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('d')[1]);
+
+                break;
+
+            case 'e':
+                // Buscar el partido de ID 53
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(53);
+
+                // Buscar el partido de ID 55
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(55);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('e')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('e')[1]);
+
+                break;
+
+            case 'f':
+                // Buscar el partido de ID 53
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(55);
+
+                // Buscar el partido de ID 55
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(53);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('f')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('f')[1]);
+
+                break;
+
+            case 'g':
+                // Buscar el partido de ID 54
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(54);
+
+                // Buscar el partido de ID 56
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(56);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('g')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('g')[1]);
+
+                break;
+
+            case 'h':
+                // Buscar el partido de ID 56
+                partidoPrimerPuesto = fixtureService.obtenerPartidoPorId(56);
+
+                // Buscar el partido de ID 54
+                partidoSegundoPuesto = fixtureService.obtenerPartidoPorId(54);
+
+                partidoPrimerPuesto.setEquipo1(grupoEquiposPrimerosPuestos.get('h')[0]);
+                partidoSegundoPuesto.setEquipo2(grupoEquiposPrimerosPuestos.get('h')[1]);
+
+                break;
+
         }
-        
+
         // Escribo los datos en la pestaña de octavos
         loadPartidosOctavos();
-        
+
     }
-    
+
     private void crearYCompletarTablaDePosiciones(Grupo grupo) {
         HashSet<Equipo> equipos = recuperarDatosDeEquipoDeEquipoRepository(grupo);
-        
+
         // Ordeno antes de generar la tabla
         ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equipos, grupo, false);
-        
+
         ventanaTablaDePosiciones = new TablaDePosiciones(equiposOrdenados);
         ventanaTablaDePosiciones.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
@@ -6288,10 +6351,10 @@ public class Ventana extends javax.swing.JFrame {
         HashSet<Equipo> equiposGrupoActualizados = recuperarDatosDeEquipoDeEquipoRepository(grupo);
 
         // Antes de actualizar los valores para la tabla de cada equipo hay que limpiarlos
-        for(Equipo equipo : equiposGrupoActualizados){
+        for (Equipo equipo : equiposGrupoActualizados) {
             equipo.limpiarDatosDePartidos();
         }
-        
+
         // Busco el array conteniendo los ids de partidos y los campos de formulario del grupo que corresponda
         ArrayList<Integer> listadoDeIds = new ArrayList();
         JFormattedTextField[] golesLocal = {};
@@ -6340,28 +6403,28 @@ public class Ventana extends javax.swing.JFrame {
                 break;
         }
 
-            int i = 0;
-            for (Integer id : listadoDeIds) {
-                for (Partido p : fixtureService.obtenerPartidosDeFaseGrupo(grupo)) {
-                    if (p.getId() == id) {
+        int i = 0;
+        for (Integer id : listadoDeIds) {
+            for (Partido p : fixtureService.obtenerPartidosDeFaseGrupo(grupo)) {
+                if (p.getId() == id) {
 
-                        p.setGolesEquipo1(Integer.parseInt(golesLocal[i].getText()));
-                        p.setGolesEquipo2(Integer.parseInt(golesVisitante[i].getText()));
+                    p.setGolesEquipo1(Integer.parseInt(golesLocal[i].getText()));
+                    p.setGolesEquipo2(Integer.parseInt(golesVisitante[i].getText()));
 
-                        // Equipos que jugaron el partido
-                        Equipo equipo1 = p.getEquipo1(); // A este nivel el objeto referencia al de GrupoRepository
-                        Equipo equipo2 = p.getEquipo2(); // A este nivel el objeto referencia al de GrupoRepository
+                    // Equipos que jugaron el partido
+                    Equipo equipo1 = p.getEquipo1(); // A este nivel el objeto referencia al de GrupoRepository
+                    Equipo equipo2 = p.getEquipo2(); // A este nivel el objeto referencia al de GrupoRepository
 
-                        // Hago que equipo1 y equipo2 referencien a los equipos recuperados de EquipoRepository
-                        for (Equipo equipoAActualizar : equiposGrupoActualizados) {
-                            if (equipoAActualizar.getId().equals(p.getEquipo1().getId())) {
-                                equipo1 = equipoAActualizar;
-                            }
-
-                            if (equipoAActualizar.getId().equals(p.getEquipo2().getId())) {
-                                equipo2 = equipoAActualizar;
-                            }
+                    // Hago que equipo1 y equipo2 referencien a los equipos recuperados de EquipoRepository
+                    for (Equipo equipoAActualizar : equiposGrupoActualizados) {
+                        if (equipoAActualizar.getId().equals(p.getEquipo1().getId())) {
+                            equipo1 = equipoAActualizar;
                         }
+
+                        if (equipoAActualizar.getId().equals(p.getEquipo2().getId())) {
+                            equipo2 = equipoAActualizar;
+                        }
+                    }
 
                     actualizarValoresDeEquipo(equipo1, equipo2, p, equiposGrupoActualizados);
                 }
@@ -6375,13 +6438,12 @@ public class Ventana extends javax.swing.JFrame {
         guardarCambios(grupo, equiposOrdenados);
     }
 
-        
     private HashSet<Equipo> recuperarDatosDeEquipoDeEquipoRepository(Grupo grupo) {
         HashSet<Equipo> equiposGrupoActualizados = new HashSet();
         // Para guardar correctamente el dato tengo que trabajar sobre EquipoRepository
         for (Equipo equipoGrupo : grupo.getEquipos()) {
             Equipo equipoEncontrado = fixtureService.obtenerEquipo(equipoGrupo);
-            
+
             // esta lista (HashSet) va a ser la encargada que gestionar los datos de Equipos en el repositorio correspondiente
             equiposGrupoActualizados.add(equipoEncontrado);
         }
@@ -6389,11 +6451,10 @@ public class Ventana extends javax.swing.JFrame {
         return equiposGrupoActualizados;
     }
 
-
     private void guardarCambios(Grupo grupo, ArrayList<Equipo> equiposGrupoActualizados) throws HeadlessException {
         try {
             fixtureService.validarGoles(fixtureService.obtenerPartidosDeFaseGrupo(grupo));
-            
+
             fixtureService.guardarPartidosEnArchivo();
 
             // Guardo los datos y puntaje de equipos actualizados
@@ -7194,7 +7255,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoA[4] = golesField2_A5;
         golesVisitantesGrupoA[5] = golesField2_A6;
 
-        Grupo grupoA = fixtureService.obtenerGrupoA();   
+        Grupo grupoA = fixtureService.obtenerGrupoA();
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo(grupoA);
 
         Collections.sort(partidos, new Comparator<Partido>() {
@@ -7250,8 +7311,6 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
-
-    
     private void loadPartidosGrupoB() {
 
         javax.swing.JLabel[] fechasB = {
@@ -7300,7 +7359,7 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoB[3] = golesField2_B4;
         golesVisitantesGrupoB[4] = golesField2_B5;
         golesVisitantesGrupoB[5] = golesField2_B6;
-        
+
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('b');
 
         Collections.sort(partidos, new Comparator<Partido>() {
@@ -7404,7 +7463,6 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoC[3] = golesField2_C4;
         golesVisitantesGrupoC[4] = golesField2_C5;
         golesVisitantesGrupoC[5] = golesField2_C6;
-
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('c');
 
@@ -7510,7 +7568,6 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoD[3] = golesField2_D4;
         golesVisitantesGrupoD[4] = golesField2_D5;
         golesVisitantesGrupoD[5] = golesField2_D6;
-
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('d');
 
@@ -7721,7 +7778,6 @@ public class Ventana extends javax.swing.JFrame {
         golesVisitantesGrupoF[3] = golesField2_F4;
         golesVisitantesGrupoF[4] = golesField2_F5;
         golesVisitantesGrupoF[5] = golesField2_F6;
-
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseGrupo('f');
 
@@ -8051,26 +8107,15 @@ public class Ventana extends javax.swing.JFrame {
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseOctavos();
 
-        Collections.sort(partidos, new Comparator<Partido>() {
-            @Override
-            public int compare(Partido p1, Partido p2) {
-                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-            }
-        });
-
-        List<Partido> partidosOrdenados = partidos.stream()
-                .sorted(Comparator.comparing(Partido::getFechaYHora))
-                .collect(Collectors.toList());
-
         System.out.println(partidos);
         int i = 0;
-        for (Partido p : partidosOrdenados) {
+        for (Partido p : partidos) {
 
             // Lleno listado de ids de partido, para poder ubicar los goles y escribirlos en los fields
             idsPartidosOctavos.add(p.getId());
 
             // Fecha con formato
-            fechasOctavos[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")) + "(id: " + p.getId() +")");
+            fechasOctavos[i].setText(p.getFechaYHora().format(DateTimeFormatter.ofPattern("d MMM uuuu - hh:mm")) + "(id: " + p.getId() + ")");
 
             // Nombre equipo local
             String nombreEquipoLocal = p.getEquipo1() != null ? p.getEquipo1().getNombre() : "?";
@@ -8484,6 +8529,5 @@ public class Ventana extends javax.swing.JFrame {
             i++;
         }
     }
-
 
 }
