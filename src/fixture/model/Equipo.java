@@ -89,6 +89,7 @@ public class Equipo implements Serializable {
 
     public void limpiarDatosDePartidos() {
         partidosJugados = partidosGanados = partidosPerdidos = partidosEmpatados = golesHechos = golesEnContra = 0;
+        octavos = cuartos = semifinal = finalista = false;
     }
 
     public int getPuntos() {

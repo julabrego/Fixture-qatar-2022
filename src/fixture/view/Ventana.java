@@ -6058,7 +6058,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerTablaDePoscionesHActionPerformed
 
     private void guardarBtnOctavosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnOctavosActionPerformed
-        // TODO add your handling code here:
+        leerGolesDeEliminacionYGuardarCambios(Fase.OCTAVOS);
     }//GEN-LAST:event_guardarBtnOctavosActionPerformed
 
     private void guardarBtnCuartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnCuartosActionPerformed
@@ -6230,15 +6230,17 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     private void escribirEquiposEnOctavos(HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos) {
-        // Primer puesto de tabla de posiciones
-        // Segundo puesto de tabla de posiciones
-
         // Dónde ubicar 1er puesto
         // Dónde ubicar 2do puesto
         Character letra = (Character) grupoEquiposPrimerosPuestos.keySet().toArray()[0];
 
         Partido partidoPrimerPuesto;
         Partido partidoSegundoPuesto;
+
+        // Seteo el booleano de octavos como verdadero
+        for (Equipo equipo : grupoEquiposPrimerosPuestos.get(letra)) {
+            equipo.setOctavos(true);
+        }
 
         switch (letra) {
             case 'a':
@@ -6342,6 +6344,54 @@ public class Ventana extends javax.swing.JFrame {
         // Escribo los datos en la pestaña de octavos
         loadPartidosOctavos();
 
+    }
+
+    private void escribirEquiposEnCuartos(ArrayList<Integer> idsPartidosOctavos) {
+
+        ArrayList<Partido> partidos = new ArrayList();
+
+        for (Integer id : idsPartidosOctavos) {
+            partidos.add(fixtureService.obtenerPartidoPorId(id));
+        }
+
+        for (Partido p : partidos) {
+            Equipo equipoQuePasa = null;
+            Equipo equipo1 = fixtureService.obtenerEquipoPorId(p.getEquipo1().getId());
+            Equipo equipo2 = fixtureService.obtenerEquipoPorId(p.getEquipo2().getId());
+
+            if (equipo1.isOctavos()) {
+                equipoQuePasa = equipo1;
+            } else if (equipo2.isOctavos()) {
+                equipoQuePasa = equipo2;
+            }
+
+            switch (p.getId()) {
+                case 49:
+                    fixtureService.obtenerPartidoPorId(58).setEquipo1(equipoQuePasa);
+                    break;
+                case 50:
+                    fixtureService.obtenerPartidoPorId(58).setEquipo2(equipoQuePasa);
+                    break;
+                case 51:
+                    fixtureService.obtenerPartidoPorId(60).setEquipo1(equipoQuePasa);
+                    break;
+                case 52:
+                    fixtureService.obtenerPartidoPorId(60).setEquipo2(equipoQuePasa);
+                    break;
+                case 53:
+                    fixtureService.obtenerPartidoPorId(57).setEquipo1(equipoQuePasa);
+                    break;
+                case 54:
+                    fixtureService.obtenerPartidoPorId(57).setEquipo2(equipoQuePasa);
+                    break;
+                case 55:
+                    fixtureService.obtenerPartidoPorId(59).setEquipo1(equipoQuePasa);
+                    break;
+                case 56:
+                    fixtureService.obtenerPartidoPorId(59).setEquipo2(equipoQuePasa);
+                    break;
+            }
+        }
     }
 
     private void crearYCompletarTablaDePosiciones(Grupo grupo) {
@@ -6481,6 +6531,28 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
+    private void guardarCambios(ArrayList<Equipo> equiposActualizados) throws HeadlessException {
+        try {
+            fixtureService.validarGoles(fixtureService.obtenerPartidosDeFaseOctavos());
+            fixtureService.validarGoles(fixtureService.obtenerPartidosDeFaseCuartos());
+            fixtureService.validarGoles(fixtureService.obtenerPartidosDeTercerPuesto());
+            fixtureService.validarGoles(fixtureService.obtenerPartidoFinal());
+
+            fixtureService.guardarPartidosEnArchivo();
+            // Guardo los datos y puntaje de equipos actualizados
+            for (Equipo equipoGrupo : equiposActualizados) {
+                fixtureService.actualizarDatosDeEquiopoEnArchivo(equipoGrupo);
+            }
+
+            JOptionPane.showMessageDialog(this, "Guardado con éxito", this.getTitle(), JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (GolesNegativosFixtureException ex) {
+            JOptionPane.showMessageDialog(this, "" + ex.getMessage() + " (" + ex.getEquipo().getNombre() + ")", this.getTitle(), JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            System.out.println("ERROR GENERICO");
+        }
+    }
+
     private void actualizarValoresDeEquipo(Equipo equipo1, Equipo equipo2, Partido p, HashSet<Equipo> equiposGrupoActualizados) {
         // Agrego un partido jugado a cada equipo
         equipo1.setPartidosJugados(equipo1.getPartidosJugados() + 1);
@@ -6523,6 +6595,99 @@ public class Ventana extends javax.swing.JFrame {
         equiposGrupoActualizados.add(equipo2);
     }
 
+    private void leerGolesDeEliminacionYGuardarCambios(Fase fase) {
+
+        ArrayList<Equipo> equiposActualizados = new ArrayList();
+
+        // Busco el array conteniendo los ids de partidos y los campos de formulario del grupo que corresponda
+        ArrayList<Integer> listadoDeIds = new ArrayList();
+        JFormattedTextField[] golesLocal = {};
+        JFormattedTextField[] golesVisitante = {};
+        JFormattedTextField[] penalesLocal = {};
+        JFormattedTextField[] penalesVisitante = {};
+
+        switch (fase) {
+            case OCTAVOS:
+                listadoDeIds = idsPartidosOctavos;
+                golesLocal = golesLocalOctavos;
+                golesVisitante = golesVisitantesOctavos;
+                penalesLocal = penalesLocalOctavos;
+                penalesVisitante = penalesVisitantesOctavos;
+                break;
+            case CUARTOS:
+                listadoDeIds = idsPartidosCuartos;
+                golesLocal = golesLocalCuartos;
+                golesVisitante = golesVisitantesCuartos;
+                penalesLocal = penalesLocalCuartos;
+                penalesVisitante = penalesVisitantesCuartos;
+                break;
+            case SEMIFINALES:
+                listadoDeIds = idsPartidosSemifinales;
+                golesLocal = golesLocalSemifinales;
+                golesVisitante = golesVisitantesSemifinales;
+                penalesLocal = penalesLocalSemifinales;
+                penalesVisitante = penalesVisitantesSemifinales;
+                break;
+            case TERCER_PUESTO:
+                listadoDeIds = idsPartidosTercerPuesto;
+                golesLocal = golesLocalTercerPuesto;
+                golesVisitante = golesVisitantesTercerPuesto;
+                penalesLocal = penalesLocalTercerPuesto;
+                penalesVisitante = penalesVisitantesTercerPuesto;
+                break;
+            case FINAL:
+                listadoDeIds = idsPartidosFinal;
+                golesLocal = golesLocalFinal;
+                golesVisitante = golesVisitantesFinal;
+                penalesLocal = penalesLocalFinal;
+                penalesVisitante = penalesVisitantesFinal;
+                break;
+
+        }
+
+        int i = 0;
+        boolean esGanadorEquipo1;
+        for (Integer id : listadoDeIds) {
+            for (Partido p : fixtureService.obtenerPartidosDeFaseOctavos()) {
+                if (p.getId() == id) {
+
+                    p.setGolesEquipo1(Integer.parseInt(golesLocal[i].getText()));
+                    p.setGolesEquipo2(Integer.parseInt(golesVisitante[i].getText()));
+
+                    // Equipos que jugaron el partido
+                    // Los recupero de PartidoRepository buscando por id 
+                    Equipo equipo1 = fixtureService.obtenerEquipoPorId(p.getEquipo1().getId());
+                    Equipo equipo2 = fixtureService.obtenerEquipoPorId(p.getEquipo2().getId());
+
+                    // Si hubo empate se toma en cuenta los penales. Si no, los goles (y seteo penales en 0)
+                    if (p.getGolesEquipo1() == p.getGolesEquipo2()) {
+                        p.setPenalesEquipo1(Integer.parseInt(penalesLocal[i].getText()));
+                        p.setPenalesEquipo2(Integer.parseInt(penalesVisitante[i].getText()));
+
+                        // Defino quién ganó por penales
+                        esGanadorEquipo1 = p.getPenalesEquipo1() > p.getPenalesEquipo2();
+                    } else {
+                        p.setPenalesEquipo1(0);
+                        p.setPenalesEquipo2(0);
+
+                        // Defino quién metió más goles
+                        esGanadorEquipo1 = p.getGolesEquipo1() > p.getGolesEquipo2();
+                    }
+
+                    // Actualizo los datos para la pestaña de cuartos
+                    equipo1.setCuartos(esGanadorEquipo1);
+                    equipo2.setCuartos(!esGanadorEquipo1);
+
+                    equiposActualizados.add(equipo1);
+                    equiposActualizados.add(equipo2);
+                }
+            }
+            i++;
+        }
+
+        escribirEquiposEnCuartos(listadoDeIds);
+        guardarCambios(equiposActualizados);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerTablaDePoscionesA;
