@@ -6359,9 +6359,9 @@ public class Ventana extends javax.swing.JFrame {
             Equipo equipo1 = fixtureService.obtenerEquipoPorId(p.getEquipo1().getId());
             Equipo equipo2 = fixtureService.obtenerEquipoPorId(p.getEquipo2().getId());
 
-            if (equipo1.isOctavos()) {
+            if (equipo1.isCuartos()) {
                 equipoQuePasa = equipo1;
-            } else if (equipo2.isOctavos()) {
+            } else if (equipo2.isCuartos()) {
                 equipoQuePasa = equipo2;
             }
 
@@ -6392,6 +6392,8 @@ public class Ventana extends javax.swing.JFrame {
                     break;
             }
         }
+
+        loadPartidosCuartos();
     }
 
     private void crearYCompletarTablaDePosiciones(Grupo grupo) {
@@ -6674,9 +6676,18 @@ public class Ventana extends javax.swing.JFrame {
                         esGanadorEquipo1 = p.getGolesEquipo1() > p.getGolesEquipo2();
                     }
 
-                    // Actualizo los datos para la pestaña de cuartos
-                    equipo1.setCuartos(esGanadorEquipo1);
-                    equipo2.setCuartos(!esGanadorEquipo1);
+                    // Manejo del caso en que todos los valores sean 0 (partido no jugado)
+                    if (p.getGolesEquipo1() == p.getGolesEquipo2()
+                            && p.getGolesEquipo1() == p.getPenalesEquipo1()
+                            && p.getGolesEquipo1() == p.getPenalesEquipo2()) {
+                        equipo1.setCuartos(false);
+                        equipo2.setCuartos(false);
+                    } else {
+                        // Actualizo los datos para la pestaña de cuartos
+                        equipo1.setCuartos(esGanadorEquipo1);
+                        equipo2.setCuartos(!esGanadorEquipo1);
+
+                    }
 
                     equiposActualizados.add(equipo1);
                     equiposActualizados.add(equipo2);
