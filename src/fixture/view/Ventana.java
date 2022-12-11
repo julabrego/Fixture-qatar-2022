@@ -6142,21 +6142,13 @@ public class Ventana extends javax.swing.JFrame {
                         int diferenciaDeGolesE2 = e2.getGolesHechos() - e2.getGolesEnContra();
 
                         if (diferenciaDeGolesE1 == diferenciaDeGolesE2) {
-                            return e1.getGolesHechos() < e2.getGolesHechos() ? -1 : 1;
+                            return e1.getGolesHechos() > e2.getGolesHechos() ? -1 : 1;
                         }
                         return 0;
                     }
                 });
             }
         }
-
-        // Completar equipos de fase de 8vos
-        HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos = new HashMap<>();
-        Equipo[] equiposParaOctavos = {equipos.get(0), equipos.get(1)};
-
-        grupoEquiposPrimerosPuestos.put(grupo.getLetra(), equiposParaOctavos);
-
-        escribirEquiposEnOctavos(grupoEquiposPrimerosPuestos);
 
         // Este bloque se ejecuta solamente cuando se da click en btn guardar
         // ...
@@ -6176,7 +6168,7 @@ public class Ventana extends javax.swing.JFrame {
             if (segundoYTerceroIgualPuntos && segundoYTerceroIgualDG && segundoYTerceroIgualGolesHechos) {
                 necesitaOrdenManual = true;
 
-                Object[] opciones = {equipos.get(1).getNombre(), equipos.get(2).getNombre(), "Omitir"};
+                Object[] opciones = {equipos.get(1).getNombre(), equipos.get(2).getNombre(), equipos.get(3).getNombre()};
                 int seleccion = JOptionPane.showOptionDialog(null, "Debe elegir manualmente el equipo que quedó en 2do puesto", "Selección manual", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
 
                 switch (seleccion) {
@@ -6185,6 +6177,11 @@ public class Ventana extends javax.swing.JFrame {
                         break;
                     case 1:
                         equipos.get(2).setOctavos(true);
+                        Collections.swap(equipos, 2, 1);
+                        break;
+                    case 2:
+                        equipos.get(3).setOctavos(true);
+                        Collections.swap(equipos, 3, 1);
                         break;
                 }
             }
@@ -6200,7 +6197,7 @@ public class Ventana extends javax.swing.JFrame {
             if (primerYSegundoIgualPuntos && primerYSegundoIgualDG && primerYSegundoIgualGolesHechos) {
                 necesitaOrdenManual = true;
 
-                Object[] opciones = {equipos.get(0).getNombre(), equipos.get(1).getNombre(), "Omitir"};
+                Object[] opciones = {equipos.get(0).getNombre(), equipos.get(1).getNombre(), equipos.get(2).getNombre()};
                 int seleccion = JOptionPane.showOptionDialog(null, "Debe elegir manualmente el equipo que quedó en 1er puesto", "Selección manual", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0]);
 
                 switch (seleccion) {
@@ -6208,23 +6205,31 @@ public class Ventana extends javax.swing.JFrame {
                         equipos.get(0).setOctavos(true);
                         break;
                     case 1:
-                        equipos.get(0).setOctavos(true);
+                        equipos.get(1).setOctavos(true);
+                        Collections.swap(equipos, 1, 0);
+                        break;
+                    case 2:
+                        equipos.get(2).setOctavos(true);
+                        Collections.swap(equipos, 2, 0);
                         break;
                 }
             }
-
-            // Si tuve que elegir manualmente algún puesto reordeno la tabla
-            // TODO: Decidir cómo manejar esto
-            if (necesitaOrdenManual) {
-                if (equipos.get(1).isOctavos() && !equipos.get(0).isOctavos()) {
-                    Collections.swap(equipos, 1, 0);
-                }
-                if (equipos.get(2).isOctavos()) {
-                    Collections.swap(equipos, 2, 1);
-                }
-            }
-
         }
+
+        // Si hubo que seleccionar de forma manual quienes pasaron hay que impactar ese cambio en la vista de la tabla
+//        if(!equipos.get(1).isOctavos() && equipos.get(2).isOctavos()){
+//            Collections.swap(equipos, 2, 0);
+//        }
+//        if(!equipos.get(0).isOctavos() && equipos.get(1).isOctavos()){
+//            Collections.swap(equipos, 1, 0);
+//        }
+        // Completar equipos de fase de 8vos
+        HashMap<Character, Equipo[]> grupoEquiposPrimerosPuestos = new HashMap<>();
+        Equipo[] equiposParaOctavos = {equipos.get(0), equipos.get(1)};
+
+        grupoEquiposPrimerosPuestos.put(grupo.getLetra(), equiposParaOctavos);
+
+        escribirEquiposEnOctavos(grupoEquiposPrimerosPuestos);
 
         return equipos;
     }
@@ -6610,7 +6615,7 @@ public class Ventana extends javax.swing.JFrame {
 
         // Ordenar los equipos en la tabla de posiciones y guardarlos
         // TODO: Cambiar a true el booleano
-        ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equiposGrupoActualizados, grupo, false);
+        ArrayList<Equipo> equiposOrdenados = ordenarEquiposYCompletarOctavos(equiposGrupoActualizados, grupo, true);
         guardarCambios(grupo, equiposOrdenados);
     }
 
