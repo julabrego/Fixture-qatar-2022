@@ -15,6 +15,7 @@ import fixture.repository.EquipoRepository;
 import fixture.repository.GrupoRepository;
 import fixture.repository.PartidoRepository;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -53,5 +54,11 @@ public interface FixtureService   {
     
     void actualizarDatosDeEquiopoEnArchivo(Equipo equipoGrupo);
     
-     Equipo obtenerEquipo(Equipo equipoGrupo);
+    Equipo obtenerEquipo(Equipo equipoGrupo);
+    
+    ArrayList<Equipo> ordenarEquiposYCompletarOctavos(HashSet<Equipo> e, Grupo grupo, boolean guardandoCambios);
+                
+    HashSet<Equipo> recuperarDatosDeEquipoDeEquipoRepository(Grupo grupo);
+    
+    
 }
