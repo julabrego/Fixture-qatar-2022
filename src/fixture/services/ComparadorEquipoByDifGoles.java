@@ -13,13 +13,12 @@ import java.util.Comparator;
  */
 public class ComparadorEquipoByDifGoles implements Comparator<Equipo> {
 
-
     @Override
     public int compare(Equipo o1, Equipo o2) {
-        if(o1.getPuntosDeEquipo() == o2.getPuntosDeEquipo()){
-        return o1.calcularDifDeGoles() > o2.calcularDifDeGoles() ? -1 : 1;
+        if (o1.getPuntosDeEquipo() == o2.getPuntosDeEquipo()) {
+            return o1.calcularDifDeGoles() > o2.calcularDifDeGoles() ? -1 : 1;
         }
         return 0;
     }
-    
+
 }

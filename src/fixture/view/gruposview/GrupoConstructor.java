@@ -145,12 +145,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         imgEquiposVisit.add(imgVisit5);
         imgEquiposVisit.add(imgVisit6);
         //
-        Collections.sort(partidos,new Comparator<Partido>() {
-            @Override
-            public int compare(Partido o1, Partido o2) {
-                return o1.getFechaYHora().isBefore(o2.getFechaYHora()) ? -1 :1 ; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        });
+        fixtureService.ordenarPartidosByFecha(partidos);
         
         //
         int i = 0;
@@ -207,7 +202,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         //
         
         ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
-        recuperarEquipoDeEquipoRepository(equiposGrupo, equiposDeEquipoRepository);
+        fixtureService.recuperarEquipoDeEquipoRepository(equiposGrupo, equiposDeEquipoRepository);
         //
         //Se ordena la lista de equipos usando comparadores --->
          fixtureService.ordenarListaTablaDePosiciones(equiposDeEquipoRepository);    
@@ -241,13 +236,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         
     }
 
-    private void recuperarEquipoDeEquipoRepository(ArrayList<Equipo> listadoDeEquipos, ArrayList<Equipo> listaDeEquiposACompletar) {
-        // Recuperar el dato de cada equipo de EquipoRepository
-        for(Equipo equipo : listadoDeEquipos){
-            Equipo equipoEncontrado = fixtureService.obtenerEquipoById(equipo);
-            listaDeEquiposACompletar.add(equipoEncontrado);
-        }
-    }
+   
       
       private void limpiarTabla(){
           tModel = (DefaultTableModel) jTable1.getModel();
@@ -974,7 +963,7 @@ public class GrupoConstructor extends javax.swing.JFrame {
         Grupo grupo = fixtureService.obtenerGrupo(letraGrupo);
         
         ArrayList<Equipo> equiposDeEquipoRepository = new ArrayList();
-        recuperarEquipoDeEquipoRepository(grupo.getEquipos(), equiposDeEquipoRepository);
+        fixtureService.recuperarEquipoDeEquipoRepository(grupo.getEquipos(), equiposDeEquipoRepository);
         
         //
         for(Equipo e : equiposDeEquipoRepository){

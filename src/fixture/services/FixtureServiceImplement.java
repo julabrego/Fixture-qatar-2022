@@ -95,4 +95,24 @@ public class FixtureServiceImplement implements FixtureServices {
 
     }
 
+    @Override
+    public ArrayList<Partido> obtenerPartidobyFase(Fase fase) {
+        return partidoRepository.findBy(fase);
+    }
+
+    @Override
+    public void ordenarPartidosByFecha(ArrayList<Partido> lista) {
+        Collections.sort(lista, new ComparadorPartidoByFecha());
+    }
+
+    @Override
+    public void recuperarEquipoDeEquipoRepository(ArrayList<Equipo> listadoDeEquipos, ArrayList<Equipo> listaDeEquiposACompletar) {
+        
+        for(Equipo equipo : listadoDeEquipos){
+            Equipo equipoEncontrado = this.obtenerEquipoById(equipo);
+            listaDeEquiposACompletar.add(equipoEncontrado);
+        }
+    }
+ 
+
 }

@@ -4,6 +4,7 @@
  */
 package fixture.view;
 
+import fixture.view.faseEliminatoria.OctavosDeFinal;
 import fixture.view.gruposview.VentanaFaseGrupos;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -58,6 +59,11 @@ public class VentanaAlter2 extends javax.swing.JFrame {
         });
 
         jButton2.setText("Octavos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Cuartos");
 
@@ -125,6 +131,12 @@ public class VentanaAlter2 extends javax.swing.JFrame {
         VentanaFaseGrupos ventanaFaseGrupos = new VentanaFaseGrupos();
         ventanaFaseGrupos.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        close();
+        OctavosDeFinal ventanaOctavos = new OctavosDeFinal();
+        ventanaOctavos.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
