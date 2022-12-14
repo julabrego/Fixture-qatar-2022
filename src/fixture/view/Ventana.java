@@ -6523,8 +6523,13 @@ public class Ventana extends javax.swing.JFrame {
                     // Manejo del caso en que todos los valores sean 0 (partido no jugado)
                     if (p.getGolesEquipo1() == p.getGolesEquipo2()
                             && p.getGolesEquipo1() == p.getPenalesEquipo1()
-                            && p.getGolesEquipo1() == p.getPenalesEquipo2()) {
+                            && p.getGolesEquipo1() == p.getPenalesEquipo2()
+                            ) {
 
+                        // TODO: agregar excepción para manejar mejor que se le notifique
+                        // al usuario que no se puede guardar un partido con
+                        // todos los valores iguales
+                        
                         if (fase == Fase.SEMIFINALES) {
                             equipo1.setTercerPuesto(false);
                             equipo2.setTercerPuesto(false);
@@ -8305,17 +8310,6 @@ public class Ventana extends javax.swing.JFrame {
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseCuartos();
 
-        // TODO: Borrar ordenamiento
-//        Collections.sort(partidos, new Comparator<Partido>() {
-//            @Override
-//            public int compare(Partido p1, Partido p2) {
-//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-//            }
-//        });
-//
-//        List<Partido> partidosOrdenados = partidos.stream()
-//                .sorted(Comparator.comparing(Partido::getFechaYHora))
-//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
 
@@ -8416,17 +8410,6 @@ public class Ventana extends javax.swing.JFrame {
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeFaseSemifinal();
 
-        // TODO: Borrar ordenamiento
-//        Collections.sort(partidos, new Comparator<Partido>() {
-//            @Override
-//            public int compare(Partido p1, Partido p2) {
-//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-//            }
-//        });
-//
-//        List<Partido> partidosOrdenados = partidos.stream()
-//                .sorted(Comparator.comparing(Partido::getFechaYHora))
-//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
 
@@ -8519,17 +8502,6 @@ public class Ventana extends javax.swing.JFrame {
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidosDeTercerPuesto();
 
-        // TODO: Borrar ordenamiento
-//        Collections.sort(partidos, new Comparator<Partido>() {
-//            @Override
-//            public int compare(Partido p1, Partido p2) {
-//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-//            }
-//        });
-//
-//        List<Partido> partidosOrdenados = partidos.stream()
-//                .sorted(Comparator.comparing(Partido::getFechaYHora))
-//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
 
@@ -8619,17 +8591,6 @@ public class Ventana extends javax.swing.JFrame {
 
         ArrayList<Partido> partidos = fixtureService.obtenerPartidoFinal();
 
-        // TODO: Borrar ordenamiento
-//        Collections.sort(partidos, new Comparator<Partido>() {
-//            @Override
-//            public int compare(Partido p1, Partido p2) {
-//                return p1.getFechaYHora().isBefore(p2.getFechaYHora()) ? -1 : 1;
-//            }
-//        });
-//
-//        List<Partido> partidosOrdenados = partidos.stream()
-//                .sorted(Comparator.comparing(Partido::getFechaYHora))
-//                .collect(Collectors.toList());
         System.out.println(partidos);
         int i = 0;
 

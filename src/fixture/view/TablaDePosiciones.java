@@ -26,7 +26,7 @@ public class TablaDePosiciones extends javax.swing.JFrame {
      * @param e
      */
     public TablaDePosiciones(ArrayList<Equipo> e) {
-        // Transformo el HashSet a ArrayList, para poder ordenarlo
+        
         equipos = e;
 
         initComponents();
