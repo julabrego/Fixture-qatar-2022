@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class PartidosMigrations {
 
-    public void up() {
+    public static void up() {
 
         ObjectIO objectIO = new ObjectIO();
 

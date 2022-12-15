@@ -19,6 +19,10 @@ public class PartidoRepository {
     public PartidoRepository() {
         partidos = (ArrayList<Partido>) objectIO.ReadObjectFromFile("partidos");
     }
+    
+    public void guardarPartidosEnArchivo() {
+        objectIO.WriteObjectToFile("partidos",partidos);
+    }
 
     // Traer todos los partidos
     public ArrayList<Partido> findAll() {
@@ -32,6 +36,7 @@ public class PartidoRepository {
 
     // Buscar por Fase y Grupo
     public ArrayList<Partido> findBy(Fase fase, Grupo grupo) {
+        
         ArrayList<Partido> partidosFase = findBy(fase);
         HashSet<Partido> partidosGrupo = new HashSet();
 
@@ -42,6 +47,21 @@ public class PartidoRepository {
                 }
             }
         }
+        
         return (ArrayList<Partido>) partidosGrupo.stream().collect(Collectors.toList());
+        
+    }
+    
+    // Buscar un partido
+    public Partido find(int id){
+        Partido partidoEncontrado = null;
+        
+        for(Partido partido : partidos){
+            if(partido.getId() == id){
+                partidoEncontrado = partido;
+            }
+        }
+        
+        return partidoEncontrado;
     }
 }
